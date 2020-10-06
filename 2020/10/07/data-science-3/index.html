@@ -55,14 +55,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Follow heart">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构  Series是定长的字典 x1 = Series([1,2,3,4]) x2 = Series(data=[1,2,3,4], index=[‘a’, ‘b’, ‘c’, ‘d’]) d = {‘a’:1, ‘b’:2, ‘c’:3, ‘d’:4} x3 = Series(d)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="data science(3)-Pandas">
+<meta property="og:url" content="http://yoursite.com/2020/10/07/data-science-3/index.html">
 <meta property="og:site_name" content="Follow heart">
+<meta property="og:description" content="Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构  Series是定长的字典 x1 = Series([1,2,3,4]) x2 = Series(data=[1,2,3,4], index=[‘a’, ‘b’, ‘c’, ‘d’]) d = {‘a’:1, ‘b’:2, ‘c’:3, ‘d’:4} x3 = Series(d)">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-10-06T18:21:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Follow heart">
-  <link rel="canonical" href="http://yoursite.com/archives/">
+<meta name="twitter:title" content="data science(3)-Pandas">
+<meta name="twitter:description" content="Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构  Series是定长的字典 x1 = Series([1,2,3,4]) x2 = Series(data=[1,2,3,4], index=[‘a’, ‘b’, ‘c’, ‘d’]) d = {‘a’:1, ‘b’:2, ‘c’:3, ‘d’:4} x3 = Series(d)">
+  <link rel="canonical" href="http://yoursite.com/2020/10/07/data-science-3/">
 
 
 <script id="page-configurations">
@@ -70,13 +74,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>Archive | Follow heart</title>
+  <title>data science(3)-Pandas | Follow heart</title>
   
 
 
@@ -204,348 +208,132 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/07/data-science-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">data science(3)-Pandas
+
           
-        
-        <span class="collection-header">Um..! 15 posts in total. Keep on posting.</span>
-      </div>
-      
+        </h1>
 
-      
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-  
-  
+              
+                
+              
 
-  
+              <time title="Created: 2020-10-07 00:04:37 / Modified: 02:21:32" itemprop="dateCreated datePublished" datetime="2020-10-07T00:04:37+08:00">2020-10-07</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ol>
+<li><p>Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构</p>
+</li>
+<li><p>Series是定长的字典<br> x1 = Series([1,2,3,4])<br> x2 = Series(data=[1,2,3,4], index=[‘a’, ‘b’, ‘c’, ‘d’])<br> d = {‘a’:1, ‘b’:2, ‘c’:3, ‘d’:4}<br> x3 = Series(d)</p>
+</li>
+<li><p>DataFrame 可以看作是由相同索引的Series组成的字典类型<br> data= {‘Chinese’: [66, 95, 93, 90,80],’English’: [65, 85, 92, 88, 90],’Math’: [30, 98,79,89,90]}<br> df1 = DataFrame(data) 这里也可以写成pd.DataFrame()<br> df2 = DataFrame(data, index=[‘ZhangFei’, ‘GuanYu’, ‘ZhaoYun’, ‘HuangZhong’, ‘DianWei’])</p>
+</li>
+<li><p>从excel，csv中导入数据<br> score = DataFrame(pd.read_excel(‘data.xlsx’))<br> score.to_excel(‘data1.xlsx’)</p>
+</li>
+<li><p>数据清洗 data clean既是增删查改<br> 删除列 df2 = df2.drop(columns=[‘Chinese’])<br> 删除行 df2 = df2.drop(index=[‘ZhangFei’])<br> 重命名列 df2.rename(columns={‘Chinese’: ‘YuWen’, ‘English’: ‘Yingyu’}) 可能再python2中需要加上, inplace = True。如果要重命名行，把columns换成index<br> 去重复值 df.drop_duplicates()<br> 改变格式 df2[‘Chinese’].astype(‘str’) 改成string格式可以方便去空格<br> 删除空格 df2[‘Chinese’]=df2[‘Chinese’].map(str.strip) 删除两边的空格</p>
+<pre><code>df2[&apos;Chinese&apos;]=df2[&apos;Chinese&apos;].map(str.lstrip) 删除左边的空格</code></pre><p> 删除特殊符号 df2[‘Chinese’]=df2[‘Chinese’].str.strip(‘$’)<br> 查找空值 df.isnull()返回逻辑值，如果是控制则为True</p>
+</li>
+<li><p>apply函数,可以对数据进行个性化的处理<br> df.apply(func)<br> df[‘name’].apply(str.upper)<br> df1.apply(plus,axis=1,args=(2,3,)) 这里的args是plus函数中需要的参数</p>
+</li>
+<li><p>describe 函数可以表现常见的统计值</p>
+</li>
+<li><p>合并数据表<br> df3 = pd.merge(df1, df2, on=’name’) 交集<br> df3 = pd.merge(df1, df2, how=’inner’) 交集<br> df3 = pd.merge(df1, df2, how=’left’) 以df1为主，df2进行补充<br> df3 = pd.merge(df1, df2, how=’outer’) 并集</p>
+</li>
+<li><p>pandasql,sql是对数据表最人性化的语言啦<br> import pandas as pd<br> from pandas import Series, DataFrame<br> from pandasql import sqldf, load_meat, load_births<br> df1 = DataFrame({‘name’:[‘ZhangFei’, ‘GuanYu’, ‘a’, ‘b’, ‘c’], ‘data1’:range(5)})<br> pysqldf = lambda sql: sqldf(sql, globals())<br> sql = “select * from df1 where name =’ZhangFei’”<br> print (pysqldf(sql))</p>
+</li>
+<li><p>习惯去使用lambda，在python中用来方便的定义匿名函数 syntax为 lambda argument_list: expression，argument list是参数列表<br>pysqldf = lambda sql: sqldf(sql, globals()) 这里pysqldf就是新函数的名字<br>sql = “select * from df1 where name =’ZhangFei’”<br>print (pysqldf(sql))</p>
+</li>
+</ol>
+<h2 id="practice-in-on-the-way…"><a href="#practice-in-on-the-way…" class="headerlink" title="practice in on the way…"></a>practice in on the way…</h2>
     </div>
-  
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-10-07T00:04:37+08:00"
-              content="2020-10-07">
-          10-07
-        </time>
-      </div>
-
-      <h2 class="post-title">
+    
+    
+    
         
-          <a class="post-title-link" href="/2020/10/07/data-science-3/" itemprop="url">
-            <span itemprop="name">data science(3)-Pandas</span>
-          </a>
+      
+
+      <footer class="post-footer">
+
         
-      </h2>
 
-    </header>
-  </article>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/10/06/data-science-2/" rel="next" title="data science(2) - Numpy">
+                  <i class="fa fa-chevron-left"></i> data science(2) - Numpy
+                </a>
+              
+            </div>
 
+            <span class="post-nav-divider"></span>
 
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-10-06T00:25:29+08:00"
-              content="2020-10-06">
-          10-06
-        </time>
-      </div>
-
-      <h2 class="post-title">
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
         
-          <a class="post-title-link" href="/2020/10/06/data-science-2/" itemprop="url">
-            <span itemprop="name">data science(2) - Numpy</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-10-04T22:56:00+08:00"
-              content="2020-10-04">
-          10-04
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/10/04/data-science-1/" itemprop="url">
-            <span itemprop="name">data science(1)- python basic</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-16T14:50:18+08:00"
-              content="2020-08-16">
-          08-16
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/08/16/About-science/" itemprop="url">
-            <span itemprop="name">科学午间小思</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-02T13:09:49+08:00"
-              content="2020-08-02">
-          08-02
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/08/02/philosophy_4/" itemprop="url">
-            <span itemprop="name">一周哲思(4)-说理，求理</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-25T11:24:41+08:00"
-              content="2020-07-25">
-          07-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/07/25/philosophy_3/" itemprop="url">
-            <span itemprop="name">一周哲思(3)-心即理</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-19T13:47:41+08:00"
-              content="2020-07-19">
-          07-19
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/07/19/philosophy_2/" itemprop="url">
-            <span itemprop="name">一周哲思(2)-快乐</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-12T12:35:24+08:00"
-              content="2020-07-12">
-          07-12
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/07/12/philosophy_1/" itemprop="url">
-            <span itemprop="name">一周哲思(1)- 伦理学与知行合一</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-09T19:07:23+08:00"
-              content="2020-05-09">
-          05-09
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/05/09/LFP cross-correlation/" itemprop="url">
-            <span itemprop="name">LFP cross-correlation</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-05T20:41:03+08:00"
-              content="2020-02-05">
-          02-05
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/02/05/Advice to phD student/" itemprop="url">
-            <span itemprop="name">Twenty things I wish I would known when I started my PhD</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-
-    </div>
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -562,6 +350,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -574,6 +367,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#practice-in-on-the-way…"><span class="nav-number">1.</span> <span class="nav-text">practice in on the way…</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
