@@ -212,6 +212,99 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/09/data-science-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/10/09/data-science-4/" class="post-title-link" itemprop="url">data science(4) write befor data mining</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-09 01:01:37 / Modified: 01:14:58" itemprop="dateCreated datePublished" datetime="2020-10-09T01:01:37+08:00">2020-10-09</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p>数据挖掘主要包含四个方面 分类，聚类，预测和关联分析</p>
+</li>
+<li><p>一个个数据元组成是一个结构化的元数据，也就是一个描述对象的标签。我联想到的数据结构是dataframe的行列</p>
+</li>
+<li><p>关联分析是隐藏的规律</p>
+</li>
+<li><p>数据的来源多，格式不统一，在挖掘之前需要预处理和归一化<br> 数据清洗-去重去噪补充缺失值<br> 数据集成-将数据源统一存放<br> 数据变换-归一化<br> 数据后处理及导出</p>
+</li>
+<li><p>商业上那一套抽象用户画像，给用户打标签支持商业智能(BI)的做法在动物实验的科研上不实用，没有数据红利作为支撑。因此科学数据的挖掘的标签比较单一吧，关联分析比较少？</p>
+</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/07/data-science-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -241,7 +334,7 @@
                 
               
 
-              <time title="Created: 2020-10-07 00:04:37 / Modified: 02:21:32" itemprop="dateCreated datePublished" datetime="2020-10-07T00:04:37+08:00">2020-10-07</time>
+              <time title="Created: 2020-10-07 00:04:37" itemprop="dateCreated datePublished" datetime="2020-10-07T00:04:37+08:00">2020-10-07</time>
             </span>
           
             <span class="post-meta-item">
@@ -283,7 +376,7 @@
 </li>
 <li><p>apply函数,可以对数据进行个性化的处理<br> df.apply(func)<br> df[‘name’].apply(str.upper)<br> df1.apply(plus,axis=1,args=(2,3,)) 这里的args是plus函数中需要的参数</p>
 </li>
-<li><p>describe 函数可以表现常见的统计值</p>
+<li><p>describe 函数可以表现常见的统计值,默认按列进行统计</p>
 </li>
 <li><p>合并数据表<br> df3 = pd.merge(df1, df2, on=’name’) 交集<br> df3 = pd.merge(df1, df2, how=’inner’) 交集<br> df3 = pd.merge(df1, df2, how=’left’) 以df1为主，df2进行补充<br> df3 = pd.merge(df1, df2, how=’outer’) 并集</p>
 </li>
@@ -292,7 +385,15 @@
 <li><p>习惯去使用lambda，在python中用来方便的定义匿名函数 syntax为 lambda argument_list: expression，argument list是参数列表<br>pysqldf = lambda sql: sqldf(sql, globals()) 这里pysqldf就是新函数的名字<br>sql = “select * from df1 where name =’ZhangFei’”<br>print (pysqldf(sql))</p>
 </li>
 </ol>
-<h2 id="practice-in-on-the-way…"><a href="#practice-in-on-the-way…" class="headerlink" title="practice in on the way…"></a>practice in on the way…</h2>
+<hr>
+<p>“””<br>ts.csv is as below</p>
+<p>None,chinese,english,math<br>zhangfei,66,65,<br>guanyu,95,85,98<br>zhaoyun,95,92,96<br>huangzhong,90,88,77<br>dianwei,80,90,90<br>dianwei,80,90,90</p>
+<p>“””<br>import numpy as np<br>import pandas as pd<br>from pandas import Series, DataFrame<br>score = DataFrame(pd.read_csv(‘D:/Download/Chrome/ts.csv’))<br>score = score.set_index(‘None’)<br>score.isnull()<br>score = score.drop_duplicates()<br>score[‘total’] = score.sum(axis = 1)<br>score[‘max’] = score.max(axis = 1)</p>
+<p>#%% or use df.apply() to add new sum colunm</p>
+<p>def sumscore(df):<br>    df[‘sum’] = df[‘chinese’] + df[‘english’] + df[‘math’]<br>    return df</p>
+<p>score = score.apply(sumscore,axis = 1)<br>print(score)</p>
+<p>score[‘max’] = score.max(axis = 1)</p>
+
         
       
     </div>
@@ -988,132 +1089,6 @@ import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names�
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/05/Advice to phD student/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/02/05/Advice to phD student/" class="post-title-link" itemprop="url">Twenty things I wish I would known when I started my PhD</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-02-05 20:41:03" itemprop="dateCreated datePublished" datetime="2020-02-05T20:41:03+08:00">2020-02-05</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Science/" itemprop="url" rel="index"><span itemprop="name">Science</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>From <a href="https://www.nature.com/articles/d41586-018-07332-x" target="_blank" rel="noopener">https://www.nature.com/articles/d41586-018-07332-x</a></p>
-<p>Lucy Taylor received her PhD from the University of Oxford, UK, in 2018.</p>
-<p>Starting a PhD can be tough. Looking back, there are many things I wish I’d known at the beginning. Here, I have curated a list of advice from current PhD students and postdoctoral researchers from the Department of Zoology at my institution, the University of Oxford, UK, to aid new graduate students.</p>
-<ol>
-<li><p>Maintain a healthy work–life balance by finding a routine that works for you. It’s better to develop a good balance and work steadily throughout your programme than to work intensively and burn out. Looking after yourself is key to success.</p>
-</li>
-<li><p>Discuss expectations with your supervisor. Everyone works differently. Make sure you know your needs and communicate them to your supervisor early on, so you can work productively together.</p>
-</li>
-<li><p>Invest time in literature reviews. These reviews, both before and after data collection, help you to develop your research aims and conclusions.</p>
-</li>
-<li><p>Decide on your goals early. Look at your departmental guidelines and then establish clear PhD aims or questions on the basis of your thesis requirements. Goals can change later, but a clear plan will help you to maintain focus.</p>
-</li>
-<li><p>“I don’t need to write that down, I’ll remember it” is the biggest lie you can tell yourself! Write down everything you do — even if it doesn’t work. This includes meeting notes, method details, code annotations, among other things.</p>
-</li>
-<li><p>Organize your work and workspace. In particular, make sure to use meaningful labels, so you know what and where things are. Organizing early will save you time later on.</p>
-</li>
-<li><p>It’s never too early to start writing your thesis. Write and show your work to your supervisor as you go — even if you don’t end up using your early work, it’s good practice and a way to get ideas organized in your head.</p>
-</li>
-<li><p>Break your thesis down into SMART (specific, measurable, attainable, relevant and timely) goals. You will be more productive if your to-do list reads “draft first paragraph of the results” rather than “write chapter 1”. Many small actions lead to one complete thesis.</p>
-</li>
-<li><p>The best thesis is a finished thesis. No matter how much time you spend perfecting your first draft, your work will come back covered in corrections, and you will go through more drafts before you submit your final version. Send your drafts to your supervisor sooner rather than later.</p>
-</li>
-<li><p>Be honest with your supervisor. Let them know if you don’t understand something, if you’ve messed up an experiment or if they forgot to give you feedback. The more honest you are, the better your relationship will be. Helping your supervisor to help you is key.</p>
-</li>
-<li><p>Back up your work! You can avoid many tears by doing this at least weekly.</p>
-</li>
-<li><p>Socialize with your lab group and other students. It’s a great way to discuss PhD experiences, get advice and help, improve your research and make friends.</p>
-</li>
-<li><p>Attend departmental seminars and lab-group meetings, even (or especially) when the topic is not your area of expertise. What you learn could change the direction of your research and career. Regular attendance will also be noticed.</p>
-</li>
-<li><p>Present your research. This can be at lab-group meetings, conferences and so on. Presenting can be scary, but it gets easier as you practise, and it’s a fantastic way to network and get feedback at the same time.</p>
-</li>
-<li><p>Aim to publish your research. It might not work out, but drafting articles and submitting them to journals is a great way to learn new skills and enhance your CV.</p>
-</li>
-<li><p>Have a life outside work. Although your lab group is like your work family, it’s great for your mental health to be able to escape work. This could be through sport, clubs, hobbies, holidays or spending time with friends.</p>
-</li>
-<li><p>Don’t compare yourself with others. Your PhD is an opportunity to conduct original research that reveals new information. As such, all PhD programmes are different. You just need to do what works for you and your project.</p>
-</li>
-<li><p>The nature of research means that things will not always go according to plan. This does not mean you are a bad student. Keep calm, take a break and then carry on. Experiments that fail can still be written up as part of a successful PhD.</p>
-</li>
-<li><p>Never struggle on your own. Talk to other students and have frank discussions with your supervisor. There’s no shame in asking for help. You are not alone.</p>
-</li>
-<li><p>Enjoy your PhD! It can be tough, and there will be days when you wish you had a ‘normal’ job, but PhDs are full of wonderful experiences and give you the opportunity to work on something that fascinates you. Celebrate your successes and enjoy yourself.</p>
-</li>
-</ol>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1165,7 +1140,7 @@ import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names�
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
