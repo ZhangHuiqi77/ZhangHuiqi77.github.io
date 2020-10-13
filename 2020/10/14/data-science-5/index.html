@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="重点在于学会进行数组操纵  numpy中的数据是连续存储的，读取很快速，这是与python自带的list的最大区别  b = np.array([[1,2,3],[4,5,6],[7,8,9]])，这是一个维数组，它的秩是2，几维就有几个中括号  学会用.shape,.dtype快速的获取数组的信息  结构数组是非常灵活的建立自己想要的数据结构，然后把数据放进去 import numpy as n">
+  <meta name="description" content="对我来说数据主要来自开放源（database for bioinformatics）, 或者是传感器，比如EEG或calcium signals。网络爬虫不是关键啦 由浅入深，先使用八爪鱼等第三方工具，可视化的流程可以帮助熟悉基本流程和原理。当有更深层需求的时候就去使用python编程，Xpath来实现。 真的没有什么好写的，感觉科学数据用不上爬虫。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="data science(2) - Numpy">
-<meta property="og:url" content="http://yoursite.com/2020/10/06/data-science-2/index.html">
+<meta property="og:title" content="data science(5)-web crawler">
+<meta property="og:url" content="http://yoursite.com/2020/10/14/data-science-5/index.html">
 <meta property="og:site_name" content="Follow heart">
-<meta property="og:description" content="重点在于学会进行数组操纵  numpy中的数据是连续存储的，读取很快速，这是与python自带的list的最大区别  b = np.array([[1,2,3],[4,5,6],[7,8,9]])，这是一个维数组，它的秩是2，几维就有几个中括号  学会用.shape,.dtype快速的获取数组的信息  结构数组是非常灵活的建立自己想要的数据结构，然后把数据放进去 import numpy as n">
+<meta property="og:description" content="对我来说数据主要来自开放源（database for bioinformatics）, 或者是传感器，比如EEG或calcium signals。网络爬虫不是关键啦 由浅入深，先使用八爪鱼等第三方工具，可视化的流程可以帮助熟悉基本流程和原理。当有更深层需求的时候就去使用python编程，Xpath来实现。 真的没有什么好写的，感觉科学数据用不上爬虫。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-10-05T18:01:36.000Z">
+<meta property="og:updated_time" content="2020-10-13T17:07:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="data science(2) - Numpy">
-<meta name="twitter:description" content="重点在于学会进行数组操纵  numpy中的数据是连续存储的，读取很快速，这是与python自带的list的最大区别  b = np.array([[1,2,3],[4,5,6],[7,8,9]])，这是一个维数组，它的秩是2，几维就有几个中括号  学会用.shape,.dtype快速的获取数组的信息  结构数组是非常灵活的建立自己想要的数据结构，然后把数据放进去 import numpy as n">
-  <link rel="canonical" href="http://yoursite.com/2020/10/06/data-science-2/">
+<meta name="twitter:title" content="data science(5)-web crawler">
+<meta name="twitter:description" content="对我来说数据主要来自开放源（database for bioinformatics）, 或者是传感器，比如EEG或calcium signals。网络爬虫不是关键啦 由浅入深，先使用八爪鱼等第三方工具，可视化的流程可以帮助熟悉基本流程和原理。当有更深层需求的时候就去使用python编程，Xpath来实现。 真的没有什么好写的，感觉科学数据用不上爬虫。">
+  <link rel="canonical" href="http://yoursite.com/2020/10/14/data-science-5/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>data science(2) - Numpy | Follow heart</title>
+  <title>data science(5)-web crawler | Follow heart</title>
   
 
 
@@ -217,7 +217,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/06/data-science-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/14/data-science-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huiqi Zhang">
@@ -229,7 +229,7 @@
       <meta itemprop="name" content="Follow heart">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">data science(2) - Numpy
+        <h1 class="post-title" itemprop="name headline">data science(5)-web crawler
 
           
         </h1>
@@ -245,7 +245,7 @@
                 
               
 
-              <time title="Created: 2020-10-06 00:25:29 / Modified: 02:01:36" itemprop="dateCreated datePublished" datetime="2020-10-06T00:25:29+08:00">2020-10-06</time>
+              <time title="Created: 2020-10-14 01:01:37 / Modified: 01:07:10" itemprop="dateCreated datePublished" datetime="2020-10-14T01:01:37+08:00">2020-10-14</time>
             </span>
           
             <span class="post-meta-item">
@@ -254,7 +254,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a></span>
 
                 
                 
@@ -273,37 +273,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>重点在于学会进行数组操纵</p>
-<ol>
-<li><p>numpy中的数据是连续存储的，读取很快速，这是与python自带的list的最大区别</p>
-</li>
-<li><p>b = np.array([[1,2,3],[4,5,6],[7,8,9]])，这是一个维数组，它的秩是2，几维就有几个中括号</p>
-</li>
-<li><p>学会用.shape,.dtype快速的获取数组的信息</p>
-</li>
-<li><p>结构数组是非常灵活的建立自己想要的数据结构，然后把数据放进去<br> import numpy as np<br> persontype = np.dtype({</p>
-<pre><code>&apos;names&apos;:[&apos;name&apos;,&apos;age&apos;,&apos;chinese&apos;,&apos;math&apos;,&apos;english&apos;],
-&apos;formats&apos;:[&apos;S32&apos;,&apos;i&apos;,&apos;i&apos;,&apos;i&apos;,&apos;f&apos;]
-})</code></pre><p> peoples = np.array([(“ZhangFei”,32,75,100,90),(“GuanYu”,24,84,96,88.5),</p>
-<pre><code>(&quot;ZhaoYun&quot;,28,85,92,96.5),(&quot;HuangZhong&quot;,29,65,85,100)],
-dtype = persontype)</code></pre><p> ages = peoples[:][‘age’]<br> chineses = peoples[:][‘chinese’]<br> maths = peoples[:][‘math’]<br> englishs = peoples[:][‘english’]<br> print(np.mean(ages))<br> print(np.mean(chineses))<br> print(np.mean(maths))<br> print(np.mean(englishs))</p>
-<p> 此例中先建立了persontype这个结构数组，peoples再填充数组时指定结构数组的类型为自定义的persontype</p>
-</li>
-<li><p>连续数组，下面两个是创建等差数组的方式，可以根据需求选择<br> np.arange(1,11,2)初始值，终值，步长，不包含终值<br> np.linspace(1,9,5)初始值，终值，元素个数，lin space 是linear space的缩写</p>
-</li>
-<li><p>数组的算数运算，先给定运算符再给定数值<br> print (np.add(x1, x2))<br> print (np.subtract(x1, x2))<br> print (np.multiply(x1, x2))<br> print (np.divide(x1, x2))<br> print (np.power(x1, x2))<br> print (np.remainder(x1, x2))<br> print (np.mod(x1,x2)) #mod取余数，与remainder一样</p>
-</li>
-<li><p>数组中的统计，<br> np.amax()<br> np.amin()<br> np.ptp() #最大最小之差peak to peak<br> print np.percentile(a, 50)<br> print np.percentile(a, 50, axis=0)<br> print np.percentile(a, 50, axis=1) #百分位数的计算,按轴，返回的都为列向量<br> print np.median(a, axis=0)<br> print np.mean(a, axis=1)</p>
-<p> a = np.array([1,2,3,4])<br> wts = np.array([1,2,3,4])<br> print np.average(a,weights=wts) #加权平均</p>
-<p> print np.std(a)<br> print np.var(a)</p>
-</li>
-<li><p>排序<br> print (np.sort(a))<br> print (np.sort(a, axis=None))<br> print (np.sort(a, axis=0))<br> print (np.sort(a, axis=1))<br> sort(a, axis=-1, kind=‘quicksort’, order=None) # 还有其他的排序方式 quicksort、mergesort、heapsort</p>
-</li>
+        <ol>
+<li>对我来说数据主要来自开放源（database for bioinformatics）, 或者是传感器，比如EEG或calcium signals。网络爬虫不是关键啦</li>
+<li>由浅入深，先使用八爪鱼等第三方工具，可视化的流程可以帮助熟悉基本流程和原理。当有更深层需求的时候就去使用python编程，Xpath来实现。</li>
+<li>真的没有什么好写的，感觉科学数据用不上爬虫。</li>
 </ol>
-<pre><code>以下为practice
--------------------------------------------------------------------------------------------
-import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names’:[‘name’,’chinese’,’math’,’english’],<br>        ‘formats’:[‘S32’,’i’,’i’,’i’]<br>        })<br>person = np.array([(“zhangfei”,66,65,30),<br>                   (“guanyu”,95,85,98),<br>                   (“zhaoyun”,93,92,96),<br>                   (“huangzhong”,90,88,77),<br>                   (“dianwei”,80,90,90)],<br>                    dtype = transcrips)<br>chineses = person[:][“chinese”]<br>maths = person[:][“math”]<br>englishs = person[:][“english”]<br>print(np.mean(chineses))<br>print(np.amin(chineses))<br>print(np.amax(chineses))<br>print(np.var(chineses))<br>print(np.std(chineses))</p>
-<p>#总成绩排序并输出<br>print(np.sort(chineses+maths+englishs))</p>
 
     </div>
 
@@ -320,8 +294,8 @@ import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names�
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/10/04/data-science-1/" rel="next" title="data science(1)- python basic">
-                  <i class="fa fa-chevron-left"></i> data science(1)- python basic
+                <a href="/2020/10/09/data-science-4/" rel="next" title="data science(4)-write befor data mining">
+                  <i class="fa fa-chevron-left"></i> data science(4)-write befor data mining
                 </a>
               
             </div>
@@ -330,8 +304,8 @@ import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names�
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2020/10/07/data-science-3/" rel="prev" title="data science(3)-Pandas">
-                  data science(3)-Pandas <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/14/data-science-6/" rel="prev" title="data science(6)-data cleaning">
+                  data science(6)-data cleaning <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>

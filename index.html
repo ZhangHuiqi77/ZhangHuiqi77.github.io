@@ -212,7 +212,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/09/data-science-4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/14/data-science-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huiqi Zhang">
@@ -226,7 +226,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2020/10/09/data-science-4/" class="post-title-link" itemprop="url">data science(4) write befor data mining</a>
+            <a href="/2020/10/14/data-science-6/" class="post-title-link" itemprop="url">data science(6)-data cleaning</a>
           
         </h1>
 
@@ -241,7 +241,209 @@
                 
               
 
-              <time title="Created: 2020-10-09 01:01:37 / Modified: 01:14:58" itemprop="dateCreated datePublished" datetime="2020-10-09T01:01:37+08:00">2020-10-09</time>
+              <time title="Created: 2020-10-14 01:06:17 / Modified: 01:32:52" itemprop="dateCreated datePublished" datetime="2020-10-14T01:06:17+08:00">2020-10-14</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p>数据清洗占用80%的时间。主要包括理清数据维度（dataframe中增加分类），提高数据质量（“完 全 合 一”）<br> 完 完整性，去空值，可填充均值，填充频率最高的词，或者直接删除</p>
+<pre><code>填充平均值 df[&apos;Age&apos;].fillna(df[&apos;Age&apos;].mean(), inplace=True) 
+
+填充频率最高的词age_maxf = train_features[&apos;Age&apos;].value_counts().index[0]
+train_features[&apos;Age&apos;].fillna(age_maxf, inplace=True)
+
+去空行 df.dropna(how=&apos;all&apos;,inplace=True)</code></pre></li>
+</ol>
+<pre><code>全 全面
+列数据的单位不统一
+ 获取 weight 数据列中单位为 lbs 的数据
+rows_with_lbs = df[&apos;weight&apos;].str.contains(&apos;lbs&apos;).fillna(False)
+print df[rows_with_lbs]
+# 将 lbs 转换为 kgs, 2.2lbs=1kgs
+for i,lbs_row in df[rows_with_lbs].iterrows():
+    截取从头开始到倒数第三个字符之前，即去掉 lbs。
+    weight = int(float(lbs_row[&apos;weight&apos;][:-3])/2.2)
+    df.at[i,&apos;weight&apos;] = &apos;{}kgs&apos;.format(weight)
+
+合 合理性
+去除非ASCII字符
+df[&apos;first_name&apos;].replace({r&apos;[^\x00-\x7F]+&apos;:&apos;&apos;}, regex=True, inplace=True)
+df[&apos;last_name&apos;].replace({r&apos;[^\x00-\x7F]+&apos;:&apos;&apos;}, regex=True, inplace=True)
+
+一 唯一性
+把有空格的参数转化成两列，例如名字中
+df[[&apos;first_name&apos;,&apos;last_name&apos;]] = df[&apos;name&apos;].str.split(expand=True)
+df.drop(&apos;name&apos;, axis=1, inplace=True)
+
+去重
+df.drop_duplicates([&apos;first_name&apos;,&apos;last_name&apos;],inplace=True)</code></pre><ol start="2">
+<li>一眼看出数据可能存在什么问题，检查数据是一种习惯</li>
+<li>高质量的数据是高质量的挖掘的保障，熟练运用pandas</li>
+</ol>
+<h2 id="practice-is-on-the-way…"><a href="#practice-is-on-the-way…" class="headerlink" title="practice is on the way…"></a>practice is on the way…</h2>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/14/data-science-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/10/14/data-science-5/" class="post-title-link" itemprop="url">data science(5)-web crawler</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-14 01:01:37 / Modified: 01:07:10" itemprop="dateCreated datePublished" datetime="2020-10-14T01:01:37+08:00">2020-10-14</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li>对我来说数据主要来自开放源（database for bioinformatics）, 或者是传感器，比如EEG或calcium signals。网络爬虫不是关键啦</li>
+<li>由浅入深，先使用八爪鱼等第三方工具，可视化的流程可以帮助熟悉基本流程和原理。当有更深层需求的时候就去使用python编程，Xpath来实现。</li>
+<li>真的没有什么好写的，感觉科学数据用不上爬虫。</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/09/data-science-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/10/09/data-science-4/" class="post-title-link" itemprop="url">data science(4)-write befor data mining</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-09 01:01:37" itemprop="dateCreated datePublished" datetime="2020-10-09T01:01:37+08:00">2020-10-09</time>
             </span>
           
             <span class="post-meta-item">
@@ -936,159 +1138,6 @@ import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names�
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/12/philosophy_1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/07/12/philosophy_1/" class="post-title-link" itemprop="url">一周哲思(1)- 伦理学与知行合一</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-07-12 12:35:24" itemprop="dateCreated datePublished" datetime="2020-07-12T12:35:24+08:00">2020-07-12</time>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这周看陈嘉映老师的《何为良好生活》。这个朴素的标题是每个人在思考的问题。这个问题是可以回答的么？世界精彩繁复，生活更是一个说不完道不尽的话题。我假设陈老师和我一样都不信决定论（基因，制度…）。那么这个问题该怎样回答呢？</p>
-<p>“伦理”这个源于西方的哲学词汇首先被引入。不像中国古代封建时的纲常伦理，此处的伦理主要是指价值判断，亦可理解为道德，天理，真理。因此伦理/道德是一种先觉的知。先觉的知自上而下的指导行为。对社会正如我们遵守社会规则和包容不良行为，对自己而言，我们会有强的自我偏好（个人习惯上）。生活最终是要落在每一件事上的，论到极处便是百姓的柴米油盐。然而并不是每一件事我们都在做之前就有了“知”。比如不品尝比较怎么知道自己喜欢哪种饺子？不开始学做饭怎么会使刀会下盐？所以另外一些事是知寓于行，此类事是自下而上的指导当前和下一次行为。</p>
-<p>中国文化中，知行关系的讨论从前秦时期便开始了，到现在都没有定论。我个人认可并信仰阳明心学的知行合一之说。“好好色，恶恶臭”在我们说出这个词的时候就已经知且行了。这是本能的，服从于良知的反应。良知，即心，即真理，是我们作为一个个体的人所在的最高维度。我认为无论是自上而下的知-行，还是自下而上的行-知，由于其目的都是在追寻良知、验证良知。我想整个过程中的知行或行知是并列的，不可分的，否则是否靠近良知便是不可知的。</p>
-<p>知行的闭环让我们朝着良知靠近。我们常祝福朋友和自己天天开心。那么究竟什么能带来真正的快乐，快乐是否就是良好生活呢？源于基本需求的快乐（吃喝玩乐）与源于高级需求（个人成长）的快乐在大脑内有着相同的机制吗？我希望这个结果是肯定的，我觉得这是一种简洁。如果靠近良知的地方便是心灵的安处，那么基本需求和高级需求只是不同的途径。在我身上，这更像是木桶效应，短板便会导致不够开心。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/LFP cross-correlation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/05/09/LFP cross-correlation/" class="post-title-link" itemprop="url">LFP cross-correlation</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-05-09 19:07:23" itemprop="dateCreated datePublished" datetime="2020-05-09T19:07:23+08:00">2020-05-09</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1140,7 +1189,7 @@ import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names�
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1153,7 +1202,7 @@ import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names�
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
