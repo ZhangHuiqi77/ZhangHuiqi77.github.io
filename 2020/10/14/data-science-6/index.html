@@ -62,7 +62,7 @@
 <meta property="og:site_name" content="Follow heart">
 <meta property="og:description" content="数据清洗占用80%的时间。主要包括理清数据维度（dataframe中增加分类），提高数据质量（“完 全 合 一”） 完 完整性，去空值，可填充均值，填充频率最高的词，或者直接删除 填充平均值 df[&amp;apos;Age&amp;apos;].fillna(df[&amp;apos;Age&amp;apos;].mean(), inplace=True)   填充频率最高的词age_maxf = train_feature">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-10-14T17:03:06.000Z">
+<meta property="og:updated_time" content="2020-10-14T17:11:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="data science(6)-data cleaning">
 <meta name="twitter:description" content="数据清洗占用80%的时间。主要包括理清数据维度（dataframe中增加分类），提高数据质量（“完 全 合 一”） 完 完整性，去空值，可填充均值，填充频率最高的词，或者直接删除 填充平均值 df[&amp;apos;Age&amp;apos;].fillna(df[&amp;apos;Age&amp;apos;].mean(), inplace=True)   填充频率最高的词age_maxf = train_feature">
@@ -280,9 +280,9 @@
 填充频率最高的词age_maxf = train_features[&apos;Age&apos;].value_counts().index[0]
 train_features[&apos;Age&apos;].fillna(age_maxf, inplace=True)
 
-去空行 df.dropna(how=&apos;all&apos;,inplace=True)</code></pre></li>
-</ol>
-<pre><code>全 全面
+去空行 df.dropna(how=&apos;all&apos;,inplace=True)
+
+全 全面
 列数据的单位不统一
 获取 weight 数据列中单位为 lbs 的数据
 rows_with_lbs = df[&apos;weight&apos;].str.contains(&apos;lbs&apos;).fillna(False)
@@ -304,9 +304,11 @@ df[[&apos;first_name&apos;,&apos;last_name&apos;]] = df[&apos;name&apos;].str.sp
 df.drop(&apos;name&apos;, axis=1, inplace=True)
 
 去重
-df.drop_duplicates([&apos;first_name&apos;,&apos;last_name&apos;],inplace=True)</code></pre><ol start="2">
-<li>一眼看出数据可能存在什么问题，检查数据是一种习惯</li>
-<li>高质量的数据是高质量的挖掘的保障，熟练运用pandas</li>
+df.drop_duplicates([&apos;first_name&apos;,&apos;last_name&apos;],inplace=True)</code></pre></li>
+<li><p>一眼看出数据可能存在什么问题，检查数据是一种习惯</p>
+</li>
+<li><p>高质量的数据是高质量的挖掘的保障，熟练运用pandas</p>
+</li>
 </ol>
 <hr>
 <p>practice</p>
@@ -447,7 +449,7 @@ df[&apos;ounces&apos;] = df[&apos;ounces&apos;].abs()</code></pre>
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
