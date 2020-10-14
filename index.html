@@ -740,7 +740,7 @@ score[&apos;max&apos;] = score.max(axis = 1)</code></pre>
                 
               
 
-              <time title="Created: 2020-10-06 00:25:29 / Modified: 02:01:36" itemprop="dateCreated datePublished" datetime="2020-10-06T00:25:29+08:00">2020-10-06</time>
+              <time title="Created: 2020-10-06 00:25:29" itemprop="dateCreated datePublished" datetime="2020-10-06T00:25:29+08:00">2020-10-06</time>
             </span>
           
             <span class="post-meta-item">
@@ -776,30 +776,82 @@ score[&apos;max&apos;] = score.max(axis = 1)</code></pre>
 </li>
 <li><p>学会用.shape,.dtype快速的获取数组的信息</p>
 </li>
-<li><p>结构数组是非常灵活的建立自己想要的数据结构，然后把数据放进去<br> import numpy as np<br> persontype = np.dtype({</p>
-<pre><code>&apos;names&apos;:[&apos;name&apos;,&apos;age&apos;,&apos;chinese&apos;,&apos;math&apos;,&apos;english&apos;],
-&apos;formats&apos;:[&apos;S32&apos;,&apos;i&apos;,&apos;i&apos;,&apos;i&apos;,&apos;f&apos;]
-})</code></pre><p> peoples = np.array([(“ZhangFei”,32,75,100,90),(“GuanYu”,24,84,96,88.5),</p>
-<pre><code>(&quot;ZhaoYun&quot;,28,85,92,96.5),(&quot;HuangZhong&quot;,29,65,85,100)],
-dtype = persontype)</code></pre><p> ages = peoples[:][‘age’]<br> chineses = peoples[:][‘chinese’]<br> maths = peoples[:][‘math’]<br> englishs = peoples[:][‘english’]<br> print(np.mean(ages))<br> print(np.mean(chineses))<br> print(np.mean(maths))<br> print(np.mean(englishs))</p>
-<p> 此例中先建立了persontype这个结构数组，peoples再填充数组时指定结构数组的类型为自定义的persontype</p>
+<li><p>结构数组是非常灵活的建立自己想要的数据结构，然后把数据放进去</p>
+<pre><code>import numpy as np 
+persontype = np.dtype({
+    &apos;names&apos;:[&apos;name&apos;,&apos;age&apos;,&apos;chinese&apos;,&apos;math&apos;,&apos;english&apos;],
+    &apos;formats&apos;:[&apos;S32&apos;,&apos;i&apos;,&apos;i&apos;,&apos;i&apos;,&apos;f&apos;]
+    })
+peoples = np.array([(&quot;ZhangFei&quot;,32,75,100,90),(&quot;GuanYu&quot;,24,84,96,88.5),
+    (&quot;ZhaoYun&quot;,28,85,92,96.5),(&quot;HuangZhong&quot;,29,65,85,100)],
+    dtype = persontype)
+ages = peoples[:][&apos;age&apos;]
+chineses = peoples[:][&apos;chinese&apos;]
+maths = peoples[:][&apos;math&apos;]
+englishs = peoples[:][&apos;english&apos;]
+print(np.mean(ages))
+print(np.mean(chineses))
+print(np.mean(maths))
+print(np.mean(englishs))</code></pre><p> 此例中先建立了persontype这个结构数组，peoples再填充数组时指定结构数组的类型为自定义的persontype</p>
 </li>
-<li><p>连续数组，下面两个是创建等差数组的方式，可以根据需求选择<br> np.arange(1,11,2)初始值，终值，步长，不包含终值<br> np.linspace(1,9,5)初始值，终值，元素个数，lin space 是linear space的缩写</p>
-</li>
-<li><p>数组的算数运算，先给定运算符再给定数值<br> print (np.add(x1, x2))<br> print (np.subtract(x1, x2))<br> print (np.multiply(x1, x2))<br> print (np.divide(x1, x2))<br> print (np.power(x1, x2))<br> print (np.remainder(x1, x2))<br> print (np.mod(x1,x2)) #mod取余数，与remainder一样</p>
-</li>
-<li><p>数组中的统计，<br> np.amax()<br> np.amin()<br> np.ptp() #最大最小之差peak to peak<br> print np.percentile(a, 50)<br> print np.percentile(a, 50, axis=0)<br> print np.percentile(a, 50, axis=1) #百分位数的计算,按轴，返回的都为列向量<br> print np.median(a, axis=0)<br> print np.mean(a, axis=1)</p>
-<p> a = np.array([1,2,3,4])<br> wts = np.array([1,2,3,4])<br> print np.average(a,weights=wts) #加权平均</p>
-<p> print np.std(a)<br> print np.var(a)</p>
-</li>
-<li><p>排序<br> print (np.sort(a))<br> print (np.sort(a, axis=None))<br> print (np.sort(a, axis=0))<br> print (np.sort(a, axis=1))<br> sort(a, axis=-1, kind=‘quicksort’, order=None) # 还有其他的排序方式 quicksort、mergesort、heapsort</p>
-</li>
-</ol>
-<pre><code>以下为practice
--------------------------------------------------------------------------------------------
-import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names’:[‘name’,’chinese’,’math’,’english’],<br>        ‘formats’:[‘S32’,’i’,’i’,’i’]<br>        })<br>person = np.array([(“zhangfei”,66,65,30),<br>                   (“guanyu”,95,85,98),<br>                   (“zhaoyun”,93,92,96),<br>                   (“huangzhong”,90,88,77),<br>                   (“dianwei”,80,90,90)],<br>                    dtype = transcrips)<br>chineses = person[:][“chinese”]<br>maths = person[:][“math”]<br>englishs = person[:][“english”]<br>print(np.mean(chineses))<br>print(np.amin(chineses))<br>print(np.amax(chineses))<br>print(np.var(chineses))<br>print(np.std(chineses))</p>
-<p>#总成绩排序并输出<br>print(np.sort(chineses+maths+englishs))</p>
+<li><p>连续数组，下面两个是创建等差数组的方式，可以根据需求选择</p>
+<pre><code>np.arange(1,11,2)初始值，终值，步长，不包含终值
+np.linspace(1,9,5)初始值，终值，元素个数，lin space 是linear space的缩写</code></pre></li>
+<li><p>数组的算数运算，先给定运算符再给定数值</p>
+<pre><code>print (np.add(x1, x2))
+print (np.subtract(x1, x2))
+print (np.multiply(x1, x2))
+print (np.divide(x1, x2))
+print (np.power(x1, x2))
+print (np.remainder(x1, x2))
+print (np.mod(x1,x2)) #mod取余数，与remainder一样</code></pre></li>
+<li><p>数组中的统计，</p>
+<pre><code>np.amax()
+np.amin()
+np.ptp() #最大最小之差peak to peak
+print np.percentile(a, 50)
+print np.percentile(a, 50, axis=0)
+print np.percentile(a, 50, axis=1) #百分位数的计算,按轴，返回的都为列向量
+print np.median(a, axis=0)
+print np.mean(a, axis=1)
 
+a = np.array([1,2,3,4])
+wts = np.array([1,2,3,4])
+print np.average(a,weights=wts) #加权平均
+
+print np.std(a)
+print np.var(a)</code></pre></li>
+<li><p>排序</p>
+<pre><code>print (np.sort(a))
+print (np.sort(a, axis=None))
+print (np.sort(a, axis=0))
+print (np.sort(a, axis=1))
+sort(a, axis=-1, kind=‘quicksort’, order=None) # 还有其他的排序方式 quicksort、mergesort、heapsort</code></pre></li>
+</ol>
+<hr>
+<p>practice</p>
+<pre><code>import numpy as np 
+transcrips = np.dtype({
+        &apos;names&apos;:[&apos;name&apos;,&apos;chinese&apos;,&apos;math&apos;,&apos;english&apos;],
+        &apos;formats&apos;:[&apos;S32&apos;,&apos;i&apos;,&apos;i&apos;,&apos;i&apos;]
+        })
+person = np.array([(&quot;zhangfei&quot;,66,65,30),
+                   (&quot;guanyu&quot;,95,85,98),
+                   (&quot;zhaoyun&quot;,93,92,96),
+                   (&quot;huangzhong&quot;,90,88,77),
+                   (&quot;dianwei&quot;,80,90,90)],
+                    dtype = transcrips)
+chineses = person[:][&quot;chinese&quot;]
+maths = person[:][&quot;math&quot;]
+englishs = person[:][&quot;english&quot;]
+print(np.mean(chineses))
+print(np.amin(chineses))
+print(np.amax(chineses))
+print(np.var(chineses))
+print(np.std(chineses))
+
+#总成绩排序并输出
+print(np.sort(chineses+maths+englishs))</code></pre>
         
       
     </div>
@@ -889,9 +941,9 @@ import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names�
 <li>字典操作 dic[‘zhangfei’] = 98 加入键值对，score.pop(‘zhangfei’) 删除键值对， ‘zhoayun’ in dic 查看是否有这个key返回逻辑值，dic.get(‘guanyu’)查看值</li>
 <li>函数 def functionname(parameter):</li>
 </ol>
-<h2 id="以下为practice"><a href="#以下为practice" class="headerlink" title="以下为practice"></a>以下为practice</h2><pre><code># CY data mining course
-
-# for loop
+<hr>
+<p>practive</p>
+<pre><code># for loop
 sum = 0
 for number in range(11):
     sum = sum + number
