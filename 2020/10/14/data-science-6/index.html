@@ -62,7 +62,7 @@
 <meta property="og:site_name" content="Follow heart">
 <meta property="og:description" content="数据清洗占用80%的时间。主要包括理清数据维度（dataframe中增加分类），提高数据质量（“完 全 合 一”） 完 完整性，去空值，可填充均值，填充频率最高的词，或者直接删除 填充平均值 df[&amp;apos;Age&amp;apos;].fillna(df[&amp;apos;Age&amp;apos;].mean(), inplace=True)   填充频率最高的词age_maxf = train_feature">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-10-13T17:32:52.000Z">
+<meta property="og:updated_time" content="2020-10-14T17:03:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="data science(6)-data cleaning">
 <meta name="twitter:description" content="数据清洗占用80%的时间。主要包括理清数据维度（dataframe中增加分类），提高数据质量（“完 全 合 一”） 完 完整性，去空值，可填充均值，填充频率最高的词，或者直接删除 填充平均值 df[&amp;apos;Age&amp;apos;].fillna(df[&amp;apos;Age&amp;apos;].mean(), inplace=True)   填充频率最高的词age_maxf = train_feature">
@@ -245,7 +245,7 @@
                 
               
 
-              <time title="Created: 2020-10-14 01:06:17 / Modified: 01:32:52" itemprop="dateCreated datePublished" datetime="2020-10-14T01:06:17+08:00">2020-10-14</time>
+              <time title="Created: 2020-10-14 01:06:17" itemprop="dateCreated datePublished" datetime="2020-10-14T01:06:17+08:00">2020-10-14</time>
             </span>
           
             <span class="post-meta-item">
@@ -254,7 +254,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
 
                 
                 
@@ -284,7 +284,7 @@ train_features[&apos;Age&apos;].fillna(age_maxf, inplace=True)
 </ol>
 <pre><code>全 全面
 列数据的单位不统一
- 获取 weight 数据列中单位为 lbs 的数据
+获取 weight 数据列中单位为 lbs 的数据
 rows_with_lbs = df[&apos;weight&apos;].str.contains(&apos;lbs&apos;).fillna(False)
 print df[rows_with_lbs]
 # 将 lbs 转换为 kgs, 2.2lbs=1kgs
@@ -308,7 +308,45 @@ df.drop_duplicates([&apos;first_name&apos;,&apos;last_name&apos;],inplace=True)<
 <li>一眼看出数据可能存在什么问题，检查数据是一种习惯</li>
 <li>高质量的数据是高质量的挖掘的保障，熟练运用pandas</li>
 </ol>
-<h2 id="practice-is-on-the-way…"><a href="#practice-is-on-the-way…" class="headerlink" title="practice is on the way…"></a>practice is on the way…</h2>
+<hr>
+<p>practice</p>
+<pre><code>&quot;&quot;&quot;
+ts.csv is as below, suppose this is a purchase order
+
+food,ounces,animal
+bacon,4,pig
+pulled pork,3,pig
+bacon,NaN,pig
+Pastrami,6,cow
+corned beef,7.5,cow
+Bacon,8,pig
+pastrami,-3,cow
+honey ham,5,pig
+nova lox,6,salmon
+corned beef,NaN,cow
+
+&quot;&quot;&quot;
+import numpy as np
+import pandas as pd 
+from pandas import Series, DataFrame
+df = DataFrame(pd.read_csv(&apos;D:/Download/Chrome/ts.csv&apos;))
+
+&apos;&apos;&apos;
+1. food column tolow letters
+2. the same name to use the mean of the values
+use absolute value to the numbers
+&apos;&apos;&apos;
+df[&apos;food&apos;] = df[&apos;food&apos;].str.lower() # this line complete the first goal
+
+nanfoodname = df[&apos;food&apos;][df[&apos;ounces&apos;].isnull()] # return a Series which include nan in ounces
+nanfoodname = nanfoodname.tolist()  # transfer series to list
+for i in range(len(nanfoodname)):
+    df1=df[df[&apos;food&apos;].str.match(nanfoodname[i]) &amp; df[&apos;ounces&apos;].notna()] # 按行筛选 build a df1 as inter df, which including non-nan values
+    foodmean = df1[&apos;ounces&apos;].mean()
+    df.loc[df[&apos;food&apos;].str.match(nanfoodname[i]) &amp; df[&apos;ounces&apos;].isnull(),&apos;ounces&apos;] = foodmean
+    # set foodmean the nan which has the same food name， df.loc can select rows and columns, with rows has 2 condition and column&apos;ounces&apos;
+
+df[&apos;ounces&apos;] = df[&apos;ounces&apos;].abs()</code></pre>
     </div>
 
     
@@ -379,8 +417,6 @@ df.drop_duplicates([&apos;first_name&apos;,&apos;last_name&apos;],inplace=True)<
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#practice-is-on-the-way…"><span class="nav-number">1.</span> <span class="nav-text">practice is on the way…</span></a></li></ol></div>
-        
       </div>
       <!--/noindex-->
 

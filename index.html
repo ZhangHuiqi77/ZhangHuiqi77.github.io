@@ -241,7 +241,7 @@
                 
               
 
-              <time title="Created: 2020-10-14 01:06:17 / Modified: 01:32:52" itemprop="dateCreated datePublished" datetime="2020-10-14T01:06:17+08:00">2020-10-14</time>
+              <time title="Created: 2020-10-14 01:06:17" itemprop="dateCreated datePublished" datetime="2020-10-14T01:06:17+08:00">2020-10-14</time>
             </span>
           
             <span class="post-meta-item">
@@ -250,7 +250,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
 
                 
                 
@@ -280,7 +280,7 @@ train_features[&apos;Age&apos;].fillna(age_maxf, inplace=True)
 </ol>
 <pre><code>全 全面
 列数据的单位不统一
- 获取 weight 数据列中单位为 lbs 的数据
+获取 weight 数据列中单位为 lbs 的数据
 rows_with_lbs = df[&apos;weight&apos;].str.contains(&apos;lbs&apos;).fillna(False)
 print df[rows_with_lbs]
 # 将 lbs 转换为 kgs, 2.2lbs=1kgs
@@ -304,7 +304,45 @@ df.drop_duplicates([&apos;first_name&apos;,&apos;last_name&apos;],inplace=True)<
 <li>一眼看出数据可能存在什么问题，检查数据是一种习惯</li>
 <li>高质量的数据是高质量的挖掘的保障，熟练运用pandas</li>
 </ol>
-<h2 id="practice-is-on-the-way…"><a href="#practice-is-on-the-way…" class="headerlink" title="practice is on the way…"></a>practice is on the way…</h2>
+<hr>
+<p>practice</p>
+<pre><code>&quot;&quot;&quot;
+ts.csv is as below, suppose this is a purchase order
+
+food,ounces,animal
+bacon,4,pig
+pulled pork,3,pig
+bacon,NaN,pig
+Pastrami,6,cow
+corned beef,7.5,cow
+Bacon,8,pig
+pastrami,-3,cow
+honey ham,5,pig
+nova lox,6,salmon
+corned beef,NaN,cow
+
+&quot;&quot;&quot;
+import numpy as np
+import pandas as pd 
+from pandas import Series, DataFrame
+df = DataFrame(pd.read_csv(&apos;D:/Download/Chrome/ts.csv&apos;))
+
+&apos;&apos;&apos;
+1. food column tolow letters
+2. the same name to use the mean of the values
+use absolute value to the numbers
+&apos;&apos;&apos;
+df[&apos;food&apos;] = df[&apos;food&apos;].str.lower() # this line complete the first goal
+
+nanfoodname = df[&apos;food&apos;][df[&apos;ounces&apos;].isnull()] # return a Series which include nan in ounces
+nanfoodname = nanfoodname.tolist()  # transfer series to list
+for i in range(len(nanfoodname)):
+    df1=df[df[&apos;food&apos;].str.match(nanfoodname[i]) &amp; df[&apos;ounces&apos;].notna()] # 按行筛选 build a df1 as inter df, which including non-nan values
+    foodmean = df1[&apos;ounces&apos;].mean()
+    df.loc[df[&apos;food&apos;].str.match(nanfoodname[i]) &amp; df[&apos;ounces&apos;].isnull(),&apos;ounces&apos;] = foodmean
+    # set foodmean the nan which has the same food name， df.loc can select rows and columns, with rows has 2 condition and column&apos;ounces&apos;
+
+df[&apos;ounces&apos;] = df[&apos;ounces&apos;].abs()</code></pre>
         
       
     </div>
@@ -567,35 +605,87 @@ df.drop_duplicates([&apos;first_name&apos;,&apos;last_name&apos;],inplace=True)<
           <ol>
 <li><p>Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构</p>
 </li>
-<li><p>Series是定长的字典<br> x1 = Series([1,2,3,4])<br> x2 = Series(data=[1,2,3,4], index=[‘a’, ‘b’, ‘c’, ‘d’])<br> d = {‘a’:1, ‘b’:2, ‘c’:3, ‘d’:4}<br> x3 = Series(d)</p>
-</li>
-<li><p>DataFrame 可以看作是由相同索引的Series组成的字典类型<br> data= {‘Chinese’: [66, 95, 93, 90,80],’English’: [65, 85, 92, 88, 90],’Math’: [30, 98,79,89,90]}<br> df1 = DataFrame(data) 这里也可以写成pd.DataFrame()<br> df2 = DataFrame(data, index=[‘ZhangFei’, ‘GuanYu’, ‘ZhaoYun’, ‘HuangZhong’, ‘DianWei’])</p>
-</li>
-<li><p>从excel，csv中导入数据<br> score = DataFrame(pd.read_excel(‘data.xlsx’))<br> score.to_excel(‘data1.xlsx’)</p>
-</li>
-<li><p>数据清洗 data clean既是增删查改<br> 删除列 df2 = df2.drop(columns=[‘Chinese’])<br> 删除行 df2 = df2.drop(index=[‘ZhangFei’])<br> 重命名列 df2.rename(columns={‘Chinese’: ‘YuWen’, ‘English’: ‘Yingyu’}) 可能再python2中需要加上, inplace = True。如果要重命名行，把columns换成index<br> 去重复值 df.drop_duplicates()<br> 改变格式 df2[‘Chinese’].astype(‘str’) 改成string格式可以方便去空格<br> 删除空格 df2[‘Chinese’]=df2[‘Chinese’].map(str.strip) 删除两边的空格</p>
-<pre><code>df2[&apos;Chinese&apos;]=df2[&apos;Chinese&apos;].map(str.lstrip) 删除左边的空格</code></pre><p> 删除特殊符号 df2[‘Chinese’]=df2[‘Chinese’].str.strip(‘$’)<br> 查找空值 df.isnull()返回逻辑值，如果是控制则为True</p>
-</li>
-<li><p>apply函数,可以对数据进行个性化的处理<br> df.apply(func)<br> df[‘name’].apply(str.upper)<br> df1.apply(plus,axis=1,args=(2,3,)) 这里的args是plus函数中需要的参数</p>
-</li>
+<li><p>Series是定长的字典</p>
+<pre><code>x1 = Series([1,2,3,4])
+x2 = Series(data=[1,2,3,4], index=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])
+d = {&apos;a&apos;:1, &apos;b&apos;:2, &apos;c&apos;:3, &apos;d&apos;:4}
+x3 = Series(d)</code></pre></li>
+<li><p>DataFrame 可以看作是由相同索引的Series组成的字典类型</p>
+<pre><code>data= {&apos;Chinese&apos;: [66, 95, 93, 90,80],&apos;English&apos;: [65, 85, 92, 88, 90],&apos;Math&apos;: [30, 98,79,89,90]}
+df1 = DataFrame(data) 这里也可以写成pd.DataFrame()
+df2 = DataFrame(data, index=[&apos;ZhangFei&apos;, &apos;GuanYu&apos;, &apos;ZhaoYun&apos;, &apos;HuangZhong&apos;, &apos;DianWei&apos;])</code></pre></li>
+<li><p>从excel，csv中导入数据</p>
+<pre><code>score = DataFrame(pd.read_excel(&apos;data.xlsx&apos;))
+score.to_excel(&apos;data1.xlsx&apos;)</code></pre></li>
+<li><p>数据清洗 data clean既是增删查改</p>
+<pre><code>删除列 df2 = df2.drop(columns=[&apos;Chinese&apos;])
+删除行 df2 = df2.drop(index=[&apos;ZhangFei&apos;]) 
+重命名列 df2.rename(columns={&apos;Chinese&apos;: &apos;YuWen&apos;, &apos;English&apos;: &apos;Yingyu&apos;}) 可能再python2中需要加上, inplace = True。如果要重命名行，把columns换成index
+去重复值 df.drop_duplicates()
+改变格式 df2[&apos;Chinese&apos;].astype(&apos;str&apos;) 改成string格式可以方便去空格
+删除空格 df2[&apos;Chinese&apos;]=df2[&apos;Chinese&apos;].map(str.strip) 删除两边的空格
+df2[&apos;Chinese&apos;]=df2[&apos;Chinese&apos;].map(str.lstrip) 删除左边的空格
+删除特殊符号 df2[&apos;Chinese&apos;]=df2[&apos;Chinese&apos;].str.strip(&apos;$&apos;)
+查找空值 df.isnull()返回逻辑值，如果是控制则为True</code></pre></li>
+<li><p>apply函数,可以对数据进行个性化的处理</p>
+<pre><code>df.apply(func)
+df[&apos;name&apos;].apply(str.upper)
+df1.apply(plus,axis=1,args=(2,3,)) 这里的args是plus函数中需要的参数</code></pre></li>
 <li><p>describe 函数可以表现常见的统计值,默认按列进行统计</p>
 </li>
-<li><p>合并数据表<br> df3 = pd.merge(df1, df2, on=’name’) 交集<br> df3 = pd.merge(df1, df2, how=’inner’) 交集<br> df3 = pd.merge(df1, df2, how=’left’) 以df1为主，df2进行补充<br> df3 = pd.merge(df1, df2, how=’outer’) 并集</p>
+<li><p>合并数据表</p>
+<pre><code>df3 = pd.merge(df1, df2, on=&apos;name&apos;) 交集
+df3 = pd.merge(df1, df2, how=&apos;inner&apos;) 交集
+df3 = pd.merge(df1, df2, how=&apos;left&apos;) 以df1为主，df2进行补充</code></pre><p> df3 = pd.merge(df1, df2, how=’outer’) 并集</p>
 </li>
-<li><p>pandasql,sql是对数据表最人性化的语言啦<br> import pandas as pd<br> from pandas import Series, DataFrame<br> from pandasql import sqldf, load_meat, load_births<br> df1 = DataFrame({‘name’:[‘ZhangFei’, ‘GuanYu’, ‘a’, ‘b’, ‘c’], ‘data1’:range(5)})<br> pysqldf = lambda sql: sqldf(sql, globals())<br> sql = “select * from df1 where name =’ZhangFei’”<br> print (pysqldf(sql))</p>
-</li>
-<li><p>习惯去使用lambda，在python中用来方便的定义匿名函数 syntax为 lambda argument_list: expression，argument list是参数列表<br>pysqldf = lambda sql: sqldf(sql, globals()) 这里pysqldf就是新函数的名字<br>sql = “select * from df1 where name =’ZhangFei’”<br>print (pysqldf(sql))</p>
-</li>
+<li><p>pandasql,sql是对数据表最人性化的语言啦</p>
+<pre><code>import pandas as pd 
+from pandas import Series, DataFrame
+from pandasql import sqldf, load_meat, load_births
+df1 = DataFrame({&apos;name&apos;:[&apos;ZhangFei&apos;, &apos;GuanYu&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;], &apos;data1&apos;:range(5)})
+pysqldf = lambda sql: sqldf(sql, globals())
+sql = &quot;select * from df1 where name =&apos;ZhangFei&apos;&quot;
+print (pysqldf(sql))</code></pre></li>
+<li><p>习惯去使用lambda，在python中用来方便的定义匿名函数 syntax为 lambda argument_list: expression，argument list是参数列表</p>
+<pre><code>pysqldf = lambda sql: sqldf(sql, globals()) 这里pysqldf就是新函数的名字
+sql = &quot;select * from df1 where name =&apos;ZhangFei&apos;&quot;
+print (pysqldf(sql))</code></pre></li>
 </ol>
 <hr>
-<p>“””<br>ts.csv is as below</p>
-<p>None,chinese,english,math<br>zhangfei,66,65,<br>guanyu,95,85,98<br>zhaoyun,95,92,96<br>huangzhong,90,88,77<br>dianwei,80,90,90<br>dianwei,80,90,90</p>
-<p>“””<br>import numpy as np<br>import pandas as pd<br>from pandas import Series, DataFrame<br>score = DataFrame(pd.read_csv(‘D:/Download/Chrome/ts.csv’))<br>score = score.set_index(‘None’)<br>score.isnull()<br>score = score.drop_duplicates()<br>score[‘total’] = score.sum(axis = 1)<br>score[‘max’] = score.max(axis = 1)</p>
-<p>#%% or use df.apply() to add new sum colunm</p>
-<p>def sumscore(df):<br>    df[‘sum’] = df[‘chinese’] + df[‘english’] + df[‘math’]<br>    return df</p>
-<p>score = score.apply(sumscore,axis = 1)<br>print(score)</p>
-<p>score[‘max’] = score.max(axis = 1)</p>
+<pre><code>&quot;&quot;&quot;
+ts.csv is as below
 
+None,chinese,english,math
+zhangfei,66,65,
+guanyu,95,85,98
+zhaoyun,95,92,96
+huangzhong,90,88,77
+dianwei,80,90,90
+dianwei,80,90,90
+
+&quot;&quot;&quot;
+import numpy as np
+import pandas as pd 
+from pandas import Series, DataFrame
+score = DataFrame(pd.read_csv(&apos;D:/Download/Chrome/ts.csv&apos;))
+score = score.set_index(&apos;None&apos;)
+score.isnull()
+score = score.drop_duplicates()
+score[&apos;total&apos;] = score.sum(axis = 1)
+score[&apos;max&apos;] = score.max(axis = 1)
+
+
+#%% or use df.apply() to add new sum colunm
+
+
+def sumscore(df):
+    df[&apos;sum&apos;] = df[&apos;chinese&apos;] + df[&apos;english&apos;] + df[&apos;math&apos;]
+    return df
+
+score = score.apply(sumscore,axis = 1)
+print(score)
+
+score[&apos;max&apos;] = score.max(axis = 1)</code></pre>
         
       
     </div>
@@ -797,19 +887,72 @@ import numpy as np </code></pre><p>transcrips = np.dtype({<br>        ‘names�
 <li>字典操作 dic[‘zhangfei’] = 98 加入键值对，score.pop(‘zhangfei’) 删除键值对， ‘zhoayun’ in dic 查看是否有这个key返回逻辑值，dic.get(‘guanyu’)查看值</li>
 <li>函数 def functionname(parameter):</li>
 </ol>
-<h2 id="以下为practice"><a href="#以下为practice" class="headerlink" title="以下为practice"></a>以下为practice</h2><h1 id="CY-data-mining-course"><a href="#CY-data-mining-course" class="headerlink" title="CY data mining course"></a>CY data mining course</h1><h1 id="for-loop"><a href="#for-loop" class="headerlink" title="for loop"></a>for loop</h1><p>sum = 0<br>for number in range(11):<br>    sum = sum + number<br>print(sum)</p>
-<h1 id="range-function-means-0-1-11-range-11-range-0-11-11-is-not-included-output-55"><a href="#range-function-means-0-1-11-range-11-range-0-11-11-is-not-included-output-55" class="headerlink" title="range function means 0:1:11, range(11) = range(0,11), 11 is not included, output = 55"></a>range function means 0:1:11, range(11) = range(0,11), 11 is not included, output = 55</h1><h1 id="range-1-11-2-means-1-3-5-7-9-1-is-included-but-11-is-not-included"><a href="#range-1-11-2-means-1-3-5-7-9-1-is-included-but-11-is-not-included" class="headerlink" title="range(1,11,2) means [1,3,5,7,9], 1 is included but 11 is not included"></a>range(1,11,2) means [1,3,5,7,9], 1 is included but 11 is not included</h1><h1 id="while-loop-conditional-loop-which-also-has-advantage-for-the-uncertain-cycle-numbers"><a href="#while-loop-conditional-loop-which-also-has-advantage-for-the-uncertain-cycle-numbers" class="headerlink" title="while loop, conditional loop, which also has advantage for the uncertain cycle numbers"></a>while loop, conditional loop, which also has advantage for the uncertain cycle numbers</h1><p>sum = 0<br>number = 1<br>while number &lt; 11:<br>    sum = sum + number<br>    number = number +1<br>print(sum)</p>
-<h1 id="list-operating"><a href="#list-operating" class="headerlink" title="list operating"></a>list operating</h1><p>list = [‘a’,’b’,’c’]<br>list.append(‘d’)<br>print (list)<br>print (len(list))<br>list.insert(0,’mm’)<br>list.pop() # rm the last element, list.pop(1) means to rm the 2nd element<br>print (list)</p>
-<h1 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h1><p>tuples = (‘tupleA’,’tupleB’)<br>print (tuples[0])</p>
-<h1 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h1><h1 id="coding-utf-8"><a href="#coding-utf-8" class="headerlink" title="-- coding: utf-8 -"></a>-<em>- coding: utf-8 -</em></h1><h1 id="定义一个-dictionary"><a href="#定义一个-dictionary" class="headerlink" title="定义一个 dictionary"></a>定义一个 dictionary</h1><p>score = {‘guanyu’:95,’zhangfei’:96}</p>
-<h1 id="添加一个元素"><a href="#添加一个元素" class="headerlink" title="添加一个元素"></a>添加一个元素</h1><p>score[‘zhaoyun’] = 98<br>print (score)</p>
-<h1 id="删除一个元素"><a href="#删除一个元素" class="headerlink" title="删除一个元素"></a>删除一个元素</h1><p>score.pop(‘zhangfei’)</p>
-<h1 id="查看-key-是否存在"><a href="#查看-key-是否存在" class="headerlink" title="查看 key 是否存在"></a>查看 key 是否存在</h1><p>print (‘guanyu’ in score)</p>
-<h1 id="查看一个-key-对应的值"><a href="#查看一个-key-对应的值" class="headerlink" title="查看一个 key 对应的值"></a>查看一个 key 对应的值</h1><p>print (score.get(‘guanyu’))<br>print (score.get(‘yase’,99))</p>
-<h1 id="set-similar-as-dictionary-but-only-save-key-not-value"><a href="#set-similar-as-dictionary-but-only-save-key-not-value" class="headerlink" title="set, similar as dictionary, but only save key, not value"></a>set, similar as dictionary, but only save key, not value</h1><p>s = set([‘a’, ‘b’, ‘c’])<br>s.add(‘d’)<br>s.remove(‘b’)<br>print (s)<br>print (‘c’ in s) # check if c is in the set s, return True or False</p>
-<h1 id="coding-utf-8-1"><a href="#coding-utf-8-1" class="headerlink" title="-- coding: utf-8 -"></a>-<em>- coding: utf-8 -</em></h1><p>‘’’<br>这是多行注释，用三个单引号<br>这是多行注释，用三个单引号<br>这是多行注释，用三个单引号<br>‘’’</p>
-<h1 id="function"><a href="#function" class="headerlink" title="function"></a>function</h1><p>def addone(score):<br>    return score + 1<br>print (score)</p>
+<h2 id="以下为practice"><a href="#以下为practice" class="headerlink" title="以下为practice"></a>以下为practice</h2><pre><code># CY data mining course
 
+# for loop
+sum = 0
+for number in range(11):
+    sum = sum + number
+print(sum)
+
+# range function means 0:1:11, range(11) = range(0,11), 11 is not included, output = 55
+# range(1,11,2) means [1,3,5,7,9], 1 is included but 11 is not included
+
+# while loop, conditional loop, which also has advantage for the uncertain cycle numbers
+
+sum = 0
+number = 1
+while number &lt; 11:
+    sum = sum + number
+    number = number +1
+print(sum)
+
+# list operating
+list = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]
+list.append(&apos;d&apos;)
+print (list)
+print (len(list))
+list.insert(0,&apos;mm&apos;)
+list.pop() # rm the last element, list.pop(1) means to rm the 2nd element
+print (list)
+
+# tuple
+tuples = (&apos;tupleA&apos;,&apos;tupleB&apos;)
+print (tuples[0])
+
+# dictionary
+# -*- coding: utf-8 -*
+# 定义一个 dictionary
+score = {&apos;guanyu&apos;:95,&apos;zhangfei&apos;:96}
+# 添加一个元素
+score[&apos;zhaoyun&apos;] = 98
+print (score)
+# 删除一个元素
+score.pop(&apos;zhangfei&apos;)
+# 查看 key 是否存在
+print (&apos;guanyu&apos; in score)
+# 查看一个 key 对应的值
+print (score.get(&apos;guanyu&apos;))
+print (score.get(&apos;yase&apos;,99))
+
+# set, similar as dictionary, but only save key, not value
+s = set([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;])
+s.add(&apos;d&apos;)
+s.remove(&apos;b&apos;)
+print (s)
+print (&apos;c&apos; in s) # check if c is in the set s, return True or False
+
+# -*- coding: utf-8 -*
+&apos;&apos;&apos;
+这是多行注释，用三个单引号
+这是多行注释，用三个单引号
+这是多行注释，用三个单引号
+&apos;&apos;&apos;
+
+# function
+def addone(score):
+    return score + 1
+print (score)</code></pre>
         
       
     </div>

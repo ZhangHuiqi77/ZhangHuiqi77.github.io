@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构  Series是定长的字典 x1 = Series([1,2,3,4]) x2 = Series(data=[1,2,3,4], index=[‘a’, ‘b’, ‘c’, ‘d’]) d = {‘a’:1, ‘b’:2, ‘c’:3, ‘d’:4} x3 = Series(d)">
+  <meta name="description" content="Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构  Series是定长的字典 x1 = Series([1,2,3,4]) x2 = Series(data=[1,2,3,4], index=[&amp;apos;a&amp;apos;, &amp;apos;b&amp;apos;, &amp;apos;c&amp;apos;, &amp;apos;d&amp;apos;]) d = {&amp;a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="data science(3)-Pandas">
 <meta property="og:url" content="http://yoursite.com/2020/10/07/data-science-3/index.html">
 <meta property="og:site_name" content="Follow heart">
-<meta property="og:description" content="Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构  Series是定长的字典 x1 = Series([1,2,3,4]) x2 = Series(data=[1,2,3,4], index=[‘a’, ‘b’, ‘c’, ‘d’]) d = {‘a’:1, ‘b’:2, ‘c’:3, ‘d’:4} x3 = Series(d)">
+<meta property="og:description" content="Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构  Series是定长的字典 x1 = Series([1,2,3,4]) x2 = Series(data=[1,2,3,4], index=[&amp;apos;a&amp;apos;, &amp;apos;b&amp;apos;, &amp;apos;c&amp;apos;, &amp;apos;d&amp;apos;]) d = {&amp;a">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-10-08T16:22:18.000Z">
+<meta property="og:updated_time" content="2020-10-14T03:36:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="data science(3)-Pandas">
-<meta name="twitter:description" content="Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构  Series是定长的字典 x1 = Series([1,2,3,4]) x2 = Series(data=[1,2,3,4], index=[‘a’, ‘b’, ‘c’, ‘d’]) d = {‘a’:1, ‘b’:2, ‘c’:3, ‘d’:4} x3 = Series(d)">
+<meta name="twitter:description" content="Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构  Series是定长的字典 x1 = Series([1,2,3,4]) x2 = Series(data=[1,2,3,4], index=[&amp;apos;a&amp;apos;, &amp;apos;b&amp;apos;, &amp;apos;c&amp;apos;, &amp;apos;d&amp;apos;]) d = {&amp;a">
   <link rel="canonical" href="http://yoursite.com/2020/10/07/data-science-3/">
 
 
@@ -276,35 +276,87 @@
         <ol>
 <li><p>Pandas的主要数据结构是Series和DataFrame，比起Numpy中的np.array拥有更高级的数据结构</p>
 </li>
-<li><p>Series是定长的字典<br> x1 = Series([1,2,3,4])<br> x2 = Series(data=[1,2,3,4], index=[‘a’, ‘b’, ‘c’, ‘d’])<br> d = {‘a’:1, ‘b’:2, ‘c’:3, ‘d’:4}<br> x3 = Series(d)</p>
-</li>
-<li><p>DataFrame 可以看作是由相同索引的Series组成的字典类型<br> data= {‘Chinese’: [66, 95, 93, 90,80],’English’: [65, 85, 92, 88, 90],’Math’: [30, 98,79,89,90]}<br> df1 = DataFrame(data) 这里也可以写成pd.DataFrame()<br> df2 = DataFrame(data, index=[‘ZhangFei’, ‘GuanYu’, ‘ZhaoYun’, ‘HuangZhong’, ‘DianWei’])</p>
-</li>
-<li><p>从excel，csv中导入数据<br> score = DataFrame(pd.read_excel(‘data.xlsx’))<br> score.to_excel(‘data1.xlsx’)</p>
-</li>
-<li><p>数据清洗 data clean既是增删查改<br> 删除列 df2 = df2.drop(columns=[‘Chinese’])<br> 删除行 df2 = df2.drop(index=[‘ZhangFei’])<br> 重命名列 df2.rename(columns={‘Chinese’: ‘YuWen’, ‘English’: ‘Yingyu’}) 可能再python2中需要加上, inplace = True。如果要重命名行，把columns换成index<br> 去重复值 df.drop_duplicates()<br> 改变格式 df2[‘Chinese’].astype(‘str’) 改成string格式可以方便去空格<br> 删除空格 df2[‘Chinese’]=df2[‘Chinese’].map(str.strip) 删除两边的空格</p>
-<pre><code>df2[&apos;Chinese&apos;]=df2[&apos;Chinese&apos;].map(str.lstrip) 删除左边的空格</code></pre><p> 删除特殊符号 df2[‘Chinese’]=df2[‘Chinese’].str.strip(‘$’)<br> 查找空值 df.isnull()返回逻辑值，如果是控制则为True</p>
-</li>
-<li><p>apply函数,可以对数据进行个性化的处理<br> df.apply(func)<br> df[‘name’].apply(str.upper)<br> df1.apply(plus,axis=1,args=(2,3,)) 这里的args是plus函数中需要的参数</p>
-</li>
+<li><p>Series是定长的字典</p>
+<pre><code>x1 = Series([1,2,3,4])
+x2 = Series(data=[1,2,3,4], index=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])
+d = {&apos;a&apos;:1, &apos;b&apos;:2, &apos;c&apos;:3, &apos;d&apos;:4}
+x3 = Series(d)</code></pre></li>
+<li><p>DataFrame 可以看作是由相同索引的Series组成的字典类型</p>
+<pre><code>data= {&apos;Chinese&apos;: [66, 95, 93, 90,80],&apos;English&apos;: [65, 85, 92, 88, 90],&apos;Math&apos;: [30, 98,79,89,90]}
+df1 = DataFrame(data) 这里也可以写成pd.DataFrame()
+df2 = DataFrame(data, index=[&apos;ZhangFei&apos;, &apos;GuanYu&apos;, &apos;ZhaoYun&apos;, &apos;HuangZhong&apos;, &apos;DianWei&apos;])</code></pre></li>
+<li><p>从excel，csv中导入数据</p>
+<pre><code>score = DataFrame(pd.read_excel(&apos;data.xlsx&apos;))
+score.to_excel(&apos;data1.xlsx&apos;)</code></pre></li>
+<li><p>数据清洗 data clean既是增删查改</p>
+<pre><code>删除列 df2 = df2.drop(columns=[&apos;Chinese&apos;])
+删除行 df2 = df2.drop(index=[&apos;ZhangFei&apos;]) 
+重命名列 df2.rename(columns={&apos;Chinese&apos;: &apos;YuWen&apos;, &apos;English&apos;: &apos;Yingyu&apos;}) 可能再python2中需要加上, inplace = True。如果要重命名行，把columns换成index
+去重复值 df.drop_duplicates()
+改变格式 df2[&apos;Chinese&apos;].astype(&apos;str&apos;) 改成string格式可以方便去空格
+删除空格 df2[&apos;Chinese&apos;]=df2[&apos;Chinese&apos;].map(str.strip) 删除两边的空格
+df2[&apos;Chinese&apos;]=df2[&apos;Chinese&apos;].map(str.lstrip) 删除左边的空格
+删除特殊符号 df2[&apos;Chinese&apos;]=df2[&apos;Chinese&apos;].str.strip(&apos;$&apos;)
+查找空值 df.isnull()返回逻辑值，如果是控制则为True</code></pre></li>
+<li><p>apply函数,可以对数据进行个性化的处理</p>
+<pre><code>df.apply(func)
+df[&apos;name&apos;].apply(str.upper)
+df1.apply(plus,axis=1,args=(2,3,)) 这里的args是plus函数中需要的参数</code></pre></li>
 <li><p>describe 函数可以表现常见的统计值,默认按列进行统计</p>
 </li>
-<li><p>合并数据表<br> df3 = pd.merge(df1, df2, on=’name’) 交集<br> df3 = pd.merge(df1, df2, how=’inner’) 交集<br> df3 = pd.merge(df1, df2, how=’left’) 以df1为主，df2进行补充<br> df3 = pd.merge(df1, df2, how=’outer’) 并集</p>
+<li><p>合并数据表</p>
+<pre><code>df3 = pd.merge(df1, df2, on=&apos;name&apos;) 交集
+df3 = pd.merge(df1, df2, how=&apos;inner&apos;) 交集
+df3 = pd.merge(df1, df2, how=&apos;left&apos;) 以df1为主，df2进行补充</code></pre><p> df3 = pd.merge(df1, df2, how=’outer’) 并集</p>
 </li>
-<li><p>pandasql,sql是对数据表最人性化的语言啦<br> import pandas as pd<br> from pandas import Series, DataFrame<br> from pandasql import sqldf, load_meat, load_births<br> df1 = DataFrame({‘name’:[‘ZhangFei’, ‘GuanYu’, ‘a’, ‘b’, ‘c’], ‘data1’:range(5)})<br> pysqldf = lambda sql: sqldf(sql, globals())<br> sql = “select * from df1 where name =’ZhangFei’”<br> print (pysqldf(sql))</p>
-</li>
-<li><p>习惯去使用lambda，在python中用来方便的定义匿名函数 syntax为 lambda argument_list: expression，argument list是参数列表<br>pysqldf = lambda sql: sqldf(sql, globals()) 这里pysqldf就是新函数的名字<br>sql = “select * from df1 where name =’ZhangFei’”<br>print (pysqldf(sql))</p>
-</li>
+<li><p>pandasql,sql是对数据表最人性化的语言啦</p>
+<pre><code>import pandas as pd 
+from pandas import Series, DataFrame
+from pandasql import sqldf, load_meat, load_births
+df1 = DataFrame({&apos;name&apos;:[&apos;ZhangFei&apos;, &apos;GuanYu&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;], &apos;data1&apos;:range(5)})
+pysqldf = lambda sql: sqldf(sql, globals())
+sql = &quot;select * from df1 where name =&apos;ZhangFei&apos;&quot;
+print (pysqldf(sql))</code></pre></li>
+<li><p>习惯去使用lambda，在python中用来方便的定义匿名函数 syntax为 lambda argument_list: expression，argument list是参数列表</p>
+<pre><code>pysqldf = lambda sql: sqldf(sql, globals()) 这里pysqldf就是新函数的名字
+sql = &quot;select * from df1 where name =&apos;ZhangFei&apos;&quot;
+print (pysqldf(sql))</code></pre></li>
 </ol>
 <hr>
-<p>“””<br>ts.csv is as below</p>
-<p>None,chinese,english,math<br>zhangfei,66,65,<br>guanyu,95,85,98<br>zhaoyun,95,92,96<br>huangzhong,90,88,77<br>dianwei,80,90,90<br>dianwei,80,90,90</p>
-<p>“””<br>import numpy as np<br>import pandas as pd<br>from pandas import Series, DataFrame<br>score = DataFrame(pd.read_csv(‘D:/Download/Chrome/ts.csv’))<br>score = score.set_index(‘None’)<br>score.isnull()<br>score = score.drop_duplicates()<br>score[‘total’] = score.sum(axis = 1)<br>score[‘max’] = score.max(axis = 1)</p>
-<p>#%% or use df.apply() to add new sum colunm</p>
-<p>def sumscore(df):<br>    df[‘sum’] = df[‘chinese’] + df[‘english’] + df[‘math’]<br>    return df</p>
-<p>score = score.apply(sumscore,axis = 1)<br>print(score)</p>
-<p>score[‘max’] = score.max(axis = 1)</p>
+<pre><code>&quot;&quot;&quot;
+ts.csv is as below
 
+None,chinese,english,math
+zhangfei,66,65,
+guanyu,95,85,98
+zhaoyun,95,92,96
+huangzhong,90,88,77
+dianwei,80,90,90
+dianwei,80,90,90
+
+&quot;&quot;&quot;
+import numpy as np
+import pandas as pd 
+from pandas import Series, DataFrame
+score = DataFrame(pd.read_csv(&apos;D:/Download/Chrome/ts.csv&apos;))
+score = score.set_index(&apos;None&apos;)
+score.isnull()
+score = score.drop_duplicates()
+score[&apos;total&apos;] = score.sum(axis = 1)
+score[&apos;max&apos;] = score.max(axis = 1)
+
+
+#%% or use df.apply() to add new sum colunm
+
+
+def sumscore(df):
+    df[&apos;sum&apos;] = df[&apos;chinese&apos;] + df[&apos;english&apos;] + df[&apos;math&apos;]
+    return df
+
+score = score.apply(sumscore,axis = 1)
+print(score)
+
+score[&apos;max&apos;] = score.max(axis = 1)</code></pre>
     </div>
 
     
