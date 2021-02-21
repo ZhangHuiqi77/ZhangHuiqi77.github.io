@@ -212,6 +212,325 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/06/data-science-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/10/06/data-science-2/" class="post-title-link" itemprop="url">data science(2) - Numpy</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-06 00:25:29" itemprop="dateCreated datePublished" datetime="2020-10-06T00:25:29+08:00">2020-10-06</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>重点在于学会进行数组操纵</p>
+<ol>
+<li><p>numpy中的数据是连续存储的，读取很快速，这是与python自带的list的最大区别</p>
+</li>
+<li><p>b = np.array([[1,2,3],[4,5,6],[7,8,9]])，这是一个维数组，它的秩是2，几维就有几个中括号</p>
+</li>
+<li><p>学会用.shape,.dtype快速的获取数组的信息</p>
+</li>
+<li><p>结构数组是非常灵活的建立自己想要的数据结构，然后把数据放进去</p>
+<pre><code>import numpy as np 
+persontype = np.dtype({
+    &apos;names&apos;:[&apos;name&apos;,&apos;age&apos;,&apos;chinese&apos;,&apos;math&apos;,&apos;english&apos;],
+    &apos;formats&apos;:[&apos;S32&apos;,&apos;i&apos;,&apos;i&apos;,&apos;i&apos;,&apos;f&apos;]
+    })
+peoples = np.array([(&quot;ZhangFei&quot;,32,75,100,90),(&quot;GuanYu&quot;,24,84,96,88.5),
+    (&quot;ZhaoYun&quot;,28,85,92,96.5),(&quot;HuangZhong&quot;,29,65,85,100)],
+    dtype = persontype)
+ages = peoples[:][&apos;age&apos;]
+chineses = peoples[:][&apos;chinese&apos;]
+maths = peoples[:][&apos;math&apos;]
+englishs = peoples[:][&apos;english&apos;]
+print(np.mean(ages))
+print(np.mean(chineses))
+print(np.mean(maths))
+print(np.mean(englishs))</code></pre><p> 此例中先建立了persontype这个结构数组，peoples再填充数组时指定结构数组的类型为自定义的persontype</p>
+</li>
+<li><p>连续数组，下面两个是创建等差数组的方式，可以根据需求选择</p>
+<pre><code>np.arange(1,11,2)初始值，终值，步长，不包含终值
+np.linspace(1,9,5)初始值，终值，元素个数，lin space 是linear space的缩写</code></pre></li>
+<li><p>数组的算数运算，先给定运算符再给定数值</p>
+<pre><code>print (np.add(x1, x2))
+print (np.subtract(x1, x2))
+print (np.multiply(x1, x2))
+print (np.divide(x1, x2))
+print (np.power(x1, x2))
+print (np.remainder(x1, x2))
+print (np.mod(x1,x2)) #mod取余数，与remainder一样</code></pre></li>
+<li><p>数组中的统计，</p>
+<pre><code>np.amax()
+np.amin()
+np.ptp() #最大最小之差peak to peak
+print np.percentile(a, 50)
+print np.percentile(a, 50, axis=0)
+print np.percentile(a, 50, axis=1) #百分位数的计算,按轴，返回的都为列向量
+print np.median(a, axis=0)
+print np.mean(a, axis=1)
+
+a = np.array([1,2,3,4])
+wts = np.array([1,2,3,4])
+print np.average(a,weights=wts) #加权平均
+
+print np.std(a)
+print np.var(a)</code></pre></li>
+<li><p>排序</p>
+<pre><code>print (np.sort(a))
+print (np.sort(a, axis=None))
+print (np.sort(a, axis=0))
+print (np.sort(a, axis=1))
+sort(a, axis=-1, kind=‘quicksort’, order=None) # 还有其他的排序方式 quicksort、mergesort、heapsort</code></pre></li>
+</ol>
+<hr>
+<p>practice</p>
+<pre><code>import numpy as np 
+transcrips = np.dtype({
+        &apos;names&apos;:[&apos;name&apos;,&apos;chinese&apos;,&apos;math&apos;,&apos;english&apos;],
+        &apos;formats&apos;:[&apos;S32&apos;,&apos;i&apos;,&apos;i&apos;,&apos;i&apos;]
+        })
+person = np.array([(&quot;zhangfei&quot;,66,65,30),
+                   (&quot;guanyu&quot;,95,85,98),
+                   (&quot;zhaoyun&quot;,93,92,96),
+                   (&quot;huangzhong&quot;,90,88,77),
+                   (&quot;dianwei&quot;,80,90,90)],
+                    dtype = transcrips)
+chineses = person[:][&quot;chinese&quot;]
+maths = person[:][&quot;math&quot;]
+englishs = person[:][&quot;english&quot;]
+print(np.mean(chineses))
+print(np.amin(chineses))
+print(np.amax(chineses))
+print(np.var(chineses))
+print(np.std(chineses))
+
+#总成绩排序并输出
+print(np.sort(chineses+maths+englishs))</code></pre>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/04/data-science-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/10/04/data-science-1/" class="post-title-link" itemprop="url">data science(1)- python basic</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-04 22:56:00" itemprop="dateCreated datePublished" datetime="2020-10-04T22:56:00+08:00">2020-10-04</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>春种秋收，凡事都有个过程，重在理解，语法和熟练度都是时间练的。知行合一，此处记录take home message，这就是我的逻辑框架</p>
+<ol>
+<li>while是条件循环，可以在循环次数不确定的时候使用，更方便</li>
+<li>python2 和 python3 差别不大，但是有一点还挺烦的，python2的print后面不用加()，但是python3要，下面的code都是python3的</li>
+<li>列表操作 list.append 加在末尾, list.insert 可以指定索引, list.pop可以指定索引，没有指定的话删除最后一个</li>
+<li>元组操作 tuple[]查看</li>
+<li>字典操作 dic[‘zhangfei’] = 98 加入键值对，score.pop(‘zhangfei’) 删除键值对， ‘zhoayun’ in dic 查看是否有这个key返回逻辑值，dic.get(‘guanyu’)查看值</li>
+<li>函数 def functionname(parameter):</li>
+</ol>
+<hr>
+<p>practive</p>
+<pre><code># for loop
+sum = 0
+for number in range(11):
+    sum = sum + number
+print(sum)
+
+# range function means 0:1:11, range(11) = range(0,11), 11 is not included, output = 55
+# range(1,11,2) means [1,3,5,7,9], 1 is included but 11 is not included
+
+# while loop, conditional loop, which also has advantage for the uncertain cycle numbers
+
+sum = 0
+number = 1
+while number &lt; 11:
+    sum = sum + number
+    number = number +1
+print(sum)
+
+# list operating
+list = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]
+list.append(&apos;d&apos;)
+print (list)
+print (len(list))
+list.insert(0,&apos;mm&apos;)
+list.pop() # rm the last element, list.pop(1) means to rm the 2nd element
+print (list)
+
+# tuple
+tuples = (&apos;tupleA&apos;,&apos;tupleB&apos;)
+print (tuples[0])
+
+# dictionary
+# -*- coding: utf-8 -*
+# 定义一个 dictionary
+score = {&apos;guanyu&apos;:95,&apos;zhangfei&apos;:96}
+# 添加一个元素
+score[&apos;zhaoyun&apos;] = 98
+print (score)
+# 删除一个元素
+score.pop(&apos;zhangfei&apos;)
+# 查看 key 是否存在
+print (&apos;guanyu&apos; in score)
+# 查看一个 key 对应的值
+print (score.get(&apos;guanyu&apos;))
+print (score.get(&apos;yase&apos;,99))
+
+# set, similar as dictionary, but only save key, not value
+s = set([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;])
+s.add(&apos;d&apos;)
+s.remove(&apos;b&apos;)
+print (s)
+print (&apos;c&apos; in s) # check if c is in the set s, return True or False
+
+# -*- coding: utf-8 -*
+&apos;&apos;&apos;
+这是多行注释，用三个单引号
+这是多行注释，用三个单引号
+这是多行注释，用三个单引号
+&apos;&apos;&apos;
+
+# function
+def addone(score):
+    return score + 1
+print (score)</code></pre>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/16/About-science/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -930,176 +1249,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/Leonardo da Vinci/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/02/Leonardo da Vinci/" class="post-title-link" itemprop="url">Leonardo da Vinci</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-02 21:08:03" itemprop="dateCreated datePublished" datetime="2019-11-02T21:08:03+08:00">2019-11-02</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>学校为了纪念达芬奇逝世500周年，借来了达芬奇的手稿真迹在城大展馆进行展出。展览中亦出展了很多城大学生的手制模型。达芬奇是一个非常全能的人，我曾今关注过他在数学和艺术上的成就（透视几何，人体结构图，最后的晚餐，蒙娜丽莎的微笑等），今天才知道他原来在机械制造，军事武器及防御工事方面也颇有建树。达芬奇一身一共有3万多份手稿，现存的不到1/5。仅凭现存的手稿我们就可以看到那些被先贤们发现的科学规律，艺术展现方式。达芬奇是大师，他像我们展现了科学的艺术性和艺术的科学性。</p>
-<p>达芬奇出身贫寒，没有受到正规的教育，但是他确实较小就开始接触绘画，并且对此有着极高的天分。他早期的作品中，虽然只是完成画作的一部分，但是已经充分的体现了他的绘画功底。他利用几何学，发展透视法，用科学的方式更加准确的描绘人，描绘色彩。</p>
-<p>达芬奇生活的年代是一个城邦间战争不断的年代。因此达芬奇对军事武器也颇有研究。他设计出了高效的攻击武器（类似诸葛连弩），前进擂鼓的鼓车等。他当时的自荐信中表明了他可以用多种材料进行工具的建造。他的信件中只是略略的提到了他自己可以用多种材料建造园林。他的战船利用一种特殊的结构包裹了船体，可以增强承重能力，因此抵得住大炮的后坐力。 达芬奇确实更想把自己的本领用在刀刃上吧。他甚至构想了飞行器，预言了飞机。 他设计的飞行器以人身为主体，展开鸟的翅膀结构。他靠分析得出人的身体重量可以飞这个概念。科学使他自信。他也是结构力学，飞行器设计的鼻祖了。</p>
-<p>我对画作不是很会欣赏，用心的感受到了他想把几何相关的一切表现的更好。</p>
-<p>像达芬奇这样全能的人并不多见，我还想到了前美国总统Benjamin Franklin。我们可能知道的是，他是总统，其实本杰明富兰克林不仅是政治家，也是科学家，发明家，作家，外交家，慈善家。他证明了闪电是放电现象并发明了避雷针，他绘制了洋流，绘制了新航线，使那一道的航行时间缩短了2周。富兰克林发现了蒸发制冷的原理。一个人怎么能快速在众多领域取得显著的成就呢？我想那一定是他们发现并利用了规律。达芬奇发现透视规律，并利用几何学在科学和艺术及军事上创造了众多成果。富兰克林同样致力于在发现事物的规律，发现人心的规律。</p>
-<p>向伟人致敬</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/Wonderful weekend-Chicago/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/02/Wonderful weekend-Chicago/" class="post-title-link" itemprop="url">Wonderful weekend! Chicago</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-02 20:41:03" itemprop="dateCreated datePublished" datetime="2019-11-02T20:41:03+08:00">2019-11-02</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天观看了城大的艺术节——歌剧“芝加哥”。之前对这座城市的印象都来自于乔丹和他的公牛队。今天这部由城大的本科生们在课余时间历经5个月排练出来的节目让人认识到了新的芝加哥。可以说歌剧以一种讽刺搞笑的方式披露了芝加哥的法界和歌舞坛艺人的荒谬。法律不是维护公平正义的利器，而被用来编排更脍炙人口的吸睛故事。事实不再重要，重要的是引人入胜的故事和那肮脏的编故事费用。歌坛的女歌手们有过之而无不及，在狱中也在想着怎么完成成为万众焦点的目标。犯案竟然也成了出名的方式。因为更多的炒作，更多的目光填充着她们的虚荣。最具有冲击的场景莫过于在Ronix得到释放之后，记者和律师转而关注别的案件，Ronix并不因为重获自由而开心，而是觉得她失去了万众的目光。可怜的Amor一再挽留也没能留住Ronix的心。</p>
-<p>在热热闹闹的歌舞爵士乐中，同样充斥着空虚和荒诞。芝加哥只有故事。而没有一个故事一个人会被记住。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1151,7 +1300,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1210,7 +1359,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
