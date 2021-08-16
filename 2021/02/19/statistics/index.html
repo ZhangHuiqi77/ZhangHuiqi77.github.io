@@ -62,7 +62,7 @@
 <meta property="og:site_name" content="Follow heart">
 <meta property="og:description" content="statistic courses by Princeton  统计学是研究数据的科学。数据-信息-知识。sample(statistics) and population(parameter),样本是总体的部分，统计量描述样本，参数描述总体descriptive statistic and inferential statistics，描述性统计和推论统计，描述统计只是描述样本的特性，推论统计在">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-08-13T09:08:52.000Z">
+<meta property="og:updated_time" content="2021-08-16T06:50:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="statistics">
 <meta name="twitter:description" content="statistic courses by Princeton  统计学是研究数据的科学。数据-信息-知识。sample(statistics) and population(parameter),样本是总体的部分，统计量描述样本，参数描述总体descriptive statistic and inferential statistics，描述性统计和推论统计，描述统计只是描述样本的特性，推论统计在">
@@ -390,6 +390,33 @@
 <p>An interesting point is that for different group of X (like control group and threat group in the course example), the correlation between M(working memory) and Y(IQ value) are the same high, which means their r^2 should be similar. That’s why M is a mediator. </p>
 <p>Another direct test to interpret the mediator effect is Sobel test, which is a kind of NHST to tell us if M is strong enough as a mediator. The Null hypothesis is that the indirect effect is zero. </p>
 <p>14.2 path analysis<br>Mediation analyses are typically illustrated using “path models”, where<br>Rectangles: observed variables(X,Y,M)<br>Circles: Unobserved variables(e)<br>Triangles: Constants<br>Arrows: Associations<br>Here we label the paths<br>    a: path from X to M<br>    b: path from M to Y<br>    c: direct path from X to Y (before including M)<br>    c’: direct path from X to Y (after including M)<br>    Note: (a * b) is know as the indirect path<br>The three  regression equations can now be re-written with new notation:<br>Y = B0 + c(X) + e<br>Y = B0 + c’(X) + b(M) + e<br>M = B0 + a(X) + e</p>
+<p>15.1 student’s t test introduction<br>    z = (Observed - Expected) / SE<br>    t = (Observed - Expected) / SE<br>when to use z test and t test?<br>z-test</p>
+<ul>
+<li>when comparing a sample mean to a population mean and the standard deviation of the population is known<br>single sample t-test</li>
+<li>when comparing a sample mean to a population mean and the standard  deviation of the population is not known<br>Dependent t test</li>
+<li>when evaluating the difference between two related samples<br>Independent t test</li>
+<li>when evaluating the differnce between two independent samples.</li>
+</ul>
+<p>15.2 dependent t-test<br>appropriated when the same subjects are being compared, for example, pre/post design, Or when two samples are matched at the level of individual subjects, allowing for a difference score to be calculated<br>a thorough analysis will include</p>
+<ul>
+<li>t-value<br>  t = (Observed - Expected) / SE<br>  t = (M - 0) / SE</li>
+<li>p-value<br>  based on t-value and the t-distribution and the directional or non-directional test</li>
+<li>Cohen’s d (effect size)<br>  d = M / SD</li>
+<li>Confidence interval (interval estimate)<br>  Upper bound = M + t(SE)<br>  Lower bound = M - t(SE)</li>
+</ul>
+<p>15.3 independent t-test<br>Also, a thorough analysis will include</p>
+<ul>
+<li><p>t-value<br>  t = (Observed - Expected) / SE<br>  t = (M1 - M2) / SE</p>
+<p>  SE = (SE1 + SE2) / 2</p>
+</li>
+<li><p>p-value<br>  based on t-value and the t-distribution and the directional or non-directional test</p>
+</li>
+<li><p>Cohen’s d (effect size)<br>  d = (M1 - M2) / SD_pooled<br>  SD_pooled = (SD1 + SD2) / 2<br>  the pooled SD is appropriate only if the variances in the two groups are equivalent, not violate the homogeneity of variance assumption</p>
+</li>
+<li><p>Confidence interval (interval estimate)<br>  Upper bound = M + t(SE)<br>  Lower bound = M - t(SE)</p>
+</li>
+</ul>
+<p>Levene’s test to detect the homogeneity of variance assumption before t test. If without variance homogeneity, it is easlier to get type error 1 (false positive).</p>
 
     </div>
 
