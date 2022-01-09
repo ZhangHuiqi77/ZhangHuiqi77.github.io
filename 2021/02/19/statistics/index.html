@@ -62,7 +62,7 @@
 <meta property="og:site_name" content="Follow heart">
 <meta property="og:description" content="statistic courses by Princeton  统计学是研究数据的科学。数据-信息-知识。sample(statistics) and population(parameter),样本是总体的部分，统计量描述样本，参数描述总体descriptive statistic and inferential statistics，描述性统计和推论统计，描述统计只是描述样本的特性，推论统计在">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-09-22T08:26:54.000Z">
+<meta property="og:updated_time" content="2021-11-19T12:55:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="statistics">
 <meta name="twitter:description" content="statistic courses by Princeton  统计学是研究数据的科学。数据-信息-知识。sample(statistics) and population(parameter),样本是总体的部分，统计量描述样本，参数描述总体descriptive statistic and inferential statistics，描述性统计和推论统计，描述统计只是描述样本的特性，推论统计在">
@@ -418,6 +418,19 @@
 </li>
 </ul>
 <p>Levene’s test to detect the homogeneity of variance assumption before independent t-test. If without variance homogeneity, it is easlier to get type error 1 (false positive).</p>
+<p>16.1 Group comparisons - one-way ANOVA<br>the ANOVA method is for replave independent test between many groups, by 1. ANOVA analysis: if significant difference exist inter groups than inner groups; 2. post-hoc test, which any two groups has such significant different. </p>
+<p>ANOVA analysis is a better choice when you have many groups, because it can avoid Type1 error(false positive) by adjust the p-value.</p>
+<p>ANOVA usually appropriate when the predictors (IVs) are all categorical and the outcome (DV) is continuous.</p>
+<p>The test statistic is the F-test (F-ratio)<br>F distribution depends on<br>• Number of subjects per group<br>• Number of groups</p>
+<p>F = (Variance between groups) / (Variance within groups)<br>F = MS_Between / MS_Within<br>F = MS_A / MS_S/A (MS_A means variance between the four group means; MS_S/A means mean of variance within each group)<br>• MS_A = SS_A / df_A<br>• SS_A = n Σ(Yj - YT)2<br>• Yj are the group means<br>• YT is the grand mean</p>
+<p>• MS_S/A = SS_S/A / df_S/A<br>• SS_S/A = Σ(Yij - Yj)2<br>• Yij are individual scores<br>• Yj are the group means</p>
+<p>• df_A = a - 1<br>• df_S/A = a(n - 1)<br>• df_TOTAL = N - 1<br>• a is the group number; n is the number in each group; N is the total number.</p>
+<p>Effect size<br>• R2 = η2 (eta-sqaured)<br>• η2 = SS_A / SS_Total</p>
+<p>Assumptions<br>• DV is continuous (interval or ratio variable)<br>• DV is normally distributed<br>• Homogeneity of variance<br>• Within-groups variance is equivalent for all groups<br>– Levene’s test</p>
+<p>Homogeneity of variance<br>• If Levene’s test is significant then homogeneity of variance assumption has been violated<br>– Conduct pairwise comparisons using a restricted error term</p>
+<p>16.2 Group comparisons - one-way ANOVA post-hoc test<br>Post-hoc tests, such as Tukey’s procedure, allow for multiple pairwise comparisons without an increase in the probability of a Type I error.</p>
+<p>Many procedures are available, varying from liberal to conservative; the degree to which p-values are adjusted varies according to procedure<br>– Most liberal: No adjustment (t test)<br>– Most conservative: Bonferroni procedure</p>
+<p>17.1 factorial ANOVA- for compare more than one factor. </p>
 
     </div>
 
@@ -512,7 +525,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -571,7 +584,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
