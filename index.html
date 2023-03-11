@@ -212,6 +212,178 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/03/11/Interesting-math-three-door/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2023/03/11/Interesting-math-three-door/" class="post-title-link" itemprop="url">Interesting math - three door problem</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2023-03-11 16:33:09 / Modified: 16:51:04" itemprop="dateCreated datePublished" datetime="2023-03-11T16:33:09+08:00">2023-03-11</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Recently, I read some math book. I do have fun. I want to modelling some interesting questions in matlab. This article is about “three door problem”. Suppose you go to a game. There are three doors and there is one car behind only one door. If you select the right one, you can get the car. After the game start, you can pick one door first, then, the hoster will open one door (without car) in the remaining two. Then, you will have a chance to decide if you want to change your choice. </p>
+<p>At the first glance, people may feel it doesn’t matter if change. the probability of the correct choice is equal to 1/3 for each door. But actally, change the choice would always help. If you are right at the first round, the probability is 1/3. But if you are wrong at the first round (probability 2/3), the hoster will open the certain one door without car, which means if you change, then the probability of the second round will be 1. So changing choice will transfer the probability of car behind the hoster-opened door to the remained one door. This help you increase the probability from 1/3 to 2/3.</p>
+<p>There is the matlab modelling of this question.<br>set ‘ifchange’ as ‘y’ for change, ‘n’ for not change. we mimic 1000 round of game. It tures our the score is close 660 if change. and for 330 for not change. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">ifchange = &apos;n&apos;;   		% set before run the code cell</span><br><span class="line"></span><br><span class="line">score = 0;</span><br><span class="line"></span><br><span class="line">for n = 1:1000						% mimic 1000 round.</span><br><span class="line"></span><br><span class="line">    door_w_car = randi([1 3]);      % mimic the door with the car</span><br><span class="line"></span><br><span class="line">    % step 1:  pick a door</span><br><span class="line">    door_picked_1st = randi([1 3]);  % mimic the first choice </span><br><span class="line"></span><br><span class="line">    if door_picked_1st == door_w_car</span><br><span class="line">       % step 2: hoster open a door</span><br><span class="line">        choices = [1 2 3];</span><br><span class="line">        ind = find(choices == door_picked_1st);</span><br><span class="line">        choices(ind) = [];  % remove the 1st choice</span><br><span class="line">        choice_A = choices(1);</span><br><span class="line">        choice_B = choices(2);</span><br><span class="line"></span><br><span class="line">        random_choice = randi([1 2], 1, 1);</span><br><span class="line"></span><br><span class="line">        if random_choice == 1</span><br><span class="line">            door_opened = choice_A;</span><br><span class="line">        else</span><br><span class="line">            door_opened = choice_B;</span><br><span class="line">        end</span><br><span class="line"></span><br><span class="line">        % step 3: if change</span><br><span class="line">        switch ifchange</span><br><span class="line">            case &apos;y&apos;</span><br><span class="line">                ind = find(choices == door_opened);</span><br><span class="line">                choices(ind) = [];</span><br><span class="line">                door_picked_2nd = choices(1);</span><br><span class="line">                door_picked_end = door_picked_2nd;</span><br><span class="line">            case &apos;n&apos;</span><br><span class="line">                door_picked_end = door_picked_1st;</span><br><span class="line">        end</span><br><span class="line"></span><br><span class="line">        % step 4: if win</span><br><span class="line">        if door_picked_end == door_w_car</span><br><span class="line">            score = score + 1;</span><br><span class="line">        end</span><br><span class="line"></span><br><span class="line">    else</span><br><span class="line">        % step 2: hoster open a door.</span><br><span class="line">        % step 3: if change</span><br><span class="line">        switch ifchange</span><br><span class="line">            case &apos;y&apos;</span><br><span class="line">                door_picked_end = door_w_car;</span><br><span class="line">            case &apos;n&apos;</span><br><span class="line">                door_picked_end = door_picked_1st;</span><br><span class="line">        end</span><br><span class="line"></span><br><span class="line">        % if win</span><br><span class="line">        if door_picked_end == door_w_car</span><br><span class="line">            score = score + 1;</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">disp(score)</span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/01/14/NeuroAI - 1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2023/01/14/NeuroAI - 1/" class="post-title-link" itemprop="url">NeuroAI - great scientists enlight the intelligence of machines</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2023-01-14 16:27:02 / Modified: 17:17:26" itemprop="dateCreated datePublished" datetime="2023-01-14T16:27:02+08:00">2023-01-14</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Science/" itemprop="url" rel="index"><span itemprop="name">Science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>I want to write down some key concepts and words here, which can link everything. </p>
+<ol>
+<li><p>Turing computable function was euqal to general recursive function. -&gt; computater can approach infinity by brute force calculation.</p>
+</li>
+<li><p>Schrodinger came up with an opinion in his book “what is life”: life depend on negative entropy to survive. -&gt; if machine also depend on order to survive, it can be considered carriers of cognition. </p>
+</li>
+<li><p>Wiener suggests interaction (feedback) support the realization of intelligence.</p>
+</li>
+<li><p>Turing test</p>
+</li>
+<li><p>In the book “The Human use of human beings - cybernetics and society”, Wiener suggested that the intelligence of humans and machines can be realized through interactive cognition. </p>
+</li>
+</ol>
+<p>From Schrodinger: </p>
+<p>in the age of agriculture and industrial, the tools parasitic on matters and energy, forming hard structure or complex hard structured ware. But in the age of information or intelligence, machines contains four elements, matters, energy, structure and time. </p>
+<p>time is the foundation of machine cognition.</p>
+<p>material, energy, structure, time are in the machine. clock depend on energy. time depend on clock. order depend on time. </p>
+<p>machine run programme. The programme depend on sequence. The software depend on the interaction. the sequence and interaction generate negative entropy and the machine depends on negative entropy for life. </p>
+<p>The clock is constant, interacting with the outside world, thinking and cognition. </p>
+<p>“time” is the band of entanglement between physical world and congnitive world. I always have some feeling that people are sensitive to time. But I do not know why. The base of the importance of time is that it interact the physical and cognitive world. </p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/07/23/Albert-Einstein-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1090,216 +1262,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/26/philosophy-5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/10/26/philosophy-5/" class="post-title-link" itemprop="url">一周哲思(5)-规则，黑冰有感</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-10-26 13:19:56" itemprop="dateCreated datePublished" datetime="2020-10-26T13:19:56+08:00">2020-10-26</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Philosophy/" itemprop="url" rel="index"><span itemprop="name">Philosophy</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li><p>棋是一盘一盘下的，概率没有意义。这就是我为什么不喜欢用概率论分析生活的原因。这个世界不是一个决定论的世界，因为时间不能倒流，每一件事情都会留下痕迹。因此走一步看一步是最灵活也是战术层面上最高效的。更高级、抽象的层面叫做战略。</p>
-</li>
-<li><p>教育是最有意义的事情，因为它塑造人的灵魂，而人正是由灵魂定义的。教育中影响最大的就是家庭环境。能释放天性的教育是最好的教育。</p>
-</li>
-<li><p>没有选择就没有痛苦。有些地方民风淳朴不是因为天时地利人和政治经济法制，仅仅是因为 穷。在有选择的时候把持良知是每个人都需要修炼的。什么都没有，但什么都不缺。这是佛教中开悟的佛，基督教中的神耶稣，儒家的圣人。</p>
-</li>
-<li><p>人都是复杂的，不复杂的就不是人了。要用发展的眼光看待人。</p>
-</li>
-</ol>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/19/data-science-7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/10/19/data-science-7/" class="post-title-link" itemprop="url">data science(7)- data transformation</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-10-19 21:18:42 / Modified: 21:24:44" itemprop="dateCreated datePublished" datetime="2020-10-19T21:18:42+08:00">2020-10-19</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>数据变换是为了让各个来源的数字变得有意义比较，常见的是z-score变换，可以把数据scale到一个正态分布中。我们的实验大多服从正态分布。可以说正态分布是动物实验的一个基本假设。虽然我对这个假设再有些实验的应用表示怀疑。因此z-score是最常用的方法，当然还有其他的一些变换，目的是为了让数据在一个更易操作，有比较意义的空间中。常见的还有min-max scale, 小数标定规范化，对数变换等。sklearn有封装好的函数，调用即可。</p>
-<h2 id="practice"><a href="#practice" class="headerlink" title="practice"></a>practice</h2><pre><code>#%%
-
-# coding:utf-8
-from sklearn import preprocessing
-import numpy as np
-# 初始化数据，每一行表示一个样本，每一列表示一个特征
-x = np.array([[ 0., -3., 1.],
-[ 3., 1., 2.],
-[ 0., 1., -1.]])
-# 将数据进行 [0,1] 规范化
-min_max_scaler = preprocessing.MinMaxScaler()
-minmax_x = min_max_scaler.fit_transform(x)
-print (minmax_x)
-
-#%%
-from sklearn import preprocessing
-import numpy as np
-# 初始化数据
-x = np.array([[ 0., -3., 1.],
-[ 3., 1., 2.],
-[ 0., 1., -1.]])
-# 将数据进行 Z-Score 规范化
-scaled_x = preprocessing.scale(x)
-print (scaled_x)
-
-
-#%%
-# coding:utf-8
-from sklearn import preprocessing
-import numpy as np
-# 初始化数据
-x = np.array([[ 0., -3., 1.],
-[ 3., 1., 2.],
-[ 0., 1., -1.]])
-# 小数定标规范化
-j = np.ceil(np.log10(np.max(abs(x))))
-scaled_x = x/(10**j)
-print (scaled_x)</code></pre>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1351,7 +1313,7 @@ print (scaled_x)</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1410,7 +1372,7 @@ print (scaled_x)</code></pre>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
