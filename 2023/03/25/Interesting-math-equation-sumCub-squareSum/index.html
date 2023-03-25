@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="I see an equation “(1^3+2^3+…+n^3) = (1+2+…+n)^2” from a book. I want to prove it.  In matlab, we can test many cases by numbers input. Another more intuitive way is to plot it. Because it is obvious">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Interesting math - equation of sumCub and squareSum">
+<meta property="og:url" content="http://yoursite.com/2023/03/25/Interesting-math-equation-sumCub-squareSum/index.html">
+<meta property="og:site_name" content="Follow heart">
+<meta property="og:description" content="I see an equation “(1^3+2^3+…+n^3) = (1+2+…+n)^2” from a book. I want to prove it.  In matlab, we can test many cases by numbers input. Another more intuitive way is to plot it. Because it is obvious">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://github.com/ZhangHuiqi77/ZhangHuiqi77.github.io/blob/master/IM_equation_1.jpg">
+<meta property="og:updated_time" content="2023-03-25T10:07:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Interesting math - equation of sumCub and squareSum">
+<meta name="twitter:description" content="I see an equation “(1^3+2^3+…+n^3) = (1+2+…+n)^2” from a book. I want to prove it.  In matlab, we can test many cases by numbers input. Another more intuitive way is to plot it. Because it is obvious">
+<meta name="twitter:image" content="https://github.com/ZhangHuiqi77/ZhangHuiqi77.github.io/blob/master/IM_equation_1.jpg">
+  <link rel="canonical" href="http://yoursite.com/2023/03/25/Interesting-math-equation-sumCub-squareSum/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Interesting math - equation of sumCub and squareSum | Follow heart</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Follow heart</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/03/25/Interesting-math-equation-sumCub-squareSum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Interesting math - equation of sumCub and squareSum
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2023-03-25 17:28:10 / Modified: 18:07:16" itemprop="dateCreated datePublished" datetime="2023-03-25T17:28:10+08:00">2023-03-25</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>I see an equation “(1^3+2^3+…+n^3) = (1+2+…+n)^2” from a book. I want to prove it. </p>
+<p>In matlab, we can test many cases by numbers input. Another more intuitive way is to plot it. Because it is obvious that the right part of the equation is an area expression. </p>
+<p>I did both in matlab.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">% this script is for prove (1^3+2^3+...+n^3) = (1+2+...+n)^2</span><br><span class="line"></span><br><span class="line">%% Method 1: numerical proof</span><br><span class="line"></span><br><span class="line">n = 100;</span><br><span class="line"></span><br><span class="line">r1 = addpw3(n);</span><br><span class="line">disp(r1)</span><br><span class="line"></span><br><span class="line">r2 = squsum(n);</span><br><span class="line">disp(r2)</span><br><span class="line"></span><br><span class="line">disp(r1==r2)</span><br><span class="line"></span><br><span class="line">%% Method 2: graphic proof</span><br><span class="line">% we can construct the area as square of sums. </span><br><span class="line">% Then, the area can be calculated by two ways. </span><br><span class="line">% 1. add each color. (left of the equation)</span><br><span class="line">% 2. directly calculate the area by length and width. </span><br><span class="line"></span><br><span class="line">n = 10;</span><br><span class="line"></span><br><span class="line">color = &#123;[0 0.4470 0.7410],...</span><br><span class="line">    [0.8500 0.3250 0.0980],...</span><br><span class="line">    [0.9290 0.6940 0.1250],...</span><br><span class="line">    [0.4940 0.1840 0.5560],...</span><br><span class="line">    [0.4660 0.6740 0.1880]&#125;;    % loop using the colors in the matrix.</span><br><span class="line"></span><br><span class="line">figure;</span><br><span class="line"></span><br><span class="line">while n &gt; 0</span><br><span class="line">    x = 0:sum(0:n);     </span><br><span class="line">    [X,Y] = meshgrid(x); % construct the right part of the equation</span><br><span class="line">    </span><br><span class="line">    Z = ones(size(X));</span><br><span class="line">    </span><br><span class="line">    c = zeros(size(X,1),size(X,2),3);</span><br><span class="line">    cc = color&#123;mod(n,5)+1&#125;;</span><br><span class="line">    c(:,:,1) = cc(1);   % fill color R to dim1</span><br><span class="line">    c(:,:,2) = cc(2);   % fill color R to dim1</span><br><span class="line">    c(:,:,3) = cc(3);   % fill color R to dim1</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    surf(X,Y,Z,c)</span><br><span class="line">%     mesh(X,Y,Z,c)</span><br><span class="line">    hold on</span><br><span class="line">    n = n-1;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">%% local functions</span><br><span class="line">function res = addpw3(n)</span><br><span class="line">    res = 0;</span><br><span class="line">    for i = 1:n</span><br><span class="line">        res = res + i^3;</span><br><span class="line">    end     </span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">function res = squsum(n)</span><br><span class="line">    res = (sum(1:n))^2;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>The output of method two is like this:</p>
+<p><img src="https://github.com/ZhangHuiqi77/ZhangHuiqi77.github.io/blob/master/IM_equation_1.jpg" alt="matlab output"></p>
+<p>(If the image does not shown, click <a href="https://github.com/ZhangHuiqi77/ZhangHuiqi77.github.io/blob/master/IM_equation_1.jpg" target="_blank" rel="noopener">https://github.com/ZhangHuiqi77/ZhangHuiqi77.github.io/blob/master/IM_equation_1.jpg</a>)</p>
+<p>For fun, I asked chatGPT(GPT3.5), it gives me a long induction proof. Actually, I do not read into all. It seems right but kind of complex for some steps. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">how to prove (1^3+2^3+...+n^3) = (1+2+...+n)^2</span><br><span class="line">--------------------------</span><br><span class="line">One way to prove this identity is to use mathematical induction.</span><br><span class="line"></span><br><span class="line">First, let&apos;s verify that the identity holds true for the base case n=1:</span><br><span class="line"></span><br><span class="line">Copy code</span><br><span class="line">1^3 = 1^2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">This is indeed true, so the base case holds.</span><br><span class="line"></span><br><span class="line">Next, we assume that the identity holds true for some integer k, which means that:</span><br><span class="line"></span><br><span class="line">scss</span><br><span class="line">Copy code</span><br><span class="line">1^3 + 2^3 + ... + k^3 = (1 + 2 + ... + k)^2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">We now need to show that the identity also holds true for k+1, which means that we need to prove:</span><br><span class="line"></span><br><span class="line">scss</span><br><span class="line">Copy code</span><br><span class="line">1^3 + 2^3 + ... + (k+1)^3 = (1 + 2 + ... + (k+1))^2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">We can start by expanding the left-hand side:</span><br><span class="line"></span><br><span class="line">scss</span><br><span class="line">Copy code</span><br><span class="line">1^3 + 2^3 + ... + (k+1)^3</span><br><span class="line">= (1^3 + 2^3 + ... + k^3) + (k+1)^3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">We know from the induction hypothesis that:</span><br><span class="line"></span><br><span class="line">scss</span><br><span class="line">Copy code</span><br><span class="line">1^3 + 2^3 + ... + k^3 = (1 + 2 + ... + k)^2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">So we can substitute this into the above equation:</span><br><span class="line"></span><br><span class="line">scss</span><br><span class="line">Copy code</span><br><span class="line">(1^3 + 2^3 + ... + k^3) + (k+1)^3</span><br><span class="line">= (1 + 2 + ... + k)^2 + (k+1)^3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Now, let&apos;s expand the right-hand side:</span><br><span class="line"></span><br><span class="line">scss</span><br><span class="line">Copy code</span><br><span class="line">(1 + 2 + ... + k)^2 + (k+1)^3</span><br><span class="line">= [(k(k+1)/2)^2] + (k+1)^3</span><br><span class="line">= [(k^2 + 2k + 1)/4] + (k+1)^3</span><br><span class="line">= [(k^3 + 3k^2 + 3k + 1)/4] + (k+1)^3</span><br><span class="line">= [(k^3 + 3k^2 + 3k + 1) + 4(k+1)^3]/4</span><br><span class="line">= [(k+1)(k^2 + 4k + 4)]^2/4</span><br><span class="line">= [(k+1)^2(k+2)^2]/4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Now, we can compare the left-hand and right-hand sides:</span><br><span class="line"></span><br><span class="line">scss</span><br><span class="line">Copy code</span><br><span class="line">1^3 + 2^3 + ... + (k+1)^3 = [(k+1)^2(k+2)^2]/4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">We can simplify the left-hand side using the formula for the sum of cubes:</span><br><span class="line"></span><br><span class="line">scss</span><br><span class="line">Copy code</span><br><span class="line">1^3 + 2^3 + ... + (k+1)^3 = [(k(k+1)/2)^2 + (k+1)^3]/4</span><br><span class="line">                           = [(k^2(k+1)^2 + 4(k+1)^3)/8]</span><br><span class="line">                           = [(k+1)^2(k^2 + 5k + 6)/8]</span><br><span class="line">                           = [(k+1)^2(k+2)^2]/4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Therefore, the identity holds true for k+1.</span><br><span class="line"></span><br><span class="line">By the principle of mathematical induction, the identity holds true for all positive integers n.</span><br><span class="line">--------------------------</span><br><span class="line">NEW</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2023/03/11/Interesting-math-three-door/" rel="next" title="Interesting math - three door problem">
+                  <i class="fa fa-chevron-left"></i> Interesting math - three door problem
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/cat.jpg"
+      alt="Huiqi Zhang">
+  <p class="site-author-name" itemprop="name">Huiqi Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/ZhangHuiqi77" title="GitHub &rarr; https://github.com/ZhangHuiqi77" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:zhanghuiqi_77@163.com" title="E-Mail &rarr; mailto:zhanghuiqi_77@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huiqi Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
