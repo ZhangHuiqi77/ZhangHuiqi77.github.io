@@ -212,6 +212,186 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/06/02/Interesting-Math-problem-odd-even/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2023/06/02/Interesting-Math-problem-odd-even/" class="post-title-link" itemprop="url">Interesting Math problem - odd-even</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2023-06-02 18:14:44 / Modified: 18:59:52" itemprop="dateCreated datePublished" datetime="2023-06-02T18:14:44+08:00">2023-06-02</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Science/" itemprop="url" rel="index"><span itemprop="name">Science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Odd and even feature is everywhere. We can alway separate the things to two catgories (A and none-A). That is the basic that we can define an absolute feature. For example, if we want to explain Left and Right in earth to an alien. We need to find a common Left/Right thing in both planets. I am very suprised to know this feature need to rely on parity non-conservation of weak interaction (宇称不守恒). This identified an constant direction. Then, we can also identify clockwise and counterclockwise. </p>
+<p>Odd and even feature is a philosophy thought. It can help us simplify many questions. Because the two-choice decrease the dimension of the change. Here we can paly a game - guess the flipping coins. </p>
+<ol>
+<li>all coins are randomly placed with front up or bottom up. You have a look and turn around (You cannot see which coin is flipped by your friend then)</li>
+<li>your friend is allowed to flip any coin once a time, but he need to report the flipping behavior when doing that.</li>
+<li>your friend is asked to cover one coin with his hand. </li>
+<li>the you can turn back and have a look. and tell people if the covered coin be flipped or not.</li>
+</ol>
+<p>We can address this problem by slighly remember the initial number of front-up coins. Then count the number of flipping. Then according to odd-even regularity, we can easily know if the odd-even feature of the front-up coins number should be change. </p>
+<p>ODD + ODD = EVEN<br>ODD + EVEN = ODD<br>EVEN + ODD = ODD<br>EVEN + EVEN = EVEN</p>
+<p>I model the whole procedure in Matlab:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">%% prepare coins. </span><br><span class="line">coinTotalNum = input(&apos;Enter a number as the total coin number: &apos;);</span><br><span class="line">disp([&apos;Total coin number is &apos;,num2str(coinTotalNum)])</span><br><span class="line"></span><br><span class="line">%% assign 0 as &quot;front up&quot; or 1 as &quot;bottom up&quot;</span><br><span class="line">coins = rand(1,coinTotalNum);   % generate random series to mimic coin state</span><br><span class="line">for m = 1:coinTotalNum</span><br><span class="line">   x = coins(m);</span><br><span class="line">    if x &lt; 0.5</span><br><span class="line">        coins(m) = 0;   % &lt;0.5 has 50% propability, and assign as 0, front up</span><br><span class="line">    else</span><br><span class="line">        coins(m) = 1;   % &gt;0.5 has 50% propability, and assign as 1, bottom up</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">disp(coins)</span><br><span class="line"></span><br><span class="line">% So at this time, you need you know the ODD-EVEN feature of the number </span><br><span class="line">% of front up coins. </span><br><span class="line">frontNum = sum(coins == 0); % coins == 0 will return logic array. </span><br><span class="line">                            % then count the logic 1 number</span><br><span class="line">% get the front-up feature</span><br><span class="line">if mod(frontNum,2) == 0</span><br><span class="line">    frontFea = 0;</span><br><span class="line">    disp(&apos;Front up number is EVEN&apos;)</span><br><span class="line">else</span><br><span class="line">    frontFea = 1;</span><br><span class="line">    disp(&apos;Front up number is ODD&apos;)</span><br><span class="line">end</span><br><span class="line">% Now you know the ODD-EVEN feature of the front-up coins.</span><br><span class="line"></span><br><span class="line">%% Then you friend randomly flip the coins and report.</span><br><span class="line">flipNum = input(&apos;Enter the number that the frind flip coins: &apos;);</span><br><span class="line">% get flip features</span><br><span class="line">if mod(flipNum,2) == 0</span><br><span class="line">    flipFea = 0;</span><br><span class="line">    disp(&apos;Flip number is EVEN&apos;)</span><br><span class="line">else</span><br><span class="line">    flipFea = 1;</span><br><span class="line">    disp(&apos;Flip number is ODD&apos;)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% now you know the ODD-EVEN feature of the flipped coins. </span><br><span class="line">% execute the flip behavior to coins</span><br><span class="line">for m = 1:flipNum</span><br><span class="line">    randomInd = randperm(coinTotalNum,1);</span><br><span class="line">    coins_flipped = coins;</span><br><span class="line">    coins_flipped(randomInd) = 1 - coins_flipped(randomInd);    % flip the coin, so 0 -&gt; 1 or 1 -&gt; 0</span><br><span class="line">end</span><br><span class="line">% disp(coins)</span><br><span class="line"></span><br><span class="line">% Now, you can know if the ODD-EVEN feature should change after flip</span><br><span class="line"></span><br><span class="line">if frontFea == flipFea</span><br><span class="line">    frontFea_flipped = 0;</span><br><span class="line">    disp(&apos;front-up number should be EVEN after flipping&apos;)</span><br><span class="line">else</span><br><span class="line">    frontFea_flipped = 1;</span><br><span class="line">    disp(&apos;front-up number should be ODD after flipping&apos;)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%% now your friend cover one coin</span><br><span class="line">coins_coveredNum = randperm(coinTotalNum,1);</span><br><span class="line">disp([&apos;the covered coin number is : &apos;, num2str(coins_coveredNum)])</span><br><span class="line">% then, you turn back your body and see the uncovered coins, you just need</span><br><span class="line">% to count the ODD or EVEN.</span><br><span class="line">coins_uncovered = coins_flipped;    % add a copy</span><br><span class="line">coins_uncovered(coins_coveredNum) = [];</span><br><span class="line">% disp(coins_uncovered)</span><br><span class="line"></span><br><span class="line">% count the front-up number</span><br><span class="line">frontNum_flipped_covered = sum(coins_uncovered == 0); </span><br><span class="line"></span><br><span class="line">% get the front-up feature</span><br><span class="line">if mod(frontNum_flipped_covered,2) == 0</span><br><span class="line">    frontFea_flipped_covered = 0;</span><br><span class="line">    disp(&apos;Front up number after flipped and covered is EVEN&apos;)</span><br><span class="line">else</span><br><span class="line">    frontFea_flipped_covered = 1;</span><br><span class="line">    disp(&apos;Front up number after flipped and covered is ODD&apos;)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">if frontFea_flipped == frontFea_flipped_covered</span><br><span class="line">    disp(&apos;the covered coin is not flipped&apos;)</span><br><span class="line">else</span><br><span class="line">    disp(&apos;the covered coin is flipped&apos;)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">%% check the coin flipped</span><br><span class="line">disp(coins_flipped)</span><br></pre></td></tr></table></figure>
+
+<p>TaDa! The code is a little long, but very clear. </p>
+<p>I play this with chatGPT(3.5). If I describe the whole rule and even a specific case to it. chatGPT said it do not know the answer. When I simply tell it I flip, for example 8 times, it will try to analyze the question by using the odd-even feature. But it still give a wrong anwer. It cannot generalize the question very well. Actually if I do not tell it the state of coins after flipping, it will never know how many coins should be head up. Only the odd-even feature would be conserved. But not the specific state. Details showed here: </p>
+<p>1st play this game with chatGPT<br><strong>You:</strong></p>
+<p>Hi, I want to play a game with you</p>
+<hr>
+<p><strong>ChatGPT:</strong></p>
+<p>Of course! I’d be happy to play a game with you. What game would you like to play?</p>
+<hr>
+<p><strong>You:</strong></p>
+<p>I have 5 coins. Now I will tell you they are head-up or tail-up. If it is head-up, I will use a 0, if tail-up I will use a 1. Initially, the states is 0 0 1 1 1. Now I flipped for 21 times. And I covered the forth coin so you cannot see it. What you see now is 0 0 1   1.  Do you think the forth coin is flipped ?</p>
+<hr>
+<p><strong>ChatGPT:</strong></p>
+<p>Based on the information provided, it is not possible to determine with certainty whether the fourth coin has been flipped or not. Since you have flipped the coins 21 times and the information given is “0 0 1 1,” it indicates the outcome of the first three coins (head, head, tail), but the fourth coin’s outcome is unknown.<br>To determine the state of the fourth coin, we would need additional information such as the results of the additional flips or the specific rules you followed when covering the fourth coin. Without that information, it is impossible to determine whether the fourth coin has been flipped or not.</p>
+<hr>
+<p><strong>You:</strong></p>
+<p>Let me describe more detailed. I have 5 coins. Now I will tell you they are head-up or tail-up. If it is head-up, I will use a 0, if tail-up I will use a 1. Initially, the states is 0 0 1 0 1. Now I randomly flipped the coins, once a time. I totally flipped 21 times. Then, I covered the forth coin so you cannot see it. What you see now is 0 0 1 1.  Do you think the forth coin is flipped ?</p>
+<hr>
+<p><strong>ChatGPT:</strong></p>
+<p>Thank you for providing more details. Based on the information you provided, we can make an educated guess about the state of the fourth coin.<br>Initially, the state of the coins is 0 0 1 0 1. After a total of 21 flips, you covered the fourth coin, and what I can see is 0 0 1 1.<br>Given that the first three coins were initially set to 0 0 1, we can conclude that they remained the same throughout the 21 flips. However, the state of the fourth coin (initially 0) is unknown because you covered it.<br>Therefore, it is not possible to definitively determine the state of the fourth coin without further information. It could be either flipped (1) or still in its initial state (0).</p>
+<hr>
+<p>2nd play with chatGPT<br><strong>You:</strong></p>
+<p>I want to play a game with you</p>
+<hr>
+<p><strong>ChatGPT:</strong></p>
+<p>Of course! I’d be happy to play a game with you. Please let me know which game you’d like to play or if you have any specific game in mind.</p>
+<hr>
+<p><strong>You:</strong></p>
+<p>I have 5 coins, 0 means front-up, 1 means bottom-up. Now I randomly place them on the table. And you are allowed to know which side is up. So for now, it is 0 0 1 0 1</p>
+<hr>
+<p><strong>ChatGPT:</strong></p>
+<p>Great! I understand the setup. You have five coins, and the current configuration is: 0 0 1 0 1. You’re asking me to determine which side is up for each coin.<br>To clarify, when you say “0 means front-up, 1 means bottom-up,” do you mean that a “0” represents heads and a “1” represents tails?</p>
+<hr>
+<p><strong>You:</strong></p>
+<p>yes, your understanding is right. If you do not have other problem, let go on</p>
+<hr>
+<p><strong>ChatGPT:</strong></p>
+<p>Thank you for confirming. Let’s proceed with the game.<br>Based on the current configuration you provided (0 0 1 0 1), I will analyze each coin and determine the side that is facing up.<br>Analyzing the coins one by one:</p>
+<ol>
+<li>Coin 1: 0 (front-up or heads)</li>
+<li>Coin 2: 0 (front-up or heads)</li>
+<li>Coin 3: 1 (bottom-up or tails)</li>
+<li>Coin 4: 0 (front-up or heads)</li>
+<li>Coin 5: 1 (bottom-up or tails)</li>
+</ol>
+<p>So, according to my analysis, the current configuration is as follows:</p>
+<p>Coin 1: Front-up or heads (0)
+Coin 2: Front-up or heads (0)
+Coin 3: Bottom-up or tails (1)
+Coin 4: Front-up or heads (0)
+Coin 5: Bottom-up or tails (1)</p>If my analysis is correct, these are the sides that are facing up for each coin. Let me know if I got it right!
+
+
+<hr>
+<p><strong>You:</strong></p>
+<p>You are right. Now I will flip the coins for 8 times. Do you know how many coins would be front-up?</p>
+<hr>
+<p><strong>ChatGPT:</strong></p>
+<p>Yes, I can help you determine the number of coins that would be front-up after flipping them 8 times.<br>Since each coin has two sides (front and bottom), flipping a coin essentially changes its current side. If a coin is currently front-up (0), flipping it will make it bottom-up (1), and vice versa.<br>To calculate the number of coins that would be front-up after 8 flips, we need to consider the initial configuration and the number of flips.<br>Based on the initial configuration you provided (0 0 1 0 1), we know that Coins 1, 2, and 4 are initially front-up (0), while Coins 3 and 5 are initially bottom-up (1).<br>Now, let’s consider the 8 flips. Each flip will change the side of a coin. Since there are 5 coins, we can calculate the number of front-up coins after 8 flips by looking at the remainder when dividing 8 by 2 (the number of sides).<br>8 divided by 2 equals 4 with no remainder. This means that after 8 flips, the pattern will repeat, and the same configuration as the initial state will be achieved. Therefore, the number of front-up coins after 8 flips will be the same as the initial number of front-up coins.<br>In the initial configuration, there are 3 front-up coins (Coins 1, 2, and 4). Therefore, after 8 flips, we can expect that 3 coins will still be front-up.<br>Please let me know if you have any further questions!</p>
+<hr>
+<p><strong>You:</strong></p>
+<p>You are clever! but you got wrong. Let’s start again</p>
+<hr>
+<p><strong>ChatGPT:</strong></p>
+<p>Apologies for the mistake. Let’s start again.<br>Based on the initial configuration of 0 0 1 0 1, and considering that you will now flip the coins 8 times, we can determine the number of coins that would be front-up.<br>To do this, we need to keep track of the flips and update the configuration after each flip. Let’s go step by step:<br>Initial configuration: 0 0 1 0 1</p>
+<p>After 1st flip:
+Coin 1: 1 (bottom-up or tails)
+Coin 2: 1 (bottom-up or tails)
+Coin 3: 0 (front-up or heads)
+Coin 4: 1 (bottom-up or tails)
+Coin 5: 0 (front-up or heads)</p><p>After 2nd flip:
+Coin 1: 0 (front-up or heads)
+Coin 2: 0 (front-up or heads)
+Coin 3: 1 (bottom-up or tails)
+Coin 4: 0 (front-up or heads)
+Coin 5: 1 (bottom-up or tails)</p>Continuing this process, after 8 flips, we can determine the final configuration of the coins:
+<p>Final configuration after 8 flips:
+Coin 1: 1 (bottom-up or tails)
+Coin 2: 1 (bottom-up or tails)
+Coin 3: 0 (front-up or heads)
+Coin 4: 1 (bottom-up or tails)
+Coin 5: 0 (front-up or heads)</p>Now, let's count the number of front-up coins in the final configuration. We have 2 coins facing front-up (Coin 3 and Coin 5).
+Therefore, after 8 flips, there would be 2 coins facing front-up.
+I apologize for any confusion earlier. Let me know if there's anything else I can assist you with!
+
+
+<hr>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/03/25/Interesting-math-equation-sumCub-squareSum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -242,6 +422,19 @@
               
 
               <time title="Created: 2023-03-25 17:28:10" itemprop="dateCreated datePublished" datetime="2023-03-25T17:28:10+08:00">2023-03-25</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Science/" itemprop="url" rel="index"><span itemprop="name">Science</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -969,265 +1162,6 @@
 <p>毕老师没有提独立的观点，但是她对交流过程的问题进行了很多的梳理。首先她坦诚道自己并不了解计算领域的理论，我很理解并赞赏这种坦诚。她几次赞同杨的观点，并且补充道人脑的功能可能是被发明的(把可见光光谱定义为颜色，在进行任务之前这种概念就提供的帮助和影响)。另外一个观点与我之前所想是一致的，现在的生物学的研究常用各种病理的条件，或者进行感官的剥夺来破坏一些“功能”，其实这样的实验设计是基于一个假设————被研究的行为是可计算的。我认为发育和疾病是两种最直接和明显的干预。</p>
 <p>刘陈二人先对哥德尔定理和认知及计算的关系进行了简要的介绍。之后的讨论进行的比较自由，有点各说各话的感觉，但是仍然可以感觉到刘陈二人观点相近，认为图灵可计算性，特别是AI仍然可以对认知的解析做出贡献。杨毕二人观点相近，认为脑的计算是远超过计算机的，人的很多行为可以被图灵机实现，但不是被其模拟。很有趣的是对于情感的可计算性问题，这是唯一一个四位老师都发言的问题。 这里我尝试着进行一下归纳。刘晓力老师说明情感计算不是图灵可计算的，机器人的情感都是模拟的，不是真的。此处我真的对情感计算产生了好奇，所以情感是怎么产生的呢？陈小平老师结合了一些表情识别与情绪预判在AI中应用的实例，可以AI在实践中上可以实现情感判断。杨的观点很鲜明，他强调了两点，1)智能服务于人但是独立于情感之外；2)情感计算神经环路跟价值计算(非逻辑计算)的神经环路是一致的，价值计算是意识下的，情感的表现，喜怒哀乐是意识层面的，这就有一个如何呈现的问题在里面。</p>
 <p>人的思维受情感，意识，外部环境，身体，社会，动力的影响，其已被证明不是标准意义的图灵可计算的，大脑必以不同的方式运行，也许是量子的。能否在这个角度想的更多？</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/19/statistics/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2021/02/19/statistics/" class="post-title-link" itemprop="url">statistics</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2021-02-19 16:21:07" itemprop="dateCreated datePublished" datetime="2021-02-19T16:21:07+08:00">2021-02-19</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>statistic courses by Princeton</p>
-<ol start="0">
-<li><p>统计学是研究数据的科学。数据-信息-知识。<br>sample(statistics) and population(parameter),样本是总体的部分，统计量描述样本，参数描述总体<br>descriptive statistic and inferential statistics，描述性统计和推论统计，描述统计只是描述样本的特性，推论统计在于用样本描述总体。<br>Research method: descriptive(organize and summarize the data), correlational(examine relations among variable) and experimental(explain causal mechanisms)<br>实验方法可分为两大类，experimental类和correlational类。experimental是证明因果关系的金标准，但是很多时候我们无法进行因果实验，相关性实验也是非常有用的。</p>
-</li>
-<li><p>Experimental Research. 因果实验的设计中有两个关键因素，1)被试随机分组。 2)treatment组和placebo组除干预外无其他干扰因素；<br>课程中举了两个例子，一个是骨髓灰质炎疫苗注射对儿童感染某病的概率。这是一个严格的因果实验。<br>第二个是智力训练对智商的影响，这个实验中，伴有过程性的不同，实验组每天固定地点进行90min智力训练，对照组，just none. 实验结果显示了训练的有效性，但是这个对照不是特别的严格，也许不是训练本身，而是每天训练这一行为让被试在测试时更有信心。但是这个实验总的来说确实算是experimental类。</p>
-</li>
-<li><p>correlational Research， 这类实验更像是对某种现象进行观察，而没有具体的treatment，课程中举了三个例子。前两个是性格测试和学习成绩测试。相关类实验往往会把测试题目之间进行相关分析或者把个人习惯与测试题目进行相关分析。得出的结论类似于数学成绩好的同学往往物理成绩也好。或者说外向的人往往觉得自己是party的中心。<br>还有一类比较容易被人误解成experimental类的实验。例如sport-induced concussion与认知能力（记忆测试）或身体平衡能力之间的关系。大概我们会的的哦这样的实验现象：与做同样运动但是没有遭遇concussion的人比较，concussion后认知能力或者平衡能力下降。但是我们并不能说concussion导致了该能力的下降。这个分析中，由于我们不能对被试进行随机分组，所以我们不能得到强有力的causal mechanism。concussion is a quasi-independent variable.(准自变量)。 因为有可能是某些其他原因导致了他们喜欢sport并容易在sport中遭遇脑震荡。concussion组本身在人群中(即便是爱同种运动的人群中)是有偏的。 我们的结论严谨的来说应该是sport-induced concussion与认知能力和平衡能力的下降相关。 </p>
-</li>
-<li><p>变量的类型分为 norminal，ordinal，interval，ratio四类。其中norminal是分类，例如国别，性别；ordinal是对分类的排序，例如人数最多，第二多，第三多的国家或者金牌银牌铜牌；interval是数值，如经纬度；ratio是数值，与interval型的不同之处在于0在ratio类型的数据中具有实际的含义，如人口为0，温度为0；</p>
-</li>
-</ol>
-<p>分布是表现所有样本的常用方法，最常见的是正态分布(人群的体温，身高，体重等)。当然也有一些分布不是正态的。总得来说我们比较常见的几种如下：<br>normal distribution<br>positive skewed distribution (small ratio is on the positive side)<br>negativa skewed distribution<br>leptokurtic distribution</p>
-<p>关于变量的scale，是数据的不同度量，我们常见的温度有℃和℉两种度量。在统计学中，有一种统一的度量叫做z scale. 数据经过Z = (X-M)/SD的convert, 会将mean定义为零点，而原度量下的数值均可转化成std的倍数。可以说z score是统计学研究人员统一的交流方式。</p>
-<p>我还有一些问题关于其他的分布，此处还未涉及。</p>
-<ol start="4">
-<li>summary statistic<br>central tendency and variability</li>
-</ol>
-<p>central tendency<br>M = mean: point estimate of the whole distribution. Worked well for most situation<br>median: better than mean when you have skewed distribution. the extreme value won’t bias the median.<br>mode: sometimes you can get moren than one mode.</p>
-<p>when your distribution is not normal(extreme skewed), there will be big difference in mean, median and mode, it means it is difficult to find a value to represent the whole distribution. If the distribution is normal, the mean, median and mode will be very close.</p>
-<p>M = sum(X)/N, Mean of X<br>Var = SD^2 = sum((X-M)^2)/N = SS/N,variance, also known as MS, mean squares, used for descriptive statistic)<br>Var = SD^2 = sum((X-M)^2)/(N-1), variance, used for inferntial statistics<br>SD = sqrt(SD^2), standard deviation<br>SS = sum((X-M)^2, sum of squares<br>SE = SD/sqrt(N), standard error<br>I have some questions about SE, what does that mean by calculate the SD/sqrt(N)<br>Mad = sum(abs(X-M))/N, mean absolute value of deviation, this is another expression by measure the variance of data. </p>
-<ol start="5">
-<li>Correlation<br>What is correlation? Correlation is a statistical procedure used to measure and describe the relationship between two variables. It can range between -1 and 1. 1 is perfect positive correlation. 0 is independent. -1 is perfect negative correlation. </li>
-</ol>
-<p>strong correlation can be used on prediction.</p>
-<p>!! Some CAUTIONS! 1. Correlation does not imply causation. 2. The measurement of correlation depends on many factors, including sampling, and it is influenced by measurement of X and Y and several other assumptions.(See the sampling from college student or all young people example) 3. The correlation coefficient is a sample statistic, just like the mean. It may not be presentative for all individuals. 统计不能准确的反应个人。</p>
-<p>There are types of correlation coefficients, for different variable types.<br>    pearson product-moment coefficient(r): When both variables X and Y are continuous.<br>    point bi-serial coefficient: when 1 variable is continuous and 1 is dichotomous.<br>    Phi coefficient : when both variable are dichotomous.<br>    Spearman coefficient: when bothe variables are ordinal(ranked data).</p>
-<p>SP = sum((X-Xm)(Y-Ym)), correlation coefficient is sum of cross product.<br>r = SPxy / SQRT(SSx x SSy), correlation(r) present the degree to which X and Y vary together, relative to the degree to which X and Y vary independently.</p>
-<p>Var = MS = SS/N, MS is mean squres and SS is sum of squres<br>SD = sqrt(Var)</p>
-<p>Cov = SP/N, covariance, 协方差<br>r = Cov/sqrt(Var_x x Var_y), 计算一下可知确实与SPxy/sqrt(SSx x SSy)相同。<br>r = sum(Zx x Zy)/N, when you are using the Z-score instead of raw value, the result would be the same. In the fomular, the nominator is Cov, and the denominator of z-score is 1. </p>
-<p>As we know, standard deviation is standardized of variance. correlation(r) is standardized covariance. 成对的概念，方差和标准差，协方差和相关系数。</p>
-<p>Three basic assumptions when you are doing correlation analysis.<br>1) Normal distributions for X and Y; can be detected by histogram<br>2) Linear relationship between X and Y; can be quickly detected by eyeball the data in the scatter plot.<br>3) Homoscedasticity (In a scatterplot the vertical distance between a dot and the regression line reflects the amount of prediction error (known as the “residual”)); homoscedasticity means that the datapoint should randomly distribute on the both side of the regression line, the error is random.</p>
-<ol start="6">
-<li><p>Measurement<br>Reliability: X = true value + bias + error,<br>Methods to estimate reliability: re-test(test twice should be correlated, body temperature example), parallel test(test by using two devices should be correlated, body temperature example), inter-item estimates(different questions targeting the same question, in outgoing test subset(A) and subset(B) should be correlated.)<br>reliability is an assessment of correlation with itself. It is the ceiling of correlation based on the measurement.<br>Validaty: construct validaty. Constrct is the object that is not directly observable, like personality, intelligence. when we want to make it observable and quantifiable, the test should satisfy the validity.<br> Content validity: if the words are 6-year-old children should know, if Germany is known to brazilians.<br> Convergent validity: corr with some similar tests, like verbal ability should be correlated to reading comprehension.<br> Divergent validity: not corr with other tests, like verbal ability should not be correlated to spatial ability.<br> Nomological validity: the scores on the test should be consistent with more general theories.<br>Sampling<br> sampling error depends on the size of sample relative to the size of population.<br> sampling error depends on the variance in the population.<br> standard error is an estimate of amount of sampling error.<br> SE = SD/sqrt(N), SE: standard error, SD: standard deviation of the sample, N: size of the sample;</p>
-</li>
-<li><p>Regression— simple regression(one predictor variable). This is highly correlated to the correlation segment.<br>Y = B0 + B1X1 + e<br>Y is a linear function of X<br>B0 = intercept = regression constant<br>B1 = slope = regression coefficient<br>e = error(residual)</p>
-</li>
-</ol>
-<p>The regression model is used to model or predict future behavior.<br>Ordinary Least Squares Estimation: minimize the sum of squared(SS) residuals<br>SS.RESIDUAL = Σ(Y – Ŷ)^2</p>
-<p>Formula for the unstandardized coefficient<br>B1 = r x (SDy/ SDx)</p>
-<p>Formula for the standardized coefficient<br>SDy = SDx = 1<br>B = r x (SDy/ SDx)<br>β = r</p>
-<p>In simple regression, the standardized regression coefficient will be the same as the correlation coefficient</p>
-<p>Assumptions for linear regression<br>    Normal distribution for Y(histogram)<br>    Linear relationship between X and Y (scatterplot)<br>    Homoscedasticity (scatterplot residual-X)<br>    Reliability of X and Y<br>    Validity of X and Y<br>    Random and representative sampling</p>
-<p>Homoscedasticity, how to examine: 1).save residuals Y = B0 + B1X1 + e, e = (Y – Ŷ); 2)examine scatterplot with X on X-axis and e on Y-axis.<br>We hope to see that e is independent with X and about half positive and halp negative.</p>
-<ol start="8">
-<li>Null Hypothesis Significance Test (NHST)</li>
-<li>1 what is NHST?<br>H0 = null hypothesis<br>• For example, r = 0<br>– HA = alternative hypothesis<br>• For example, r &gt; 0</li>
-</ol>
-<p>Assume H0 is true, then calculate the probability of observing data with these characteristics, given that H0 is true<br>• p = P(D | H0)<br>• If p is very low, then Reject H0, else Retain H0</p>
-<p>P-value is that the probability of obtaining these data or more extreme data, given the assumption that the null hypothesis is true. But you cannot flip the conclusion and say that the probability of null hypothesis being true is p, so you got those data. </p>
-<p>p = P(D | H0)<br>• Given that the null hypothesis is true, the probability of these, or more extreme data, is p<br>– NOT: The probability of the null hypothesis being true is p<br>– In other words, P(D|H0) != P(H0|D)</p>
-<p>t = B / SE<br>– B is the unstandardized regression coefficient<br>– SE = standard error<br>– SE = SQRT[SS.RESIDUAL / (N – 2)]</p>
-<p>Four possible outcomes<br>– Correct retention, correction rejection<br>– False alarm (Type 1 error, H0 is right, but H1 is claimed), Miss (Type II error, H1 is right but not been claimed)</p>
-<p>8.2 NHST Problems &amp; Remedies</p>
-<p>• Biased by sample size<br>• Arbitrary decision rule<br>• Yokel local test<br>• Error prone<br>• Shady logic</p>
-<p>8.2.1 Biased by sample size<br>– For example, in regression<br>• p-value is based on t-value<br>• t = B / SE<br>• SE = SQRT(SS.RESIDUAL / (N – 2))<br>So you will always got H1 when you have engough big sample size. N is engough big, then SE will be very small, and then t will be big enough to differet from 0.<br>Remedies:<br>– Supplement all NHSTs with estimates of effect size<br>• For example, in regression, report standardized regression coefficients and the model R-squared</p>
-<p>8.2.2 Arbitrary decision rule<br>– The cut-off value (alpha) is arbitrary<br>– p &lt; .05 is considered standard but still arbitrary<br>– Problems arise when p is close to .05 but not less than .05<br>Some researchers would got tangled, especially when their data is close to .05. But actually this value is defined by people. It is arbitrary.<br>Remedies:<br>– Again, supplement NHST with estimates of effect size<br>– Also, avoid phrases such as “marginally significant” or “highly significant”</p>
-<p>8.2.3 Yokel local test<br>– Many researchers use NHST because it’s theonly approach they know<br>– NHST encourages weak hypothesis testing<br>Remedies:<br>– Learn other forms of hypothesis testing<br>– Consider multiple alternative hypotheses<br>• Model comparison</p>
-<p>8.2.4 Error prone<br>– Type I errors<br>• Probability of Type I errors increases when researchers conduct multiple NHSTs<br>– Type II errors<br>• Many fields of research are plagued by a large degree of sampling error, which makes it difficult to detect an effect, even when the effect exists<br>Remedies:<br>– Replicate significant effects to avoid long-term impact of Type 1 errors<br>– Obtain large and representative samples to avoid Type II errors</p>
-<p>8.2.5 Shady logic<br>• Modus tollens<br>– If p then q<br>– Not q<br>– Therefore, not p</p>
-<p>– If the null hypothesis is correct, then these data can not occur<br>– The data have occurred<br>– Therefore, the null hypothesis is false</p>
-<p>• Shady logic(the logic problem transfered to probability problems when use NHST)<br>• If the null hypothesis is correct, then these data are highly unlikely<br>• These data have occurred<br>• Therefore, the null hypothesis is highly unlikely<br>• If a person plays football, then he or she is probably not a professional player<br>• This person is a professional player<br>• Therefore, he or she probably does not play football</p>
-<p>Sometimes you will get a very ridiculous result when you use NHST, this is because when you are proof the cause effect of p and q, you can not flip them. Always stick to the definition of p-value. P-value is that the probability of obtaining these data or more extreme data, given the assumption that the null hypothesis is true. </p>
-<p>Remedies:<br>Shady logic<br>– Simply remember, p = P(D | H0)<br>– OR, avoid NHST, and…<br>– Report Confidence Intervals only (see Lecture 10)<br>– Apply Bayesian inference</p>
-<p>(Addition: Bayesian inference<br>Concept1: conditional probability P(A|B) != P(B|A)<br>Concept2: joint probability P(AB) = P(A) * P(B|A) = P(B) * P(A|B)<br>Concept3: Marginal probability P(C) = P(C|A) + P(C|B) </p>
-<p>Bayesian inference: P(A|B) = P(B|A) * P(A) / P(B)<br>In the actual application, to get the maximum likelihood, Bayesian estimate will ignore the very little likelihood event as an outlier and get a narrow distribution, but with a higher confidence. That’s good for some so random thing. And this formular can work when you only have very limited datapoint, like 3. The impressive place that Bayesian estimation has is it start with a blief and can help to get a confident answer with few datapoint.   </p>
-<ol start="9">
-<li>central limit theory<br>no matter what’s the distribution of the population, the mean of multiple samplings will show close to a normal distribution. </li>
-</ol>
-<p>9.1 sampling distribution<br>It is hypothetical<br>– Assume a mean is calculated from a sample, obtained randomly from the population<br>– Assume a certain sample size, N<br>– Now, assume we had multiple random samples, all of size N, and therefore many sample means<br>– Collectively, they form a sampling distribution</p>
-<p>sampling distribution is a distribution of sample statistic, obtained from multiple samples, each of size N.<br>– Distribution of sample means<br>– Distribution of sample correlations<br>– Distribution of sample regression coefficients</p>
-<p>9.2 central limit theory<br>Three principles<br>– The mean of a sampling distribution is the same as the mean of the population<br>– The standard deviation of the sampling distribution is the square root of the variance of sampling distribution SD = σ2 /N<br>– The shape of a sampling distribution is approximately normal, if either (a) N &gt;= 30 or (b) the shape of the population distribution is normal</p>
-<p>procedure<br>– Assume the null hypothesis is true<br>– Conduct a study<br>– Calculate B, SE, and t<br>– t = B/SE<br>– p-value is a function of t and sample size</p>
-<p>Usually, we don’t got a normal distribution, but got a distribution in the family of t distribution. The larger N is, the narrower of the t distribution.</p>
-<p>The application of NHST and central limit theory is relied on the sample size, because the denominator of t calcultion, SE, is under N. Larger N, smaller SE, bigger t, small p-value. So, when we use the NHST, the effective size is another very important parameter. </p>
-<ol start="10">
-<li>Confidence intervals</li>
-</ol>
-<p>The logic of confidence intervals is to report a range of values, rather than a single value. In other words, report an interval estimate<br>rather than a point estimate.</p>
-<p>Our data point and the related statistics are just point estimate, which means it cannot reflect the sampling error. So researchers want to find a good way to make themselves more confident with the data. Then interval estimate is condsidered. The CI is for reflect sampling confidence, so directely change with the se value and se is depend on number, sd value of the statistic and the initial statistic(B). The formulars are as follow:</p>
-<p> se.B = sqrt[ (SS.resid / (N-2) ) / SS.X )],<br> Standard error = Square root [ (Sums of Squares.Residual / (N - 2) ) / (Sums of Squares.X) ], Sum Sq can be got from the anova(model) function.<br> model is acquired by the lm function, so build up a linear model for the interested data. </p>
-<p>Upper value = B + (tcrit * se.B) and Lower value = B - (tcrit * se.B), to get the CI, we need to acquire its upper and lower value, so ,qt function can get the tcrit(critical t value)</p>
-<p>In R, confidence interval can be easily acquired by confint function</p>
-<ol start="11">
-<li>Multiple regression</li>
-</ol>
-<p>11.1 Multiple regression equation<br>– Just add more predictors (multiple Xs)</p>
-<p>Ŷ = B0 + B1X1 + B2X2 + B3X3 + … + BkXk<br>Ŷ= B0 + Σ(BkXk)</p>
-<p>Ŷ = predicted value on the outcome variable Y<br>B0 = predicted value on Y when all X = 0<br>Xk = predictor variables<br>Bk = unstandardized regression coefficients, considering other preditors in an average level.<br>Y - Ŷ = residual (prediction error)<br>k = the number of predictor variables</p>
-<p>• R = multiple correlation coefficient<br>– R = rÝY<br>– The correlation between the predicted scores and the observed scores<br>• R^2<br>– The percentage of variance in Y explained by the model</p>
-<p>If we want to compare which predictor has the strongest effect, we need to standardize the B. Also, if the p value of the coefficient is not significant(&lt;0.05), we cannot say the predictor has certain direction. Because the positive or negative of the value may be caused by other predictor. As in the example in the course, the B3 is the coeffcient for gender, whose p value is .16, so not significant. So we can not say gender has the certain direction of contribution to salary, although this value looks so negative. it may be caused by other two predictor, for example, maybe women scientist in the samples are young and has less paper. </p>
-<p>11.2 matrix algebra.<br>I can feel that this is very powerful tool to think about any calculation. Maybe I can try to build up more matrix to correspond to some function in my analysis. Somes special types of matrices has the special meaning.<br>    For example, X’X can return squares(cross product) matrix, Sxx.<br>    Then, devided by N, it returns Variance and Covariance matrix, Cxx.<br>    Also, the diagonal of the Sxx is SD^2, we can extract SD from Sxx.<br>    Also, we can standardize a matrix Cxx by matrix multiplication, Sxx^(-1) .* Cxx .* Sxx^(-1)</p>
-<p>11.3 estimation of coefficients<br>By applying matrix algebra, we can got the coefficient matrix B = (Sxx)^(-1) .* Sxy<br>Sxx = X’X<br>Sxy = X’y<br>So in the example in the course, the 10-3 matrix is seemed as the first col as Y(Y is a 10-1 matrix), the second col as X1 and the third col as X2. So X is a 10-2 matrix. Sxx is a 2-2 matrix and Sxy is a 2-1 matrix. B is a 2-1 matrix, which include two elements, which are the two estimates. Elegant!<br>In R the estimates can be get by lm(formula = demo$Y ~ demo$X1 + demo$X2)</p>
-<p>12.1 General linear model<br>It emphasize that LM is based on original least squares method, so get the least summed residuals. It can be used for simple or multiple regression, t test and ANOVA, but can not be applied to explain non-linear data.</p>
-<p>12.2 Dummy coding<br>This is to help with the problem that transfer the categorized data to numerical values and get involved in regression analysis. We can choose one of the categories as reference (0 0 0) and give every one of the a “dummy code”(Suppose the number of categories is N, N-1 codes is needed). So the regression constant represent the reference mean and the coefficients of the code represent the other groups relative to the reference group. These codes can also be involved as other predictors in the model. </p>
-<p>There are also other coding ways so that can make the regression constant to be the mean of all groups, it can be easily done by set the value of the code. We can also add the weight to the coding.</p>
-<p>We don’t need to take this approach if we only want to know if one category is signifficant from others, in that case, use one-way ANOVA. Here, this classic coding approach provide a coding scheme to let the categorized data to numerical, so that they can get involved in calculations, like multiple regression analysis.</p>
-<p>From the Lab 6, we know that the redundant predictors can not be both has significant estimates(the CI of coeffecient values inlude 0)<br>It is noted that the mean value is not the true mean under the same condition. For example, in the Lab6 example, the mean salary of each dept looks the same, but it is not take working years and publications into account. In the multiple regression model, the coefficient is supposed that other predictors are at the mean level. Back to the example, professors of social usually works longer years and had more publications so that they can have the similar salary with history or psychology professors. </p>
-<p>13.1 Moderation<br>A moderator variable (Z) will enhance a regression model if the relationship between X and Y varies as a function of Z, which means the slope (regression coefficient) would be changed between groups.</p>
-<p>If X and Y are correlated then we can use regression to predict Y from X<br>• Y = B0 + B1X + e<br>• CAUTION!<br>• If there is a moderator, Z, then B1 will NOT be representative across all Z<br>– The relationship between X and Y is different at different levels of Z</p>
-<p>Y = B0 + B1X + B2Z + B3(X*Z) + e<br>%%% this model is used if both X and Z are continuous<br>    we use the product of X and Z to indicate moderation effect.</p>
-<hr>
-<p>If X is categorical* and Z is continuous<br>– Model 1: No moderation<br>• Y = B0 + B1(D1) + B2(D2) + B3Z + e<br>– Model 2: Moderation<br>• Y = B0 + B1(D1) + B2(D2) + B3Z + B4(D1<em>Z) + B5(D2</em>Z) + e</p>
-<p>Compare Model 1 and Model 2 in terms of overall variance explained, that is, R^2. This can be done in ANOVA between the two models and tell us if introduce modurator can make the model perform better.<br>Also, it is important to examine the describing states, which will tell us if the coeffcients are explainable. For example, the corr between Y and X changed a lot between each groups usually indicate that Z is a modulator. It also can be plot in the scatter plot. </p>
-<p>13.2 centering predictors<br>centrering the predictor means converting raw score to deviation score, transfering the X to Xc by subtracting the mean of X, so Xc = X - M</p>
-<p>Why center? there are two reasons, for conceptual reason and statistical reason.</p>
-<p>For conceptual reason, the intercept, B0, is the predicted score on Y when all predictors (X, Z) are zero. without centering, X = 0 and Z = - is meaningless so make the B0 difficult to interpret. After centering, the X = 0 and Z = 0 means average then B0 is easy to interpret.<br>The regression coefficient B1 is the slope for X assuming an average score on Z<br>No moderation effect implies that B1 is consistent across the entire distribution of Z<br>In contrast, a moderation effect implies that B1 is NOT consistent across the entire distribution of Z<br>Where in the distribution of Z is B1 most representative of the relationship between X &amp; Y? the center of the distribution</p>
-<p>For statistical reason.The predictors, X and Z, can become highly correlated with the product, (X*Z)<br>Multicolinearity: when two predictor variables in a GLM are so highly correlated that they are essentially redundant and it becomes difficult to estimate B values associated with each predictor.</p>
-<h2 id="But-I-am-still-confused-how-centering-help-with-the-multocolinearity-problem"><a href="#But-I-am-still-confused-how-centering-help-with-the-multocolinearity-problem" class="headerlink" title="But I am still confused how centering help with the multocolinearity problem."></a>But I am still confused how centering help with the multocolinearity problem.</h2><p>13.3 example of build up GLM after center</p>
-<ol>
-<li>if WM no modulating effect, the centering of WM(working memory) just change the B0, so the B0 means the IQ under average WM</li>
-<li>if WM with modulating effect, the centering of WM will not change the coefficient of multiplied elements, B of WM.centered * D1 and WM.centered * D2, but will change the modulated elements, B of D1 and B of D2.<br>Both situation the R squred and ANOVA P value will between non-centered and centered model will not change.<br>Over all, centering only change the scale of the distribution but not the predictive relationship of Y and X, Z, D1, D2.</li>
-</ol>
-<p>14.1 mediation - standard apporach<br>Mediation analysis is a better understand of relationship between variables relationships. It provide a way to see causal relationship in correlation analysis. Here we are saying statistical mediation, instead of true causal mediation.</p>
-<p>If X and Y are correlated then we can use regression to predict Y from X:<br>Y = B0 + B1X + e, B1 should be significant<br>If X and Y are correlated BECAUSE of the mediator M, then (X → M → Y):<br>Y = B0 + B1M + e, B1 should be significant<br>M = B0 + B1X + e, B1 should be significant<br>Then, if X and Y are correlated BECAUSE of the mediator M, and:<br>Y = B0 + B1M + B2X + e, B1 should be significant, but B2 may decrease or lost its significance.<br>A mediator variable (M) accounts for some or all of the relationship between X and Y. If B2 is not significant, the M is a full mediator. If B2 still has significant, M is a partial mediator. </p>
-<p>An interesting point is that for different group of X (like control group and threat group in the course example), the correlation between M(working memory) and Y(IQ value) are the same high, which means their r^2 should be similar. That’s why M is a mediator. </p>
-<p>Another direct test to interpret the mediator effect is Sobel test, which is a kind of NHST to tell us if M is strong enough as a mediator. The Null hypothesis is that the indirect effect is zero. </p>
-<p> From Lab 7, we practice the modulation and mediantion effect by using two dataset. At the 1st segment, the script shows the modulation effect step by step. 1) is there an effect of X (stereotype threat)?: we can use lm(IQ ~ D1 + D2) to generate model0, D1 D2 are dummy code of control, threat1 and threat2. We can also use aov(IQ ~ conditions), here conditions are norminal scale of data. Another method similar to ANOVA is Tukey test. It is the adjusted distribution of ANOVA. 2) test the modulation effect which means M’s effect: first add WM variable to the lm model(model1), the coefficient of B of X and M are all significant. Second, add M<em>X, here shown as M</em>D1 and M<em>D2 to the lm model(model2), the B of D1, D2, M</em>D1, M*D2 are all significant, except B of M(WM) itself. 3) compare if model2 can explain more variance than model1 by using ANOVA. 4) show the modulation effect in scatter plot.<br>In the segment 2, we do the mediation analysis to test if X has indirect effect on Y through M. The basic is the lm model comparision. 1) in lm(Y ~ X), the B of X should be significant; 2) in lm(Y ~ X + M), B of M is significant, B of X decrease or disappear the significance.3) in lm(M ~ X), the B should be significant. This means M is a mediator. 3) “sobel” function can do the same thing. </p>
-<p>14.2 path analysis<br>Mediation analyses are typically illustrated using “path models”, where<br>Rectangles: observed variables(X,Y,M)<br>Circles: Unobserved variables(e)<br>Triangles: Constants<br>Arrows: Associations<br>Here we label the paths<br>    a: path from X to M<br>    b: path from M to Y<br>    c: direct path from X to Y (before including M)<br>    c’: direct path from X to Y (after including M)<br>    Note: (a * b) is know as the indirect path<br>The three  regression equations can now be re-written with new notation:<br>Y = B0 + c(X) + e<br>Y = B0 + c’(X) + b(M) + e<br>M = B0 + a(X) + e</p>
-<p>15.1 student’s t test introduction<br>The Z distribution and t distributio are basicly from central limit theory. So an assumption of applying t test is the sampling distribution is a normal distribution.<br>    z = (Observed - Expected) / SE<br>    t = (Observed - Expected) / SE<br>when to use z test and t test?<br>z-test</p>
-<ul>
-<li>when comparing a sample mean to a population mean and the standard deviation of the population is known<br>single sample t-test</li>
-<li>when comparing a sample mean to a population mean and the standard  deviation of the population is not known<br>Dependent t test</li>
-<li>when evaluating the difference between two related samples<br>Independent t test</li>
-<li>when evaluating the differnce between two independent samples.</li>
-</ul>
-<p>15.2 dependent t-test<br>appropriated when the same subjects are being compared, for example, pre/post design, Or when two samples are matched at the level of individual subjects, allowing for a difference score to be calculated<br>a thorough analysis will include</p>
-<ul>
-<li>t-value, in the null hypothesis, the Expected value is 0<br>  t = (Observed - Expected) / SE<br>  t = (M - 0) / SE</li>
-<li>p-value<br>  based on t-value and the t-distribution and the directional or non-directional test</li>
-<li>Cohen’s d (effect size)<br>  d = M / SD</li>
-<li>Confidence interval (interval estimate)<br>  Upper bound = M + t(SE)<br>  Lower bound = M - t(SE)</li>
-</ul>
-<p>15.3 independent t-test<br>Also, a thorough analysis will include the four statistics and the Expected value is 0.</p>
-<ul>
-<li><p>t-value<br>  t = (Observed - Expected) / SE<br>  t = (M1 - M2) / SE</p>
-<p>  SE = (SE1 + SE2) / 2</p>
-</li>
-<li><p>p-value<br>  based on t-value and the t-distribution and the directional or non-directional test</p>
-</li>
-<li><p>Cohen’s d (effect size)<br>  d = (M1 - M2) / SD_pooled<br>  SD_pooled = (SD1 + SD2) / 2<br>  the pooled SD is appropriate only if the variances in the two groups are equivalent, not violate the homogeneity of variance assumption</p>
-</li>
-<li><p>Confidence interval (interval estimate)<br>  Upper bound = M + t(SE)<br>  Lower bound = M - t(SE)</p>
-</li>
-</ul>
-<p>Levene’s test to detect the homogeneity of variance assumption before independent t-test. If without variance homogeneity, it is easlier to get type error 1 (false positive).</p>
-<p>16.1 Group comparisons - one-way ANOVA<br>the ANOVA method is for replave independent test between many groups, by 1. ANOVA analysis: if significant difference exist inter groups than inner groups; 2. post-hoc test, which any two groups has such significant different. </p>
-<p>ANOVA analysis is a better choice when you have many groups, because it can avoid Type1 error(false positive) by adjust the p-value.</p>
-<p>ANOVA usually appropriate when the predictors (IVs) are all categorical and the outcome (DV) is continuous.</p>
-<p>The test statistic is the F-test (F-ratio)<br>F distribution depends on<br>• Number of subjects per group<br>• Number of groups</p>
-<p>F = (Variance between groups) / (Variance within groups)<br>F = MS_Between / MS_Within<br>F = MS_A / MS_S/A (MS_A means variance between the four group means; MS_S/A means mean of variance within each group)<br>• MS_A = SS_A / df_A<br>• SS_A = n Σ(Yj - YT)2<br>• Yj are the group means<br>• YT is the grand mean</p>
-<p>• MS_S/A = SS_S/A / df_S/A<br>• SS_S/A = Σ(Yij - Yj)2<br>• Yij are individual scores<br>• Yj are the group means</p>
-<p>• df_A = a - 1<br>• df_S/A = a(n - 1)<br>• df_TOTAL = N - 1<br>• a is the group number; n is the number in each group; N is the total number.</p>
-<p>Effect size<br>• R2 = η2 (eta-sqaured)<br>• η2 = SS_A / SS_Total</p>
-<p>Assumptions<br>• DV is continuous (interval or ratio variable)<br>• DV is normally distributed<br>• Homogeneity of variance<br>• Within-groups variance is equivalent for all groups<br>– Levene’s test</p>
-<p>Homogeneity of variance<br>• If Levene’s test is significant then homogeneity of variance assumption has been violated<br>– Conduct pairwise comparisons using a restricted error term</p>
-<p>16.2 Group comparisons - one-way ANOVA post-hoc test<br>Post-hoc tests, such as Tukey’s procedure, allow for multiple pairwise comparisons without an increase in the probability of a Type I error.</p>
-<p>Many procedures are available, varying from liberal to conservative; the degree to which p-values are adjusted varies according to procedure<br>– Most liberal: No adjustment (t test)<br>– Most conservative: Bonferroni procedure</p>
-<p>17.1 factorial ANOVA<br>• Two Independent Variables (IVs)<br>• One Dependent Variable (DV)</p>
-<p>Suppose an experiment is conducted to examine the effect of talking on a mobile phone while driving<br>– IV1: Driving difficulty<br>– IV2: Conversation demand<br>– DV: Driving errors</p>
-<p>Then, three hypotheses can be tested:<br>– More errors in the difficult simulator?<br>– More errors with more demanding conversation?<br>– More errors due to the interaction of driving difficulty and conversation demand?</p>
-<p>Three F ratios<br>– FA<br>– FB<br>– FAxB</p>
-<p>• Main effect: the effect of one IV averaged across the levels of the other IV<br>• Interaction effect: the effect of one IV depends on the other IV (the simple effects of one IV change across the levels of the other IV)<br>• Simple effect: the effect of one IV at a particular level of the other IV</p>
-<p>Main effects and interaction effect are independent from one another, because the subjects are rabdomly assigned to the task, the difficulty of driving and conversation demands are two orthogonal factors. </p>
-<p>Factorial ANOVA is just a special case of multiple regression<br>– It is a multiple regression with perfectly independent predictors (IVs)</p>
-<p>• General Linear Model (GLM)<br>• Y = B0 + B1X1 + B2X2 + B3X3 + e<br>• Y = DV<br>• X1 = A<br>• X2 = B<br>• X3 = (A*B)<br>-<br>• FA = MS_A / MS_S/AB<br>• FB = MS_B / MS_S/AB<br>• FAxB = MS_AxB / MS_S/AB</p>
-<p>• MS_A = SS_A / df_A<br>• MS_B = SS_B / df_B<br>• MS_AxB = SS_AxB / df_AxB<br>• MS_S/AB = SS_S/AB / df_S/AB</p>
-<p>• df_A = a - 1<br>• df_B = b - 1<br>• df_AxB = (a -1)(b - 1)<br>• df_S/AB = ab(n - 1)<br>• df_Total = abn - 1 = N - 1</p>
-<p>Main effects<br>– Post-hoc tests<br>• Interaction<br>– Analysis of simple effects<br>• Conduct a series of one-way ANOVAs (or t-tests)</p>
-<p>• Complete η2<br>• η2 = SSeffect / SStotal = SS_AxB / SS_Total<br>• Partial η2<br>• η2 = SSeffect / (SSeffect + SSS/AB) = SS_AxB / (SS_AxB + SS_S/AB)</p>
-<p>Assumptions underlying factorial ANOVA<br>– DV is continuous (interval or ratio variable)<br>– DV is normally distributed<br>– Homogeneity of variance</p>
-<p>Factorial ANOVA<br>– Three F-tests (FA ,FB ,FAxB)<br>– Main effects<br>– Interaction effect<br>– Simple effects</p>
-<p>Factorial ANOVA<br>– Effect size (complete and partial eta-squared)<br>– Post-hoc tests (follow main effects)<br>– Simple effects analyses (follow interaction)<br>– Homogeneity of variance assumption<br>• Levene’s test</p>
-<p>18.1 repeated measures ANOVA</p>
-<p>This is corresponding to the paired-t test. Supposed that we have some data that are acquired in some dependent manner, like different days after training in the same subject. This method can help to decrease the variance inner group, because it take the individual variance into consideration.</p>
-<p>assumption:<br>• Homogeneity of variance<br>• Homogeneity of covariance</p>
-<ul>
-<li>Mauchly’s test<br>– If significant then report an adjusted p-value<br>• Greenhouse-Geisser<br>• Huyn-Feldt(close to the Greenhouse method)</li>
-</ul>
 
         
       
