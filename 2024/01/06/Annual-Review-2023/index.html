@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="每年的小作文都要迟到一些，去年甚至没写。这里一块回顾一下吧 (自认为记性很好hahaha) 2022 是非常特殊的一年，处在疫情笼罩下已经第三年，政策不稳定没有人知道还要持续多久。好在我有稳定的学习研究环境。年初3个月，我安排紧凑的完成了learning课题的实验，并用我的数据分析技能快速的拿到了一些结论。确实感受到了play with data的快乐。再次验证了从data -&amp;gt; resul">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Annual Review 2023">
+<meta property="og:url" content="http://yoursite.com/2024/01/06/Annual-Review-2023/index.html">
+<meta property="og:site_name" content="Follow heart">
+<meta property="og:description" content="每年的小作文都要迟到一些，去年甚至没写。这里一块回顾一下吧 (自认为记性很好hahaha) 2022 是非常特殊的一年，处在疫情笼罩下已经第三年，政策不稳定没有人知道还要持续多久。好在我有稳定的学习研究环境。年初3个月，我安排紧凑的完成了learning课题的实验，并用我的数据分析技能快速的拿到了一些结论。确实感受到了play with data的快乐。再次验证了从data -&amp;gt; resul">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2024-01-06T06:04:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Annual Review 2023">
+<meta name="twitter:description" content="每年的小作文都要迟到一些，去年甚至没写。这里一块回顾一下吧 (自认为记性很好hahaha) 2022 是非常特殊的一年，处在疫情笼罩下已经第三年，政策不稳定没有人知道还要持续多久。好在我有稳定的学习研究环境。年初3个月，我安排紧凑的完成了learning课题的实验，并用我的数据分析技能快速的拿到了一些结论。确实感受到了play with data的快乐。再次验证了从data -&amp;gt; resul">
+  <link rel="canonical" href="http://yoursite.com/2024/01/06/Annual-Review-2023/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Annual Review 2023 | Follow heart</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Follow heart</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/06/Annual-Review-2023/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Annual Review 2023
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2024-01-06 12:20:29 / Modified: 14:04:52" itemprop="dateCreated datePublished" datetime="2024-01-06T12:20:29+08:00">2024-01-06</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>每年的小作文都要迟到一些，去年甚至没写。这里一块回顾一下吧 (自认为记性很好hahaha)</p>
+<p>2022 是非常特殊的一年，处在疫情笼罩下已经第三年，政策不稳定没有人知道还要持续多久。好在我有稳定的学习研究环境。年初3个月，我安排紧凑的完成了learning课题的实验，并用我的数据分析技能快速的拿到了一些结论。确实感受到了play with data的快乐。再次验证了从data -&gt; result -&gt; knowledge 的转化不是那么轻松的。4月起开始弄D4课题的急性记录的分析，可以说是两周之内完成雏形并进行了一次优化，拿出了图。我对自己handle数据的能力更加自信了。后面在一定的压力下，不得不转而开始弄战线拉的很长的PV癫痫课题。用整个5月加入了功能连接这部分的分析。6月反思发现错误并完善了一次。兴奋和不确定并行，体会颇深。7，8月完成了初稿，同时和导师讨论后补了几次实验。9月补了一批记录。这些过程我深刻的理解到知识是怎么来的，用多个指标，多次实验验证自己的结论，并且把它放到一个大的科研背景下去考虑。并行而来的是从6月开始计划的康奈尔之行。得到了两边导师和同学（穗红）的很多帮助。有了大致的规划。10月开始了我的第一次个人出国游学。三个月以来认识了康村NBB的一批新同学，Xinyue, LiuCan, Hongyu, Wenbo, Zhilei, Wenshuai, Yating, Heidi, Jason, 还有可爱又成熟的武汉小妹妹Alicia和一个陌生人ABC。 和每个同学的交流都让我受益匪浅。有些人哪怕没有深入交流，我也感受到了他们生活的气质和自信，比如David实验室的几位本科生。很开心的还有认识了几位爬山好友，文科生和理科生确实有着完全不同的生活和工作习惯。多了一丝对平行世界的人的了解和兴趣。康村超级棒，自信的Yapici， Linda和Aza，随性的Antonio，夸张且爱博眼球的Joe Fetro，精英气质侧漏的Jesse，很专业但是有点冷的Alex Kwan。最重要的是我的导师，非常高效善良，有点内向的David，还有他nice的家人们。另外还有来自南美洲朋友带给我的感动，热情随性且成熟的巴西室友和朋友们。华盛顿之行和夏村也收获多多，了解到了JC lab 的风格和在美国科研圈如何受到respect。 听到chuiwen, JC, 明娜这些人的故事本身就很棒。 听到了更多的研究，有些研究就是一听就很来电的感觉，比如Weinan的。康村的科研浇灌让我非常受益。回来后还参加了多人推荐的neuromatch。2022年我的科研训练确实走到了新的一步，写文章，开始思考presentation，认识同行（约30人）。现在看到每个人名我都能停下想想曾经的谈话和故事。短短3个月的离开，丰富了自己，增加了和两边导师的信任，也等来了开关。</p>
+<p>2023年年初从美国回来后回家过年再回到香港已经2月（话说刚回香港也是奇妙的体验，喧嚣的街道，熟悉的湿热感和大巴车尾气，也有了晚上运动和恢复肌肉的一周。备份数据和报销等事务就同步完成了）。2月重启了我在香港的科研。为了找回状态，我用规律的时间完成了大量的果蝇课题的标注工作。并以此进入状态。文章的拒稿让我意识到，所有自己有疑惑的地方都会在审稿人眼里被放大。所以，最真实的面对自己的工作吧。2月中到3月我重构了代码，完成了新的记录数据的重新分析和数据展示。我当时对进度十分满意。4月开始构思PCA分析并开始了个导师的一对一meeting。4月其实花了三周在果蝇课题上，准备了四月底的那次presentation。也体会到了chatGPT在模块编程上的牛逼之处。3月4月和姐姐讨论了很多生成式AI的东西，感觉最强烈的时候每天都有一种焦虑和兴奋，感觉会有大事发生。5月从广州旅游回来之后我觉得很累，可能是感冒了。但是就慢慢进入状态分析了PCA。但是当时只是直觉让我这么做，还是没有想好怎么把这部分结果写进故事。6月我基本完成了文章修改。7月迎来了暑假，我参加了Neuromatch课程。这个暑营太充实了。感受到了共同学习的快乐！来自不同背景的同学们思考方式真的会不同，Linda，Park，Lacshana是很棒的共同学的伙伴。还有group coding的work方式。我觉得我提供了原始的idea，我的队友们非常高效的交流和工程化的实现了项目。Lily和Samuel做队友超级棒。我们的TA也是一个又cool又美的经历非常丰富的同学。3周扩展了computational neuroscience的了解，验证了自己的做项目思路，产生了DDM解释我的learning data的思路。由于7月的课程投稿也就耽误了。我们终于在8月中提交到了elife.这次我们没有得到很有效的意见。但是我自己很努力的想了所有能优化的地方，再加上8月底的心理课程，修改进度慢了挺多。终于再9月20号才完成提交，这次是JN。我们得到了一次很认真的审稿，模糊的东西都会在投稿中得到放大。虽然我不觉得审稿人在epilepsy方面很专业，但是他们确实提出了他们阅读中感到模糊的地方。这也促使我一条一条的去改进。我们是10月18号收到的拒稿回复。这是我第3次收到回复了，心态已然平和了很多。可以直接面对问题，想办法做或者改。此时离出发去SfN还剩3周。我在10月26号前除了心里酝酿如何改进之外，在做food learning grant review 相关的工作。后面就剩下两周了，主要修改了patch部分的分析。最后几天就要出发的时候，我完成了power部分的检查和分析，加入了z scale， 又重新分析了PCA，结果才终于确定。我到这时才觉得PCA真的是帮助到我们理解数据的，是很增色的一部分。最后几天快快的赶完poster甚至都没有时间练习。但是我觉得这两周非常高效。后面SfN阶段仿佛换了个人，丝毫不疲惫也没有时差，很兴奋的接受了大量的信息输入。和熟悉的同行加深交流，也认识了一些新同行。听着同龄人讲他们的工作，我觉得自己是快乐的，neuroscience是一个有趣的群体。对专业的excitation和mission有增无减。面对大佬James M的肯定确实是备受鼓舞。见到了康村的老朋友，听到他们的工作很快乐，可能对熟悉的人的工作也更容易产生连接吧。一周半的科研和旅游盛宴，新东西不断的撞击着我，产生着共鸣和新的连接。这感觉棒极了。11.20刚回来香港调时差休整的时候，我第一次面对挚爱的亲人的离世。恍然在12月初回到家中。已经10年没有在这个时间回家了。我的爷爷是全世界最棒的爷爷，死亡并不可怕，爷爷的善良，责任，远见，耐心已经深刻的刻印在我和姐姐的心里。知道死亡的平常，但是依然心疼被病痛折磨的没有尊严的爷爷。全家在一起，反思，深聊，眼泪让我们更加坚强。12月初再返回香港。经过一周心态调整，同时也整理和分享了SfN的收获，才再次回到投稿状态。其实只花了三天就改完了文章。和导师来往修改一轮，终于在冬至12.23这一天发出去了。每次投稿都让我用finally这个词，是因为多次的审核真是为了读者能体验好一点点。只有从对更大群体的价值我才能体会到做这件事的意义。在跨年之际，姐姐也要北上北京工作了。我们达成了一致： 拥抱变化。</p>
+<p>这一年开启了一些新的习惯，听播客。现在这个大众创新的时代真不错，放学以后，硅谷101，Tianyu2FM, Lex Fridman, 无人知晓，知行小酒馆。带给我很多共鸣。播客往往是最快的新的思想，书给我稳定的内核。知行合一是最好的道路。感谢陪伴，分享，相互带来新奇体验的好友们！Let’s create more stories in the new year! </p>
+<p>2024，来了</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2023/08/18/scientist-story-Eric-Betzig/" rel="next" title="scientist story - Eric Betzig">
+                  <i class="fa fa-chevron-left"></i> scientist story - Eric Betzig
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/cat.jpg"
+      alt="Huiqi Zhang">
+  <p class="site-author-name" itemprop="name">Huiqi Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/ZhangHuiqi77" title="GitHub &rarr; https://github.com/ZhangHuiqi77" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:zhanghuiqi_77@163.com" title="E-Mail &rarr; mailto:zhanghuiqi_77@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huiqi Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
