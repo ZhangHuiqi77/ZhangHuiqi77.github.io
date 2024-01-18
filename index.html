@@ -212,6 +212,190 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/18/python-environment-conda-ipython-and-spyder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2024/01/18/python-environment-conda-ipython-and-spyder/" class="post-title-link" itemprop="url">python environment - conda ipython and spyder</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2024-01-18 18:41:22 / Modified: 21:28:08" itemprop="dateCreated datePublished" datetime="2024-01-18T18:41:22+08:00">2024-01-18</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Basically, conda is a tool to manage virtual environments, which can have different versions of python or other packages. ‘Virtual’ is not really virtual. It actually installed the needed packages in different path. ipython is an interactive python terminal, which is based on python interpreter (can be understanded as python.exe in base or one vertual environment). spyder is a platform to write script, run code in console, check variables in the workspace, etc.. It also runs based on a python interpreter and specific environment. Only need to install spyder in the base, then install spyder kernels for the environment and edit the python interpreter and start new kernel in the launched spyder. </p>
+<p>So the basic steps of setting a new environment is to 1. create env, 2. install packages and ipython. 3. set the python interpreter and console in spyder. Also, after creating environment, need to add the path to the environment variables in the windows “advanced system setting” (C:\Users\zhang\anaconda3\envs\tf\Lib\site-packages, C:\Users\zhang\anaconda3\envs\tf\Lib, C:\Users\zhang\anaconda3\envs\tf\Scripts, C:\Users\zhang\anaconda3\envs\tf\Library, C:\Users\zhang\anaconda3\envs\tf\Library\bin). </p>
+<p>These days, I am trying to analyze the behavioral structure based on the DLC tracking data. Some machine learning methods need to be used. Here, just wrote down some experience of packages install. On the one hand, I am using VAME, which do RNN and autoencoder under the pytorch structure and some visualization tool, like umap. On the other hand, I will use tensorflow LSTM. To manage packages, I create Anaconda environments on Windows 10 for both. Actually I did on two PCs, VAME on the GPU and tensorflow on my laptop (only CPU).</p>
+<pre><code># if you tried the same env with similar name before but it does not work, can clear it in conda prompt before try new one.
+conda remove --name tf-cpu --all</code></pre><p>After create the environment, activate it and install packages. For VAME install, follow the instruction on their github, then edit the error according to error info. Usually some text error, like in the yaml config file, “sklearn” need to change to “scikit-learn”. The same problem also need to be editted in the installation file, here it is ‘setup.py’. Then when it installed umap, the eroor is sth like “importlib.metadata can not be found” and it is point to the umap <strong>init</strong> file. I checked the importlib.metadata, and it is really not easy to found by eye that for python versions earlier than 3.8, this package is importlib_metadata ( _ there but not .). I did install importlib_metadata and importlib-metadata, so I change the . to _ then it work. I would see some <strong>tiny difference of text</strong>, because they update new versions and have new dependencies quickly.</p>
+<p>For tensorflow installation:</p>
+<pre><code># In conda prompt, create a new environment for tf. 
+conda create --name tf
+activate tf
+conda search tensorflow # search for the available version of tf in anaconda, then choose the version you like
+conda install tensorflow=2.10.0
+conda install ipython # install ipython for this environment, so I can enter ipython not enter the base env ipython
+pip install spyder-kernels==2.2.* # install kernels for using this virtual env in spyder
+
+# after install, can test in the ipython and spyder
+import tensorflow as tf
+print(tf.__version__)</code></pre><p>To work on the tf env in spyder, activate the env in conda, then launch spyder by click, and in spyder, go to tools -&gt; preference -&gt; Python interpreter -&gt; change it to the path of python.exe in the virtual env (C:/Users/zhang/anaconda3/envs/tf/python.exe). Then start a new console under this interpreter.</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/14/interesting-math-proof-by-contradiction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2024/01/14/interesting-math-proof-by-contradiction/" class="post-title-link" itemprop="url">interesting math - proof by contradiction</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2024-01-14 11:07:55" itemprop="dateCreated datePublished" datetime="2024-01-14T11:07:55+08:00">2024-01-14</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Science/" itemprop="url" rel="index"><span itemprop="name">Science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>proof by contradiction (反证法)<br>The statement is: There are infinite prime numbers(质数有无限多个)</p>
+<p>Assume that there are limited prime numbers，p1, p2, …, pr in order<br>Then there is a number p = p1<em>p2</em>… * pr + 1,<br>As pr is the biggest prime number, so p is not prime number. Then p should be rewriten as the multiplication of the existed prime numbers. But the given expression of p show it cannot. Because it is with a +1.<br>the assumption is wrong.<br>Proved! there are infinite prime numbers. </p>
+<p>There are also an interesting story in this chapter. Holmes and Watson go camping and slept in a tent. At midnight, Holmes wake up and asked Watson to tell him what did her see. Watson looked at the beautiful sky and answered very detailed inference according to her rich knowledge about stars, constellation, astronomy, meteorology and time. She was very proud of herself and asked back what did Holmes see. Holmes wry smiled and said, Waston you idiot, it means our camp was stolen. </p>
+<p>I leared that to proof a statement, can create a variable based on the constrain and well-known truth, then try to overthrow the opposite statement. <strong>Creat the variable</strong> is the important step in the whole process! Can try in other questions. </p>
+<p>I am always thinking, mathematic statement are based on the answer is just yes or no. But like in neuroscience, the questions are complex, “high dimensional”. For example, does APC helpful in treating epilepsy? This question is still too broad. To narrow down, we can ask: does APC helpful in rescueing recurrent seizures in the KA model? Then, to find the answer, we need to manipulate the APC, which means there are detailed choices, electrical stimulation, chemogenetics, optogenetics, pharmalogical approaches. We can then narrow down the hypothesis or statement to “inhibiting APC by chemogenetically activating PV interneurons is helpful in rescueing recurrent seizures in the KA model.” Then the animal model can be built and the manipulation can be executed. Then it need a reliable way to assess the recurrent seizures. So we record and analyze the EEG. The results show that seizures get less, which is contradict to the contradictory statement “inhibiting APC by chemogenetically activating PV interneurons is NOT helpful in rescueing recurrent seizures in the KA model.” So we proved our initial statement.<br>It seems just play with the words of direct proof and proof by contradiction. we don’t even need to create new variables. If we think of it in the another way, we exciting APC and record the seizures and found that exciting APC do make seizure worse. We still cannot say inhibiting APC can improve seizure. It seems narrow down to specific question and direct proof is dominant.</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/06/Annual-Review-2023/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1032,167 +1216,6 @@ I apologize for any confusion earlier. Let me know if there's anything else I ca
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/07/23/Albert-Einstein-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2022/07/23/Albert-Einstein-2/" class="post-title-link" itemprop="url">Albert Einstein(2)- 动力</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2022-07-23 14:25:41 / Modified: 18:00:06" itemprop="dateCreated datePublished" datetime="2022-07-23T14:25:41+08:00">2022-07-23</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Science/" itemprop="url" rel="index"><span itemprop="name">Science</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>以下观点来自爱因斯坦。这里面的很多点我曾经在中学时期和大学时期体会到，但是没有如此具体的描述出来。爱因斯坦对语言的应用是相当准确。当读到那些话的时候，我产生了很强的共鸣，并且几乎全部同意。此处浅写一下我的理解和感受</p>
-<p>我相信人行动的动力都在于想要远离痛苦或者追求快乐。如果要理解一个人行为的动力那就可以从这两个角度去想。我们也可以从这两个角度来理解做科研的动力。一方面，现实生活充满着琐碎的，无聊的，不确定的事物，让人常常无所适从或者无法控制。大多数人们早已忍受并且习惯了这种感觉，但是有些人也真真切切的相信并且知道这个世界确实存在着完美，和谐。这种和谐和完美在具象的感官世界，经验世界是不可求的。但是在自然科学中却可以。爱因斯坦小学毕业时就对平面几何种根据基本假设推出一系列看起来复杂却无比准确的性质这件事感到无比惊喜。后来他的相对论也是采用了欧几里得构造平面几何大厦的思路，由构造法进行科学探索。爱因斯坦的突破正是在于他对基本假设方面的大胆。 我小学和中学时也热爱解平面几何题，喜欢一步一步的推导，喜欢画出一条不明确的辅助线而对题目豁然开朗的感觉。一步一步的因为…所以…，我感到没写下一步都是严谨的。从最初的看似的简单与看似无关得到一个一眼看不穿的精美结论。当时我常常在想为什么这些图形的性质超出了我的感官，但是却可以被证明是对的。每次解出一道比较难的题目，比如需要十几步以上的推导才能解出的题后，我都有极大的满足感。我和姐姐解题和分享推导过程，那些夜晚我们都会怀念吧。 这种感觉在初中时时顶峰，后面慢慢被我放下了，用于其他科目。到了读博士的第一年，我再次进入了一个相对宽松的环境，这种感觉又回来了，我买了几何原本想找回那种确定，平静并欢喜着的感觉。对自然科学的追求的动力一方面来自于逃离不确定的经验世界，把自己的人生建立在稳固的可以信任的世界。用自己的方式和语言来解释这个和谐的世界。卓越的科学家，艺术家，诗人都多多少少是这样吧。爱因斯坦虽然不信仰世俗的传说能改变人的命运的上帝，但是却把那种虔诚的宗教情感寄托在了斯宾诺莎的大自然的上帝上。他对大自然这个上帝有着理智的爱。爱因斯坦说，你很难在一个卓越的科学家中找到一个没有宗教信仰的人。因为对大自然的理智的爱才能驱动着科学家拿出无限的耐心，精力和时间去进行那些看似与现实无关的探索。把追寻和理解大自然作为自己人生的目标。他们每日的行动力不是来自于计划或者职责，而是直接来自于激情。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/09/goodbye-2021/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2022/01/09/goodbye-2021/" class="post-title-link" itemprop="url">goodbye 2021</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2022-01-09 15:14:33 / Modified: 17:57:20" itemprop="dateCreated datePublished" datetime="2022-01-09T15:14:33+08:00">2022-01-09</time>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>2022开始第九天了，寻得一个空闲的下午。</p>
-<p>2021真的是艰难的一年，新冠病毒肆虐，国际形式动荡，国内行业洗牌，多因素混合作用形成一股股洪流，而我作为历史的一粒沙，感受到了前所未有的不确定性。好在实验室工作环境稳定，身边小小的社交圈充满尊重友爱，还有远方家人的理解和支持是不变的。</p>
-<p>科研<br>在PhD的第二年，我想我应该建立了自己的基本盘，电生理在体记录及分析，钙成像记录及分析，行为记录和视频分析，对分析工具matlab不再有重启时的畏惧感和生疏。我想潜意识里我是在走向一个好的科研项目，即提出一个好问题，开发一套好工具，完善or重建一个好理论。在寻找理论基础和理论漏洞方面需要很大的努力。项目的进展当前看起来有些慢，但是我觉得心里大体上还是踏实的。今年对我来说的三件科学上的大事：1.生理学及医学诺奖颁发给了两个受体研究者，这是对神经生物学过往几十年的膜片钳技术和分子生物学技术对社会贡献的肯定。2. 我们实验室发表了两篇论文，Geoffrey是一个非常棒的领导者，当然这对于实验室来说是大事。 3. 杨振宁百年，我喜欢物理，喜欢简洁的，对称的，优雅的理论，喜欢杨振宁和邓稼先这种“但愿人长久，千里共同途”的友情。此外，今年认识了爱因斯坦和诺伯特维纳。大科学家敢于质疑别人，也敢于否定自己。广义相对论接受实验检验前他曾表示过如果日食观测到了光的偏折，那么广义相对论尚可保留，如果没有，那广义相对论就错了。要知道广义相对论是爱因斯坦花了十年反复思考推导发表的公式，他自然希望自己的理论是对的，但是这句话表现了他发自内心对大自然对科学的虔诚。这与波普尔科学发现的逻辑是证伪而非证实不谋而合。现在广为诟病的科研急躁，仿佛是数据就应该发表变现。海量的科研论文有成果然而更多的是垃圾，有交响乐然而更多的是噪音。我喜欢看那些20世纪的老论文，学者会把自己究竟是怎么想的，怎么做的细致的描述出来，就像读故事一般。文章也没有固定的格式和套路。科研成果的现代化评审发表机制也让科研变得僵化了。诺伯特维纳关于交叉学科的想法让人耳目一新，他在信号传播和生理学上的兴趣使他做了极好的应用数学。交叉学科是建立在熟悉两边的表达方式，思维方式。不同领域是深度交流是建立在熟悉术语的基础上找到领域中的空位，或者说主要关注点。维纳是我向往要成为的那种科学家。</p>
-<p>中国<br>2021是共产党成立一百周年，而这一年我才真正理解这个党。年初听到B站上一个up讲鲁迅，不知怎么的就觉得当初的课本上的文章一点都不难了，果然是上了几年社会大学语文变好了。接着看了觉醒年代，大浪淘沙两部电视剧。毛泽东和鲁迅是我心目中的天才，枪杆子和笔杆子都是斗士。共产党在干部少，贫困，斗争压力大的当年，坚决带领人民进行革命，坚决进行自我批判，进行了伟大的社会变革。建国后这变革继续进行，正如习大大所说，我们的人民正在进行深远的社会变革。我分析了一下人类进行的一切生产行为(包括体力和脑力)动力的来源：1. 欲望 2. 恐惧 3.信仰。 欲望是最符合人性的，有创造力的，也是在后期最容易引出人性的恶的一种动力，正如资本家跑马圈地，隐形的压榨剥削，破坏健康的经济循环，依然乐此不疲。恐惧是现在很多底层人民的动力来源，为了生存，害怕失去。而当恐惧多于欲望时人就会变得油腻，变得斤斤计较，更加别提创造了。我愿把信仰描述成一种温柔的欲望。于企业家就是赚钱同时别忘了承担社会责任。于科学家就是兴趣之外公心至上，做有利于全世界的研究。现代化的社会矛盾重重，问题在各种大事中暴露，进入人民的视野和讨论中，我相信这就是深远的社会变革过程。善良的，公平的，正义的种子在数次的讨论争辩中扎根，等待时机成熟便会破土而出。我们在酝酿理想的共产主义社会。共产主义社会当是人人平等人人有担当，人人富有创造力，行动力并能将这力量传播到更多有同样理想的人群中。</p>
-<p>几本书<br>除了爱因斯坦，维纳，毛泽东，鲁迅等的书之外，今年读了两本心理方面阿德勒的书，被讨厌的勇气和幸福的勇气，我觉得有些结解开了。分清楚了自己的课题和别人的课题，便可以坦荡的决策，不后悔的生活。今年我也过的很坦荡呢，在工作和生活方面都能主动的做一些决定并且守卫自己的空闲，即消极自由。年底九天晚上熬夜读了金庸的笑傲江湖，笑傲江湖是金庸晚期的作品，我觉得相当符合现代社会。令狐冲没有人生目标，任意而专情，书中开篇就一直在受伤，一度濒临死亡。他的决策都是凭借天性潇洒和豪爽的江湖道义而做出的，往往是急人之难，赶驴子上架。在我看来是没有计划，相当的被动的生存。但是他人生的奇妙之处也正在此，能够舍生救仪琳，能够背负冤屈帮林平之夺辟邪剑谱，能够不对所谓的帮派正义而偏斜，不站队，秉持道义既帮正教又帮魔教。可能负伤濒死给了他按照本性而活的勇气，正是向死而生。而他最强的功夫独孤九剑也是那种自由灵动，遇强则强，无招胜有招的功夫。这跟他无欲无求，不求改变世界，只求守护自己的认同真是异曲同工。现在社会个人英雄越来越难了，但是，去做令狐冲吧！</p>
-<p>老友记<br>我是今年才看完这部神剧的。他们敢爱敢恨，知道什么是认真什么是在玩。他们的友情是让人羡慕的。那些梗看多少遍我也会笑的哈哈哈！噢对了，看美剧会让口语进步的，出口就是那个音呢</p>
-<p>哲学<br>这是我一直想要去了解的领域。早饭听刘擎的西方现代思想讲义总是很满足。大爱萨特和波普尔。会了解更多再写的！</p>
-<p>数学<br>数学女孩系列图书还是很具有可读性，数学论证非常的优雅。我感到真理好像也不难，但都是别人发现的。忘记在哪看到的一句话：真理一旦被发现就很容易被人接受，所以重要的是去发现真理。 我也想在自己的研究中多用数学，多思考数学。会再写哒！</p>
-<p>2021在音乐体育什么的方面花的时间比以前多了呢。oasis的歌真的很好听呢，没办法我就是喜欢老乐队。虽然放弃的滑板但是学会了自由泳呐，另外就是三分球进步不小，真爽。网球有一丢丢感觉吧。希望新年再开发一个运动呐</p>
-<p>2022，来了</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1244,7 +1267,7 @@ I apologize for any confusion earlier. Let me know if there's anything else I ca
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
