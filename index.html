@@ -212,6 +212,84 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/02/04/power-of-time-empower-the-retirement-saving-with-compounding-interest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huiqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Follow heart">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2024/02/04/power-of-time-empower-the-retirement-saving-with-compounding-interest/" class="post-title-link" itemprop="url">power of time - empower the retirement saving with compounding interest</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2024-02-04 17:52:09 / Modified: 18:33:04" itemprop="dateCreated datePublished" datetime="2024-02-04T17:52:09+08:00">2024-02-04</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>We always hear some words like : keep doing and you will get a lot. This is actually describe the benefit from compounding interest, in other words, power of time. But it is not intuitive how much I can get. If not clear enough, our brain will not set the specific goal and really make it. To specify this effect, let’s apply it in calculating the retirement saving. If you can put the specific amount of money (here 50k) every year with specific compounding interest (here 3% per year) until you are 55 years old (here start saving at 2 years old). Let’s see.</p>
+<p>First, creat a class called power_of_time, it can also be used to minic compounding interet effect of doing exercise, writing, reading, etc…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">classdef power_of_time &lt; handle</span><br><span class="line">    % show changes of variables that benefit from compounding interest</span><br><span class="line">    %   like money for retiring, build the body, writing ability</span><br><span class="line">    </span><br><span class="line">    properties</span><br><span class="line">        name,</span><br><span class="line">        timeScale,</span><br><span class="line">        interestRate,</span><br><span class="line">        amount</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    methods</span><br><span class="line">        function obj = power_of_time(initName,...</span><br><span class="line">                                     init_timeScale,...</span><br><span class="line">                                     init_interestRate,...</span><br><span class="line">                                     init_amount)</span><br><span class="line">            obj.name = initName;</span><br><span class="line">            obj.timeScale = init_timeScale;</span><br><span class="line">            obj.interestRate = init_interestRate;</span><br><span class="line">            obj.amount = init_amount;</span><br><span class="line">        end</span><br><span class="line">        </span><br><span class="line">        function accum(obj)</span><br><span class="line">            obj.amount = obj.amount*(1+ obj.interestRate);</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>Then finish the script, so we can use power_of_time.accum() method to mimic once accumulate:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">init_money = 50000;</span><br><span class="line">interestRate = 0.03;</span><br><span class="line">money = power_of_time(&apos;retire money&apos;,&apos;year&apos;,interestRate,init_money);</span><br><span class="line"></span><br><span class="line">disp(money)</span><br><span class="line"></span><br><span class="line">ageStart = 27;</span><br><span class="line">ageEnd = 55;</span><br><span class="line">newMoney = 50000;   % new amount per year</span><br><span class="line">moneyAccu = zeros(ageEnd-ageStart,1);</span><br><span class="line"></span><br><span class="line">for age = ageStart:ageEnd</span><br><span class="line">   money.accum()</span><br><span class="line">   moneyAccu(age-ageStart+1) = money.amount;</span><br><span class="line">   money.amount = money.amount + newMoney;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% show amount in a table</span><br><span class="line">ages = (ageStart:ageEnd)&apos;;</span><br><span class="line">newMoneyVec = ones(ageEnd-ageStart+1,1) * newMoney;</span><br><span class="line">myTable = table(ages, newMoneyVec, moneyAccu,&apos;VariableNames&apos;,&#123;&apos;age&apos;, &apos;new money&apos;, &apos;accu money&apos;&#125;);</span><br><span class="line">disp(myTable);</span><br><span class="line"></span><br><span class="line">figure;plot(ages,moneyAccu) % plot accum_money</span><br><span class="line">title([&apos;start from &apos; num2str(ageStart) &apos;, new money/year: &apos; num2str(newMoney)])</span><br><span class="line">hold on</span><br><span class="line">plot(ages, (newMoney * (1:ageEnd-ageStart+1))&apos;) % plot money without compounding interest</span><br><span class="line">legend(&apos;with compounding interest&apos;,&apos;without compounding interest&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>The plot is like this:<br><a href="https://github.com/ZhangHuiqi77/docs/blob/main/empower-the-retirement-saving-with-compounding-interest.jpg" target="_blank" rel="noopener">https://github.com/ZhangHuiqi77/docs/blob/main/empower-the-retirement-saving-with-compounding-interest.jpg</a></p>
+<p>So if I save 50k per year from I am 27 with 3% interest rate, I will have 2328800 when I am 55, 1.606 times of initial saving money!<br>I think precisely know the benefit will make people feel more safety when they save and spend money. And every time when saving, the reward of doing so is amplified, because oringinally it could happen after like 30 years! This positive feedback make people easier to persist and enjoy the moment. </p>
+<p>I want to make the ‘power_of_time’ class be applied more in my life. In addition, about object-oriented programming, it is better for an object, which have many properties and also some specific methods. ‘Class’ is easy to expand and also do team coding. Usually use ‘handle’ when define it, so the changing of properties will be assigned to the initial. Properties, as the name, show the properties of the object. And methods could be many functions that can be used to the object. Usually the first function is to generate an example of the class, obj, and meanwhile initialize the properties.</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/18/python-environment-conda-ipython-and-spyder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1094,128 +1172,6 @@ I apologize for any confusion earlier. Let me know if there's anything else I ca
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/01/14/NeuroAI - 1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2023/01/14/NeuroAI - 1/" class="post-title-link" itemprop="url">NeuroAI - great scientists enlight the intelligence of machines</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2023-01-14 16:27:02" itemprop="dateCreated datePublished" datetime="2023-01-14T16:27:02+08:00">2023-01-14</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Science/" itemprop="url" rel="index"><span itemprop="name">Science</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>I want to write down some key concepts and words here, which can link everything. </p>
-<ol>
-<li><p>Turing computable function was euqal to general recursive function. -&gt; computater can approach infinity by brute force calculation.</p>
-</li>
-<li><p>Schrodinger came up with an opinion in his book “what is life”: life depend on negative entropy to survive. -&gt; if machine also depend on order to survive, it can be considered carriers of cognition. </p>
-</li>
-<li><p>Wiener suggests interaction (feedback) support the realization of intelligence.</p>
-</li>
-<li><p>Turing test</p>
-</li>
-<li><p>In the book “The Human use of human beings - cybernetics and society”, Wiener suggested that the intelligence of humans and machines can be realized through interactive cognition. </p>
-</li>
-</ol>
-<p>From Schrodinger: </p>
-<p>in the age of agriculture and industrial, the tools parasitic on matters and energy, forming hard structure or complex hard structured ware. But in the age of information or intelligence, machines contains four elements, matters, energy, structure and time. </p>
-<p>time is the foundation of machine cognition.</p>
-<p>material, energy, structure, time are in the machine. clock depend on energy. time depend on clock. order depend on time. </p>
-<p>machine run programme. The programme depend on sequence. The software depend on the interaction. the sequence and interaction generate negative entropy and the machine depends on negative entropy for life. </p>
-<p>The clock is constant, interacting with the outside world, thinking and cognition. </p>
-<p>“time” is the band of entanglement between physical world and congnitive world. I always have some feeling that people are sensitive to time. But I do not know why. The base of the importance of time is that it interact the physical and cognitive world. </p>
-<p>From Turing:</p>
-<p>His famous Church–Turing thesis stated that “λ-calculus, recursive functions, and Turing computability are equivalent”. 1. That is, all functions computable by mechanical programs are exact approximations of infinity that use general recursive functions. </p>
-<ol start="2">
-<li><p>In 1950, Turing published another paper, “Computing Machinery and Intelligence” came up with “Turing test” to examine mechine intelligence. children program should also be developed and educated (guide learning and autonomous learning) to an adult level of intelligence. </p>
-</li>
-<li><p>learning is a cyclic process of “perception, cognition, and behavior,” where cognition cannot be independent of perception and behavior. So machine intelligence (I think it is machine cognition) can be developed with considering (1) increasing the interaction between the machine and environment. (2) increasing the interaction between behavior (computation) and memory (old cognition). I think this point expressed the same thing as the core of reinforcement learning. </p>
-</li>
-<li><p>The <strong>definition of “intelligence”</strong> can be given: development of learning ability to solve preset problems, and the ability to explain and solve actual problems. Preset problems usually come from actual problems, and have been proven to have an effective solution. Learning is the basis for explaining and solving new problems. Explaining and solving actual problems is the purpose of learning.</p>
-</li>
-</ol>
-<p>Wiener’s view integrate Schrodinger’s and Turings. </p>
-<ol>
-<li><p>In essence, control is the use of negative feedback to reduce entropy and ensure the stability of the embodied behavioral intelligence of a machine</p>
-</li>
-<li><p>Cerebral cortex establish a closed loop of “perception, cognition, and behavior”, corresponding to three key memory areas: short-term, working, and long-term memories. Short-term memory includes perceptual information obtained through different sensory organs; working memory analyzes the conditions or current problem, and long-term memory realizes cognition results. So what’s the role of APC in associative learning? I think perception and short-term memory is in, and working memory? </p>
-</li>
-<li><p>These words describe the way of machine’s learning: it is basically reinforcement learning, basically consist of goal provided by human, perception, cognition, behavior, interaction, iteration regulated by reward or punishment. </p>
-</li>
-</ol>
-<p>“There is a similar control pattern in machines. Humans provide the mission and behavioral features to the machine. The machine’s abilities include perception, cognition, behavior,interaction, learning, and self-growth. To improve these abilities, the machine must run a complex behavior cycle, which is regulated by a reward and punishment function stipulated by an algorithm in the soft-structured ware. As a result, the short-term, working, and longterm memories of the machine change through iteration and interaction, embodying intelligence through automatic control. This kind of reinforcement learning is an important way for humans to provide machines with a mission.”</p>
-<p>difference between traditional machine intelligence and deep learning is that in deeplearning, machine intelligence grow up through iteration and interaction. The memory intelligence is better than the computational intelligence. It directly learn from the feed big data. </p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1267,7 +1223,7 @@ I apologize for any confusion earlier. Let me know if there's anything else I ca
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
