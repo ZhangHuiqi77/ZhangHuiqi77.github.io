@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="We always hear some words like : keep doing and you will get a lot. This is actually describe the benefit from compounding interest, in other words, power of time. But it is not intuitive how much I c">
+  <meta name="description" content="We always hear: keep doing and you will get a lot. This is actually describe the benefit from compounding interest, in other words, power of time. But it is not intuitive how much I can get. If not cl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="power of time - empower the retirement saving with compounding interest">
 <meta property="og:url" content="http://yoursite.com/2024/02/04/power-of-time-empower-the-retirement-saving-with-compounding-interest/index.html">
 <meta property="og:site_name" content="Follow heart">
-<meta property="og:description" content="We always hear some words like : keep doing and you will get a lot. This is actually describe the benefit from compounding interest, in other words, power of time. But it is not intuitive how much I c">
+<meta property="og:description" content="We always hear: keep doing and you will get a lot. This is actually describe the benefit from compounding interest, in other words, power of time. But it is not intuitive how much I can get. If not cl">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-02-04T10:33:04.000Z">
+<meta property="og:updated_time" content="2024-02-04T13:07:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="power of time - empower the retirement saving with compounding interest">
-<meta name="twitter:description" content="We always hear some words like : keep doing and you will get a lot. This is actually describe the benefit from compounding interest, in other words, power of time. But it is not intuitive how much I c">
+<meta name="twitter:description" content="We always hear: keep doing and you will get a lot. This is actually describe the benefit from compounding interest, in other words, power of time. But it is not intuitive how much I can get. If not cl">
   <link rel="canonical" href="http://yoursite.com/2024/02/04/power-of-time-empower-the-retirement-saving-with-compounding-interest/">
 
 
@@ -245,7 +245,7 @@
                 
               
 
-              <time title="Created: 2024-02-04 17:52:09 / Modified: 18:33:04" itemprop="dateCreated datePublished" datetime="2024-02-04T17:52:09+08:00">2024-02-04</time>
+              <time title="Created: 2024-02-04 17:52:09 / Modified: 21:07:36" itemprop="dateCreated datePublished" datetime="2024-02-04T17:52:09+08:00">2024-02-04</time>
             </span>
           
 
@@ -260,7 +260,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>We always hear some words like : keep doing and you will get a lot. This is actually describe the benefit from compounding interest, in other words, power of time. But it is not intuitive how much I can get. If not clear enough, our brain will not set the specific goal and really make it. To specify this effect, let’s apply it in calculating the retirement saving. If you can put the specific amount of money (here 50k) every year with specific compounding interest (here 3% per year) until you are 55 years old (here start saving at 2 years old). Let’s see.</p>
+        <p>We always hear: keep doing and you will get a lot. This is actually describe the benefit from compounding interest, in other words, power of time. But it is not intuitive how much I can get. If not clear enough, our brain will not set the specific goal and really make it. To specify this effect, let’s apply it in calculating the retirement saving. If you can put the specific amount of money (here 50k) every year with specific compounding interest (here 3% per year) until you are 55 years old (here start saving at 2 years old). Let’s see.</p>
 <p>First, creat a class called power_of_time, it can also be used to minic compounding interet effect of doing exercise, writing, reading, etc…</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">classdef power_of_time &lt; handle</span><br><span class="line">    % show changes of variables that benefit from compounding interest</span><br><span class="line">    %   like money for retiring, build the body, writing ability</span><br><span class="line">    </span><br><span class="line">    properties</span><br><span class="line">        name,</span><br><span class="line">        timeScale,</span><br><span class="line">        interestRate,</span><br><span class="line">        amount</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    methods</span><br><span class="line">        function obj = power_of_time(initName,...</span><br><span class="line">                                     init_timeScale,...</span><br><span class="line">                                     init_interestRate,...</span><br><span class="line">                                     init_amount)</span><br><span class="line">            obj.name = initName;</span><br><span class="line">            obj.timeScale = init_timeScale;</span><br><span class="line">            obj.interestRate = init_interestRate;</span><br><span class="line">            obj.amount = init_amount;</span><br><span class="line">        end</span><br><span class="line">        </span><br><span class="line">        function accum(obj)</span><br><span class="line">            obj.amount = obj.amount*(1+ obj.interestRate);</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
@@ -295,6 +295,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2024/04/05/qingming-2024/" rel="prev" title="qingming 2024">
+                  qingming 2024 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -358,7 +362,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
