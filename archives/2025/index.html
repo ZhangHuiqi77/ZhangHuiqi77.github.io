@@ -55,18 +55,14 @@
   };
 </script>
 
-  <meta name="description" content="Basically, conda is a tool to manage virtual environments, which can have different versions of python or other packages. ‘Virtual’ is not really virtual. It actually installed the needed packages in">
-<meta property="og:type" content="article">
-<meta property="og:title" content="python environment - conda ipython and spyder">
-<meta property="og:url" content="http://yoursite.com/2024/01/18/python-environment-conda-ipython-and-spyder/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Follow heart">
+<meta property="og:url" content="http://yoursite.com/archives/2025/index.html">
 <meta property="og:site_name" content="Follow heart">
-<meta property="og:description" content="Basically, conda is a tool to manage virtual environments, which can have different versions of python or other packages. ‘Virtual’ is not really virtual. It actually installed the needed packages in">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-01-18T13:28:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python environment - conda ipython and spyder">
-<meta name="twitter:description" content="Basically, conda is a tool to manage virtual environments, which can have different versions of python or other packages. ‘Virtual’ is not really virtual. It actually installed the needed packages in">
-  <link rel="canonical" href="http://yoursite.com/2024/01/18/python-environment-conda-ipython-and-spyder/">
+<meta name="twitter:title" content="Follow heart">
+  <link rel="canonical" href="http://yoursite.com/archives/2025/">
 
 
 <script id="page-configurations">
@@ -74,13 +70,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
+    isPost: false,
     isPage: false,
-    isArchive: false
+    isArchive: true
   };
 </script>
 
-  <title>python environment - conda ipython and spyder | Follow heart</title>
+  <title>Archive | Follow heart</title>
   
 
 
@@ -208,130 +204,83 @@
         <div class="content-wrap">
             
 
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/18/python-environment-conda-ipython-and-spyder/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huiqi Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/cat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Follow heart">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">python environment - conda ipython and spyder
-
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2024-01-18 18:41:22 / Modified: 21:28:08" itemprop="dateCreated datePublished" datetime="2024-01-18T18:41:22+08:00">2024-01-18</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        
+        
+         
+        
+        <span class="collection-header">OK! 43 posts in total. Keep on posting.</span>
+      </div>
+      
 
       
-        <p>Basically, conda is a tool to manage virtual environments, which can have different versions of python or other packages. ‘Virtual’ is not really virtual. It actually installed the needed packages in different path. ipython is an interactive python terminal, which is based on python interpreter (can be understanded as python.exe in base or one vertual environment). spyder is a platform to write script, run code in console, check variables in the workspace, etc.. It also runs based on a python interpreter and specific environment. Only need to install spyder in the base, then install spyder kernels for the environment and edit the python interpreter and start new kernel in the launched spyder. </p>
-<p>So the basic steps of setting a new environment is to 1. create env, 2. install packages and ipython. 3. set the python interpreter and console in spyder. Also, after creating environment, need to add the path to the environment variables in the windows “advanced system setting” (C:\Users\zhang\anaconda3\envs\tf\Lib\site-packages, C:\Users\zhang\anaconda3\envs\tf\Lib, C:\Users\zhang\anaconda3\envs\tf\Scripts, C:\Users\zhang\anaconda3\envs\tf\Library, C:\Users\zhang\anaconda3\envs\tf\Library\bin). </p>
-<p>These days, I am trying to analyze the behavioral structure based on the DLC tracking data. Some machine learning methods need to be used. Here, just wrote down some experience of packages install. On the one hand, I am using VAME, which do RNN and autoencoder under the pytorch structure and some visualization tool, like umap. On the other hand, I will use tensorflow LSTM. To manage packages, I create Anaconda environments on Windows 10 for both. Actually I did on two PCs, VAME on the GPU and tensorflow on my laptop (only CPU).</p>
-<pre><code># if you tried the same env with similar name before but it does not work, can clear it in conda prompt before try new one.
-conda remove --name tf-cpu --all</code></pre><p>After create the environment, activate it and install packages. For VAME install, follow the instruction on their github, then edit the error according to error info. Usually some text error, like in the yaml config file, “sklearn” need to change to “scikit-learn”. The same problem also need to be editted in the installation file, here it is ‘setup.py’. Then when it installed umap, the eroor is sth like “importlib.metadata can not be found” and it is point to the umap <strong>init</strong> file. I checked the importlib.metadata, and it is really not easy to found by eye that for python versions earlier than 3.8, this package is importlib_metadata ( _ there but not .). I did install importlib_metadata and importlib-metadata, so I change the . to _ then it work. I would see some <strong>tiny difference of text</strong>, because they update new versions and have new dependencies quickly.</p>
-<p>For tensorflow installation:</p>
-<pre><code># In conda prompt, create a new environment for tf. 
-conda create --name tf
-activate tf
-conda search tensorflow # search for the available version of tf in anaconda, then choose the version you like
-conda install tensorflow=2.10.0
-conda install ipython # install ipython for this environment, so I can enter ipython not enter the base env ipython
-pip install spyder-kernels==2.2.* # install kernels for using this virtual env in spyder
 
-# after install, can test in the ipython and spyder
-import tensorflow as tf
-print(tf.__version__)</code></pre><p>To work on the tf env in spyder, activate the env in conda, then launch spyder by click, and in spyder, go to tools -&gt; preference -&gt; Python interpreter -&gt; change it to the path of python.exe in the virtual env (C:/Users/zhang/anaconda3/envs/tf/python.exe). Then start a new console under this interpreter.</p>
+  
+  
 
+  
+    
+    <div class="collection-year">
+      <h1 class="collection-header">2025</h1>
     </div>
-
-    
-    
-    
-        
-      
-
-      <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2024/01/14/interesting-math-proof-by-contradiction/" rel="next" title="interesting math - proof by contradiction">
-                  <i class="fa fa-chevron-left"></i> interesting math - proof by contradiction
-                </a>
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2024/02/04/power-of-time-empower-the-retirement-saving-with-compounding-interest/" rel="prev" title="power of time - empower the retirement saving with compounding interest">
-                  power of time - empower the retirement saving with compounding interest <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
-        
-      </footer>
-    
-  </div>
   
-  
-  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2025-03-23T16:31:21+08:00"
+              content="2025-03-23">
+          03-23
+        </time>
+      </div>
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/2025/03/23/Nezha/" itemprop="url">
+            <span itemprop="name">Why Nezha2 is amazing? We share sadness and joy.</span>
+          </a>
+        
+      </h2>
+
+    </header>
   </article>
 
+
+
+
+    </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -348,11 +297,6 @@ print(tf.__version__)</code></pre><p>To work on the tf env in spyder, activate t
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
